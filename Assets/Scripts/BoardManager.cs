@@ -86,17 +86,66 @@ public class BoardManager : MonoBehaviour
     void Path(GameObject[] tileArray)
     {
         int pos = Random.Range(0, columns);
-        Vector3 randomPosition = new Vector3(objects[pos].transform.position.x, objects[pos].transform.position.y, objects[pos].transform.position.z);
-        Destroy(objects[pos]);
-        GameObject tileChoice = e4Tiles[Random.Range(0, e4Tiles.Length)];
-        Instantiate(tileChoice, randomPosition, Quaternion.identity);
-        for (int y = pos + columns; y < rows * columns; y = y + columns)
+        int prevdir = 0;
+        bool gooddir = false;
+        for (int y = pos; 0 <= y && y < rows * columns;)
         {
-            randomPosition = new Vector3(objects[y].transform.position.x, objects[y].transform.position.y, objects[y].transform.position.z);
+            GameObject tileChoice = e4Tiles[Random.Range(0, e4Tiles.Length)];
+            GameObject instance = Instantiate(tileChoice, new Vector3(objects[y].transform.position.x, objects[y].transform.position.y, objects[y].transform.position.z), Quaternion.identity) as GameObject;
             Destroy(objects[y]);
-            gridPositions.RemoveAt(y);
-            tileChoice = e4Tiles[Random.Range(0, e4Tiles.Length)];
-            Instantiate(tileChoice, randomPosition, Quaternion.identity);
+            instance.transform.SetParent(boardHolder);
+            objects.Add(instance);
+            while(gooddir == false)
+            {
+                int dir = Random.Range(0, 4);
+                switch (dir)
+                {
+                    case 0:
+                        if (prevdir == 0 || (y - columns) < 0)
+                        {
+                            gooddir = false;
+                        }
+                        else
+                        {
+                            y = y - columns;
+                            gooddir = true;
+                        }
+                        break;
+                    case 1:
+                        if (prevdir == 1 || (y / columns) != 0)
+                        {
+                            gooddir = false;
+                        }
+                        else
+                        {
+                            y = y + 1;
+                            gooddir = true;
+                        }
+                        break;
+                    case 2:
+                        if (prevdir == 2)
+                        {
+                            gooddir = false;
+                        }
+                        else
+                        {
+                            y = y + columns;
+                            gooddir = true;
+                        }
+                        break;
+                    case 3:
+                        if (prevdir == 3 || (y / columns) != 0 || ( y - 1 ) < 0)
+                        {
+                            y = y - 1;
+                            gooddir = true;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            gooddir = false;
+            
         }
         
     }

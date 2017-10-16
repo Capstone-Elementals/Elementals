@@ -52,14 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5259ecd8566e28248bec71320cdcfbdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 6
-  rows: 6
-  wallCount:
-    minimum: 5
-    maximum: 9
-  foodCount:
-    minimum: 1
-    maximum: 5
+  columns: 5
+  rows: 3
   exit: {fileID: 0}
   floorTiles:
   - {fileID: 1345254767298110, guid: fa7f711f8fec9da4583680bbaafa573a, type: 2}
@@ -77,8 +71,25 @@ MonoBehaviour:
   - {fileID: 1439060295798986, guid: 0a32968851c8c2945af5b80549bd46bf, type: 2}
   - {fileID: 1360287900996950, guid: a1f4435f0fc924044a448e873ef2b989, type: 2}
   - {fileID: 1311601911059626, guid: b666a1e668cb24441b888612b0c2e893, type: 2}
-  foodTiles: []
-  enemyTiles: []
+  e1Tiles:
+  - {fileID: 1345254767298110, guid: fa7f711f8fec9da4583680bbaafa573a, type: 2}
+  - {fileID: 1728032563386132, guid: f2bfde0c6c2dd1c49917546d7073e541, type: 2}
+  - {fileID: 1709245921555562, guid: 9735745e5cb1a4d4c8f761779a78a9f0, type: 2}
+  - {fileID: 1251518547590786, guid: 935df4de29d3e8646af0b5cdb91d6484, type: 2}
+  e2Tiles:
+  - {fileID: 1984441080615738, guid: 3e8a784808c3105498c99f04890527a8, type: 2}
+  - {fileID: 1938855808499934, guid: 66bcd60b7495ff4479904871633fdb7d, type: 2}
+  - {fileID: 1213071308411966, guid: 028e3bf7d953f2a4786671f7190e2cc5, type: 2}
+  - {fileID: 1667525372403618, guid: 557b76327d777ae429acf8fc74ea520d, type: 2}
+  - {fileID: 1771310530610628, guid: 6e33a4985e5bcfa4b872b424e7358789, type: 2}
+  - {fileID: 1455011167957288, guid: 9c646b4e21416934c9d5c1edffd003e1, type: 2}
+  e3Tiles:
+  - {fileID: 1660139968476038, guid: 1ac21bd1dc43c5344903da3cd00ee03c, type: 2}
+  - {fileID: 1316417462999642, guid: ca8fdab36ec10cd4aad4a718ede575da, type: 2}
+  - {fileID: 1439060295798986, guid: 0a32968851c8c2945af5b80549bd46bf, type: 2}
+  - {fileID: 1360287900996950, guid: a1f4435f0fc924044a448e873ef2b989, type: 2}
+  e4Tiles:
+  - {fileID: 1311601911059626, guid: b666a1e668cb24441b888612b0c2e893, type: 2}
 --- !u!114 &114986717591856520
 MonoBehaviour:
   m_ObjectHideFlags: 1
