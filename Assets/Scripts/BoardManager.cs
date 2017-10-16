@@ -97,46 +97,55 @@ public class BoardManager : MonoBehaviour
             objects.Add(instance);
             while(gooddir == false)
             {
-                int dir = Random.Range(0, 4);
+                int dir = Random.Range(0, 100);
                 switch (dir)
                 {
                     case 0:
-                        if (prevdir == 0 || (y - columns) < 0)
+                        if ((prevdir % 4) == 2 || (y - columns) < 0)
                         {
                             gooddir = false;
                         }
                         else
                         {
                             y = y - columns;
+                            prevdir = 0;
                             gooddir = true;
                         }
                         break;
                     case 1:
-                        if (prevdir == 1 || (y / columns) != 0)
+                        if ((prevdir % 4) == 3 || ((y + 1)% columns) == 0)
                         {
                             gooddir = false;
                         }
                         else
                         {
                             y = y + 1;
+                            prevdir = 1;
                             gooddir = true;
                         }
                         break;
                     case 2:
-                        if (prevdir == 2)
+                        if ((prevdir % 4) == 0)
                         {
                             gooddir = false;
                         }
                         else
                         {
                             y = y + columns;
+                            prevdir = 2;
                             gooddir = true;
                         }
                         break;
                     case 3:
-                        if (prevdir == 3 || (y / columns) != 0 || ( y - 1 ) < 0)
+                        if ((prevdir % 4) == 1 || ((y - 1)% columns) == columns-1 || ( y - 1 ) < 0)
+                        {
+                           
+                            gooddir = false;
+                        }
+                        else
                         {
                             y = y - 1;
+                            prevdir = 3;
                             gooddir = true;
                         }
                         break;
