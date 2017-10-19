@@ -156,6 +156,46 @@ Prefab:
       propertyPath: jumpTakeOffSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 20640306246390024, guid: 35be9a8e831605641b8d16b5f32c2142,
+        type: 2}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20640306246390024, guid: 35be9a8e831605641b8d16b5f32c2142,
+        type: 2}
+      propertyPath: near clip plane
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 20640306246390024, guid: 35be9a8e831605641b8d16b5f32c2142,
+        type: 2}
+      propertyPath: orthographic size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 20640306246390024, guid: 35be9a8e831605641b8d16b5f32c2142,
+        type: 2}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20640306246390024, guid: 35be9a8e831605641b8d16b5f32c2142,
+        type: 2}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20640306246390024, guid: 35be9a8e831605641b8d16b5f32c2142,
+        type: 2}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20640306246390024, guid: 35be9a8e831605641b8d16b5f32c2142,
+        type: 2}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20640306246390024, guid: 35be9a8e831605641b8d16b5f32c2142,
+        type: 2}
+      propertyPath: m_Depth
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35be9a8e831605641b8d16b5f32c2142, type: 2}
   m_IsPrefabParent: 0
