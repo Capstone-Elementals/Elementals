@@ -24,19 +24,13 @@ public class Player : PhysicsObject
 
         move.x = Input.GetAxis("Horizontal");
 
-        if (Input.GetButtonDown("Jump") )
-        {
-            velocity.y = jumpTakeOffSpeed;
-            
-        }
-        else if (Input.GetButtonUp("Jump"))
-        {
-            if (velocity.y > 0)
-            {
-                velocity.y = velocity.y * 0.5f;
-            }
-        }
+		move.y = Input.GetAxis ("Vertical");
 
+		if (move.y > 0 && grounded) {
+			velocity.y = jumpTakeOffSpeed;
+		} else if (move.y < 0) {
+			velocity.y = -jumpTakeOffSpeed * 2f;
+		}
         bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < 0.01f));
         if (flipSprite)
         {
