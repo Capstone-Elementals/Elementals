@@ -159,7 +159,7 @@ Prefab:
     - target: {fileID: 20640306246390024, guid: 35be9a8e831605641b8d16b5f32c2142,
         type: 2}
       propertyPath: orthographic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 20640306246390024, guid: 35be9a8e831605641b8d16b5f32c2142,
         type: 2}
@@ -169,7 +169,7 @@ Prefab:
     - target: {fileID: 20640306246390024, guid: 35be9a8e831605641b8d16b5f32c2142,
         type: 2}
       propertyPath: orthographic size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 20640306246390024, guid: 35be9a8e831605641b8d16b5f32c2142,
         type: 2}
@@ -195,6 +195,18 @@ Prefab:
         type: 2}
       propertyPath: m_Depth
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606335123451500, guid: 35be9a8e831605641b8d16b5f32c2142, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606335123451500, guid: 35be9a8e831605641b8d16b5f32c2142, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606335123451500, guid: 35be9a8e831605641b8d16b5f32c2142, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35be9a8e831605641b8d16b5f32c2142, type: 2}
