@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance = null;
     private BoardManager boardScript;
-    private int level = 3;
 
     void Awake()
     {
@@ -31,7 +30,7 @@ public class GameManager : MonoBehaviour
     void InitGame()
     {
         //Call the SetupScene function of the BoardManager script, pass it current level number.
-        boardScript.SetupScene(level);
+        boardScript.SetupScene();
 
     }
 

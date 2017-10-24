@@ -87,7 +87,7 @@ public class BoardManager : MonoBehaviour
     {
 		RandomPath (Random.Range(0, columns), 0, false);
     }
-    public void SetupScene(int level)
+    public void SetupScene()
     {
         BoardSetup();
         InitialiseList();
