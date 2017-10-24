@@ -115,28 +115,36 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4628290006460504, guid: 4ecd924bb724911408f332168f2a15c0, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.24847507
       objectReference: {fileID: 0}
+    - target: {fileID: 4628290006460504, guid: 4ecd924bb724911408f332168f2a15c0, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.21933746
       objectReference: {fileID: 0}
+    - target: {fileID: 4628290006460504, guid: 4ecd924bb724911408f332168f2a15c0, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4628290006460504, guid: 4ecd924bb724911408f332168f2a15c0, type: 2}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4947596481336106, guid: 35be9a8e831605641b8d16b5f32c2142, type: 2}
+    - target: {fileID: 4628290006460504, guid: 4ecd924bb724911408f332168f2a15c0, type: 2}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 4628290006460504, guid: 4ecd924bb724911408f332168f2a15c0, type: 2}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 4628290006460504, guid: 4ecd924bb724911408f332168f2a15c0, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4628290006460504, guid: 4ecd924bb724911408f332168f2a15c0, type: 2}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
@@ -145,11 +153,13 @@ Prefab:
       propertyPath: m_BodyType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 50278826524456090, guid: 4ecd924bb724911408f332168f2a15c0,
         type: 2}
       propertyPath: m_UseFullKinematicContacts
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4ecd924bb724911408f332168f2a15c0, type: 2}
   m_IsPrefabParent: 0
 <<<<<<< HEAD
 =======
@@ -373,4 +383,3 @@ Transform:
   m_PrefabParentObject: {fileID: 4628290006460504, guid: 4ecd924bb724911408f332168f2a15c0,
     type: 2}
   m_PrefabInternal: {fileID: 293819750}
->>>>>>> TouchControls
