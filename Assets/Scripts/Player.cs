@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.EventSystems;
 
 public class Player : PhysicsObject
 {
@@ -22,19 +24,21 @@ public class Player : PhysicsObject
     {
         Vector2 move = Vector2.zero;
 
-        move.x = Input.GetAxis("Horizontal");
+		//! Commented out original horizontal movement
+		move.x = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis("HorizontalMove");
+		move.y = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis("VerticalMove");
 
-        if (Input.GetButtonDown("Jump") )
+		//Debug.Log("Horizontal = " + Input.GetAxis ("Horizontal"));
+
+		//move.x = Input.GetAxis ("HorizontalMove") * 100;
+
+		if (move.y > 0.5 && grounded)
         {
             velocity.y = jumpTakeOffSpeed;
-            
         }
-        else if (Input.GetButtonUp("Jump"))
+		else if (move.y < 0)
         {
-            if (velocity.y > 0)
-            {
-                velocity.y = velocity.y * 0.5f;
-            }
+			velocity.y = -jumpTakeOffSpeed * 2f;
         }
 
         bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < 0.01f));
