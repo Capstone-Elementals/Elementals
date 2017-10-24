@@ -29,8 +29,6 @@ public class Player : PhysicsObject
 		move.x = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis("HorizontalMove");
 		move.y = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis("VerticalMove");
 
->>>>>>> TouchControls
-
 		if (move.y > 0 && grounded) {
 			velocity.y = jumpTakeOffSpeed;
 		} else if (move.y < 0) {
