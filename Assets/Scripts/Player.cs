@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.EventSystems;
 
 public class Player : PhysicsObject
 {
@@ -23,8 +25,26 @@ public class Player : PhysicsObject
         Vector2 move = Vector2.zero;
 
         move.x = Input.GetAxis("Horizontal");
+		//! Commented out original horizontal movement
+		move.x = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis("HorizontalMove");
+		move.y = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis("VerticalMove");
 
+<<<<<<< HEAD
 		move.y = Input.GetAxis ("Vertical");
+=======
+		//Debug.Log("Horizontal = " + Input.GetAxis ("Horizontal"));
+
+		//move.x = Input.GetAxis ("HorizontalMove") * 100;
+
+		if (move.y > 0.5 && grounded)
+        {
+            velocity.y = jumpTakeOffSpeed;
+        }
+		else if (move.y < 0)
+        {
+			velocity.y = -jumpTakeOffSpeed * 2f;
+        }
+>>>>>>> TouchControls
 
 		if (move.y > 0 && grounded) {
 			velocity.y = jumpTakeOffSpeed;
