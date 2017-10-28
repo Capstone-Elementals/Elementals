@@ -95,7 +95,7 @@ public class BoardManager : MonoBehaviour
         Path(floorTiles);
     }
 
-	void PlaceTile (int y)
+	void PlaceTile (int y, int prevdir)
 	{
 		GameObject tileChoice = e4Tiles [Random.Range (0, e4Tiles.Length)];
 		GameObject instance = Instantiate (tileChoice, new Vector3 (objects [y].transform.position.x, objects [y].transform.position.y, objects [y].transform.position.z), Quaternion.identity) as GameObject;
@@ -109,11 +109,11 @@ public class BoardManager : MonoBehaviour
 		List<int> traversedpath = new List<int>();
 		Instantiate (player, new Vector3 (objects [pos].transform.position.x, objects [pos].transform.position.y, objects [pos].transform.position.z), Quaternion.identity);
 		for (int y = pos; 0 <= y && y < rows * columns;) {
-			PlaceTile (y);
+			PlaceTile (y, prevdir);
 			traversedpath.Add (y);
 			while (gooddir == false) {
 				int dir = Random.Range (0, 100);
-				switch (dir) {
+				switch ((dir % 4)) {
 				case 0:
 					if ((prevdir % 4) == 2 || (y - columns) < 0) {
 						gooddir = false;
