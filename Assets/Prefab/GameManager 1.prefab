@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5259ecd8566e28248bec71320cdcfbdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 10
-  rows: 10
+  columns: 5
+  rows: 5
   exit: {fileID: 0}
   floorTiles:
   - {fileID: 1345254767298110, guid: fa7f711f8fec9da4583680bbaafa573a, type: 2}
@@ -70,7 +70,7 @@ MonoBehaviour:
   - {fileID: 1316417462999642, guid: ca8fdab36ec10cd4aad4a718ede575da, type: 2}
   - {fileID: 1439060295798986, guid: 0a32968851c8c2945af5b80549bd46bf, type: 2}
   - {fileID: 1360287900996950, guid: a1f4435f0fc924044a448e873ef2b989, type: 2}
-  - {fileID: 1311601911059626, guid: b666a1e668cb24441b888612b0c2e893, type: 2}
+  - {fileID: 1478648696307420, guid: 4e39d673d91d75c4188f41376ac5b425, type: 2}
   e1Tiles:
   - {fileID: 1345254767298110, guid: fa7f711f8fec9da4583680bbaafa573a, type: 2}
   - {fileID: 1728032563386132, guid: f2bfde0c6c2dd1c49917546d7073e541, type: 2}
@@ -89,7 +89,8 @@ MonoBehaviour:
   - {fileID: 1439060295798986, guid: 0a32968851c8c2945af5b80549bd46bf, type: 2}
   - {fileID: 1360287900996950, guid: a1f4435f0fc924044a448e873ef2b989, type: 2}
   e4Tiles:
-  - {fileID: 1311601911059626, guid: b666a1e668cb24441b888612b0c2e893, type: 2}
+  - {fileID: 1478648696307420, guid: 4e39d673d91d75c4188f41376ac5b425, type: 2}
+  player: {fileID: 1593638807981630, guid: 35be9a8e831605641b8d16b5f32c2142, type: 2}
 --- !u!114 &114986717591856520
 MonoBehaviour:
   m_ObjectHideFlags: 1

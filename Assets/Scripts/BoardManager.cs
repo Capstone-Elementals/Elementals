@@ -24,13 +24,14 @@ public class BoardManager : MonoBehaviour
 
 
     public int columns = 8;                                         //Number of columns in our game board.
-    public int rows = 8;                                            //Number of rows in our game board.
+    public int rows = 8; 											//Number of rows in our game board.
     public GameObject exit;                                         //Prefab to spawn for exit.
     public GameObject[] floorTiles;                                 //Array of floor prefabs.
     public GameObject[] e1Tiles;                                  
     public GameObject[] e2Tiles;
     public GameObject[] e3Tiles;
     public GameObject[] e4Tiles;
+	public GameObject player;
 
 
     private Transform boardHolder;                                  //A variable to store a reference to the transform of our Board object.
@@ -94,14 +95,21 @@ public class BoardManager : MonoBehaviour
         Path(floorTiles);
     }
 
-	void RandomPath (int pos, int prevdir, bool gooddir)
+	void PlaceTile (int y)
 	{
+		GameObject tileChoice = e4Tiles [Random.Range (0, e4Tiles.Length)];
+		GameObject instance = Instantiate (tileChoice, new Vector3 (objects [y].transform.position.x, objects [y].transform.position.y, objects [y].transform.position.z), Quaternion.identity) as GameObject;
+		Destroy (objects [y]);
+		instance.transform.SetParent (boardHolder);
+		objects.Add (instance);
+	}
+
+	void RandomPath (int pos, int prevdir, bool gooddir)
+	{	
+			
+		Instantiate (player, new Vector3 (objects [pos].transform.position.x, objects [pos].transform.position.y, objects [pos].transform.position.z), Quaternion.identity);
 		for (int y = pos; 0 <= y && y < rows * columns;) {
-			GameObject tileChoice = e4Tiles [Random.Range (0, e4Tiles.Length)];
-			GameObject instance = Instantiate (tileChoice, new Vector3 (objects [y].transform.position.x, objects [y].transform.position.y, objects [y].transform.position.z), Quaternion.identity) as GameObject;
-			Destroy (objects [y]);
-			instance.transform.SetParent (boardHolder);
-			objects.Add (instance);
+			PlaceTile (y);
 			while (gooddir == false) {
 				int dir = Random.Range (0, 100);
 				switch (dir) {
