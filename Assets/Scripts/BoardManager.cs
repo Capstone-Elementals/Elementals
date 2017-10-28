@@ -106,10 +106,11 @@ public class BoardManager : MonoBehaviour
 
 	void RandomPath (int pos, int prevdir, bool gooddir)
 	{	
-			
+		List<int> traversedpath = new List<int>();
 		Instantiate (player, new Vector3 (objects [pos].transform.position.x, objects [pos].transform.position.y, objects [pos].transform.position.z), Quaternion.identity);
 		for (int y = pos; 0 <= y && y < rows * columns;) {
 			PlaceTile (y);
+			traversedpath.Add (y);
 			while (gooddir == false) {
 				int dir = Random.Range (0, 100);
 				switch (dir) {
@@ -118,6 +119,10 @@ public class BoardManager : MonoBehaviour
 						gooddir = false;
 					}
 					else {
+						if (traversedpath.Contains(y - columns)) {
+							gooddir = false;
+							break;
+						}
 						y = y - columns;
 						prevdir = 0;
 						gooddir = true;
@@ -128,6 +133,10 @@ public class BoardManager : MonoBehaviour
 						gooddir = false;
 					}
 					else {
+						if (traversedpath.Contains(y + 1)) {
+							gooddir = false;
+							break;
+						}
 						y = y + 1;
 						prevdir = 1;
 						gooddir = true;
@@ -138,6 +147,10 @@ public class BoardManager : MonoBehaviour
 						gooddir = false;
 					}
 					else {
+						if (traversedpath.Contains(y + columns)) {
+							gooddir = false;
+							break;
+						}
 						y = y + columns;
 						prevdir = 2;
 						gooddir = true;
@@ -148,6 +161,10 @@ public class BoardManager : MonoBehaviour
 						gooddir = false;
 					}
 					else {
+						if (traversedpath.Contains(y - 1)) {
+							gooddir = false;
+							break;
+						}
 						y = y - 1;
 						prevdir = 3;
 						gooddir = true;
