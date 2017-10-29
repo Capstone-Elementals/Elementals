@@ -24,15 +24,21 @@ public class Player : PhysicsObject
 
 		move.y = Input.GetAxis ("Vertical");
 	
+			
+		if (move.x > 0.015f || move.x < -0.015f) {
+			animator.SetBool ("Move", true);
+		} else {
+			animator.SetBool ("Move", false);
+		}
 		if (move.y > 0 && grounded) {
 			velocity.y = jumpTakeOffSpeed;
 		} else if (move.y < 0) {
 			velocity.y = -jumpTakeOffSpeed * 2f;
 		}
+
         bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < 0.01f));
        if (flipSprite)
         {
-         
 			spriteRenderer.flipX = !spriteRenderer.flipX;
         }
 
