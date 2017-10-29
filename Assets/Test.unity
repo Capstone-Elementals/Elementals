@@ -115,19 +115,25 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+
     - target: {fileID: 4845429275038350, guid: 3d4ef18a40d30194199e7cad422f15cd, type: 2}
+
       propertyPath: m_LocalPosition.x
       value: 0.33353478
       objectReference: {fileID: 0}
+
     - target: {fileID: 4845429275038350, guid: 3d4ef18a40d30194199e7cad422f15cd, type: 2}
+
       propertyPath: m_LocalPosition.y
       value: -0.13355854
       objectReference: {fileID: 0}
+
     - target: {fileID: 4845429275038350, guid: 3d4ef18a40d30194199e7cad422f15cd, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845429275038350, guid: 3d4ef18a40d30194199e7cad422f15cd, type: 2}
+
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -150,3 +156,28 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d4ef18a40d30194199e7cad422f15cd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1616879902 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1063195115123302, guid: 4ecd924bb724911408f332168f2a15c0,
+    type: 2}
+  m_PrefabInternal: {fileID: 293819750}
+--- !u!114 &1616879903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1616879902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b167fdaa43f3d8049b83211081cfdda4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minGroundNormalY: 0.65
+  gravityModifier: 1
+  maxSpeed: 7
+  jumpTakeOffSpeed: 10
+--- !u!4 &1616879907 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4628290006460504, guid: 4ecd924bb724911408f332168f2a15c0,
+    type: 2}
+  m_PrefabInternal: {fileID: 293819750}
