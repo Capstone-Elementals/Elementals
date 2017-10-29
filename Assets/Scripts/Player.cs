@@ -22,9 +22,8 @@ public class Player : PhysicsObject
     {
         Vector2 move = Vector2.zero;
 
-        move.x = Input.GetAxis("Horizontal");
-
-		move.y = Input.GetAxis ("Vertical");
+		move.x = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("HorizontalMove");
+		move.y = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalMove");
 	
 			
 		if (move.x > 0.015f || move.x < -0.015f) {
@@ -32,9 +31,9 @@ public class Player : PhysicsObject
 		} else {
 			animator.SetBool ("Move", false);
 		}
-		if (move.y > 0 && grounded) {
+		if (move.y > 0.9 && grounded) {
 			velocity.y = jumpTakeOffSpeed;
-		} else if (move.y < 0) {
+		} else if (move.y < -0.9) {
 			velocity.y = -jumpTakeOffSpeed * 2f;
 		}
 

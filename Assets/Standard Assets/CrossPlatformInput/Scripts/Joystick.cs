@@ -40,15 +40,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 			var delta = m_StartPos - value;
 			delta.y = -delta.y;
 			delta /= MovementRange;
-
-			//Debug.Log ("delta.y = " + delta.y);
-			//Debug.Log ("delta.x = " + delta.x);
-
 			if (m_UseX)
 			{
 				m_HorizontalVirtualAxis.Update(-delta.x);
-				//Debug.Log ("delta.x =" + delta.x);
-				//Debug.Log("Horizontal Axis Value = " + CrossPlatformInputManager.GetAxis("HorizontalMove"));
 			}
 
 			if (m_UseY)
@@ -118,6 +112,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 			//Debug.Log("HorizontalMoveAxis = " + Input.GetAxis("HorizontalMove"));
 		}
+
 
 		public void OnPointerUp(PointerEventData data)
 		{
