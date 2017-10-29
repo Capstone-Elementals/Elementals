@@ -24,13 +24,16 @@ public class BoardManager : MonoBehaviour
 
 
     public int columns = 8;                                         //Number of columns in our game board.
-    public int rows = 8;                                            //Number of rows in our game board.
-    public GameObject exit;                                         //Prefab to spawn for exit.
+    public int rows = 8; 							//Number of rows in our game board.
+	public int scalex = 7;
+	public int scaley = 6; 
+	public GameObject exit;                                         //Prefab to spawn for exit.
     public GameObject[] floorTiles;                                 //Array of floor prefabs.
     public GameObject[] e1Tiles;                                  
     public GameObject[] e2Tiles;
     public GameObject[] e3Tiles;
     public GameObject[] e4Tiles;
+	public GameObject player;
 
 
     private Transform boardHolder;                                  //A variable to store a reference to the transform of our Board object.
@@ -44,10 +47,10 @@ public class BoardManager : MonoBehaviour
         gridPositions.Clear();
 
         //Loop through x axis (columns).
-        for (int x = 0; x < ( 7 *rows) ; x++)
+		for (int x = 0; x < ( scalex *rows) ; x++)
         {
             //Within each column, loop through y axis (rows).
-            for (int y = 0; y < ( 6 * columns); y++)
+			for (int y = 0; y < ( scaley * columns); y++)
             {
                 //At each index add a new Vector3 to our list with the x and y coordinates of that position.
                 gridPositions.Add(new Vector3(x, y, 0f));
@@ -63,10 +66,10 @@ public class BoardManager : MonoBehaviour
         boardHolder = new GameObject("Board").transform;
 
         //Loop along x axis, starting from -1 (to fill corner) with floor or outerwall edge tiles.
-        for (int x = 0; x < ( 7 *rows) ; x = x + 7)
+        for (int x = 0; x < ( scalex *rows) ; x = x + scalex)
         {
             //Loop along y axis, starting from -1 to place floor or outerwall tiles.
-            for (int y = 0; y < ( 6 *columns) ; y = y + 6)
+            for (int y = 0; y < ( scaley *columns) ; y = y + scaley)
             {
                 //Choose a random tile from our array of floor tile prefabs and prepare to instantiate it.
                 GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
@@ -94,22 +97,34 @@ public class BoardManager : MonoBehaviour
         Path(floorTiles);
     }
 
-	void RandomPath (int pos, int prevdir, bool gooddir)
+	void PlaceTile (int y, int prevdir)
 	{
+		GameObject tileChoice = e4Tiles [Random.Range (0, e4Tiles.Length)];
+		GameObject instance = Instantiate (tileChoice, new Vector3 (objects [y].transform.position.x, objects [y].transform.position.y, objects [y].transform.position.z), Quaternion.identity) as GameObject;
+		Destroy (objects [y]);
+		instance.transform.SetParent (boardHolder);
+		objects.Add (instance);
+	}
+
+	void RandomPath (int pos, int prevdir, bool gooddir)
+	{	
+		List<int> traversedpath = new List<int>();
+		Instantiate (player, new Vector3 (objects [pos].transform.position.x, objects [pos].transform.position.y, objects [pos].transform.position.z), Quaternion.identity);
 		for (int y = pos; 0 <= y && y < rows * columns;) {
-			GameObject tileChoice = e4Tiles [Random.Range (0, e4Tiles.Length)];
-			GameObject instance = Instantiate (tileChoice, new Vector3 (objects [y].transform.position.x, objects [y].transform.position.y, objects [y].transform.position.z), Quaternion.identity) as GameObject;
-			Destroy (objects [y]);
-			instance.transform.SetParent (boardHolder);
-			objects.Add (instance);
+			PlaceTile (y, prevdir);
+			traversedpath.Add (y);
 			while (gooddir == false) {
 				int dir = Random.Range (0, 100);
-				switch (dir) {
+				switch ((dir % 4)) {
 				case 0:
 					if ((prevdir % 4) == 2 || (y - columns) < 0) {
 						gooddir = false;
 					}
 					else {
+						if (traversedpath.Contains(y - columns)) {
+							gooddir = false;
+							break;
+						}
 						y = y - columns;
 						prevdir = 0;
 						gooddir = true;
@@ -120,6 +135,10 @@ public class BoardManager : MonoBehaviour
 						gooddir = false;
 					}
 					else {
+						if (traversedpath.Contains(y + 1)) {
+							gooddir = false;
+							break;
+						}
 						y = y + 1;
 						prevdir = 1;
 						gooddir = true;
@@ -130,6 +149,10 @@ public class BoardManager : MonoBehaviour
 						gooddir = false;
 					}
 					else {
+						if (traversedpath.Contains(y + columns)) {
+							gooddir = false;
+							break;
+						}
 						y = y + columns;
 						prevdir = 2;
 						gooddir = true;
@@ -140,6 +163,10 @@ public class BoardManager : MonoBehaviour
 						gooddir = false;
 					}
 					else {
+						if (traversedpath.Contains(y - 1)) {
+							gooddir = false;
+							break;
+						}
 						y = y - 1;
 						prevdir = 3;
 						gooddir = true;
