@@ -24,8 +24,10 @@ public class BoardManager : MonoBehaviour
 
 
     public int columns = 8;                                         //Number of columns in our game board.
-    public int rows = 8; 											//Number of rows in our game board.
-    public GameObject exit;                                         //Prefab to spawn for exit.
+    public int rows = 8; 							//Number of rows in our game board.
+	public int scalex = 7;
+	public int scaley = 6; 
+	public GameObject exit;                                         //Prefab to spawn for exit.
     public GameObject[] floorTiles;                                 //Array of floor prefabs.
     public GameObject[] e1Tiles;                                  
     public GameObject[] e2Tiles;
@@ -45,10 +47,10 @@ public class BoardManager : MonoBehaviour
         gridPositions.Clear();
 
         //Loop through x axis (columns).
-        for (int x = 0; x < ( 7 *rows) ; x++)
+		for (int x = 0; x < ( scalex *rows) ; x++)
         {
             //Within each column, loop through y axis (rows).
-            for (int y = 0; y < ( 6 * columns); y++)
+			for (int y = 0; y < ( scaley * columns); y++)
             {
                 //At each index add a new Vector3 to our list with the x and y coordinates of that position.
                 gridPositions.Add(new Vector3(x, y, 0f));
@@ -64,10 +66,10 @@ public class BoardManager : MonoBehaviour
         boardHolder = new GameObject("Board").transform;
 
         //Loop along x axis, starting from -1 (to fill corner) with floor or outerwall edge tiles.
-        for (int x = 0; x < ( 7 *rows) ; x = x + 7)
+        for (int x = 0; x < ( scalex *rows) ; x = x + scalex)
         {
             //Loop along y axis, starting from -1 to place floor or outerwall tiles.
-            for (int y = 0; y < ( 6 *columns) ; y = y + 6)
+            for (int y = 0; y < ( scaley *columns) ; y = y + scaley)
             {
                 //Choose a random tile from our array of floor tile prefabs and prepare to instantiate it.
                 GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
