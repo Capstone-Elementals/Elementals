@@ -27,14 +27,20 @@ public class Player : PhysicsObject
 	
 			
 		if (move.x > 0.015f || move.x < -0.015f) {
-			animator.SetBool ("Move", true);
-		} else {
-			animator.SetBool ("Move", false);
+			animator.SetTrigger ("Move");
 		}
 		if (move.y > 0.9 && grounded) {
 			velocity.y = jumpTakeOffSpeed;
+			animator.SetTrigger ("Jump");
 		} else if (move.y < -0.9) {
+			if (grounded) {
+				animator.SetBool("Crouch", true);
+			}
 			velocity.y = -jumpTakeOffSpeed * 2f;
+
+		}
+		if (move.y > -0.5) {
+			animator.SetBool ("Crouch", false);
 		}
 
         bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < 0.01f));
