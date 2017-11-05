@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class HandleAiming : MonoBehaviour {
 
-	private float currentRotation;
+	private float currentRotation = 90;
 
 	// Use this for initialization
 	void Start () {
-		currentRotation = 0;
+		transform.localPosition = new Vector3 (0, 1, 0);
 	}
 	
 	// Update is called once per frame
@@ -26,13 +26,17 @@ public class HandleAiming : MonoBehaviour {
 		unitVector = aimDirection / aimDirection.magnitude;
 
 		//Calculate angle only if a direction needs to be calculated
-		if (aimDirection.x != 0 && aimDirection.y != 0) {
-			float requiredAngle = Mathf.Atan2 (aimDirection.y, aimDirection.x);
+		// I used a small deadzone to prevent weird behaviour due to very small floats.
+		if (Mathf.Abs(unitVector.x) >= 0.05 && Mathf.Abs(unitVector.y) >= 0.05) {
+			
+			float requiredAngle = Mathf.Atan2 (aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
 			deltaRotation = requiredAngle - currentRotation;
+			currentRotation = requiredAngle;
 		}
 
 		//Apply the new position
 		transform.localPosition = unitVector;
 		transform.Rotate (0, 0, deltaRotation);
 	}
+
 }
