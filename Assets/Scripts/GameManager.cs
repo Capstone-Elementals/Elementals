@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+	//Singleton
     public static GameManager instance = null;
-    private BoardManager boardScript;
 
+    private BoardManager boardScript;
+	//Called when Game started
     void Awake()
     {
 
