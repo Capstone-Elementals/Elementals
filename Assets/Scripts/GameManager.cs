@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
     void InitGame()
     {
         //Call the SetupScene function of the BoardManager script, pass it current level number.
-        boardScript.SetupScene();
+		boardScript = new Earth();
+		boardScript.SetupScene ();
 
     }
 
