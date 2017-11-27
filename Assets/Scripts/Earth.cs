@@ -10,11 +10,11 @@ public class Earth : BoardManager {
 	protected override void Path(GameObject[] tileArray)
 	{
 		List<int> startpos = new List<int>();
-		for(int i = 0; i < rows; i++){
-			startpos.Add((columns - 1) + (i * columns));
+		for(int i = columns - 1; i < columns * rows; i+= rows){
+			startpos.Add(i);
 		}
 		int[] startPosArray = startpos.ToArray ();
-		base.RandomPath (startPosArray [Random.Range (0, startPosArray.Length)], 1, false, 1);
+		base.RandomPath (startPosArray [Random.Range (0, startPosArray.Length)], 3, false, 1);
 	}
 
 	public new void SetupScene()

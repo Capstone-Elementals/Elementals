@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+	public int level = 0;
     public static GameManager instance = null;
-    private BoardManager boardScript;
+	private BoardManager boardScript;
 
     void Awake()
     {
@@ -21,7 +21,19 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        boardScript = GetComponent<BoardManager>();
+		if (level == 0) {
+			boardScript = GetComponent<Fire>();
+		}
+		if (level == 1) {
+			boardScript = GetComponent<Earth>();
+		}
+		if (level == 2) {
+			boardScript = GetComponent<Water>();
+		}
+		if (level == 3) {
+			boardScript = GetComponent<Air>();
+		}
+        
 
         InitGame();
     }
@@ -30,7 +42,6 @@ public class GameManager : MonoBehaviour
     void InitGame()
     {
         //Call the SetupScene function of the BoardManager script, pass it current level number.
-		boardScript = new Earth();
 		boardScript.SetupScene ();
 
     }
