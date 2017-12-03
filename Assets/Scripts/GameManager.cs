@@ -7,8 +7,6 @@ public class GameManager : MonoBehaviour
 	public int level = 0;
     public static GameManager instance = null;
 	private BoardManager boardScript;
-
-    private BoardManager boardScript;
 	//Called when Game started
     void Awake()
     {

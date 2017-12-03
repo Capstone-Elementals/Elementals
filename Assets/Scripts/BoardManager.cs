@@ -73,7 +73,7 @@ public class BoardManager : MonoBehaviour
         BoardSetup();
         Path(floorTiles);
     }
-	protected void PlaceTile (int y, int prevdir)
+	protected void PlaceTile (int y)
 	{
 		GameObject tileChoice = e4Tiles [Random.Range (0, e4Tiles.Length)];
 		GameObject instance = Instantiate (tileChoice, new Vector3 (objects [y].transform.position.x, objects [y].transform.position.y, objects [y].transform.position.z), Quaternion.identity) as GameObject;

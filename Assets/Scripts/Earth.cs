@@ -21,7 +21,6 @@ public class Earth : BoardManager {
 	public new void SetupScene()
 	{
 		BoardSetup();
-		InitialiseList();
 		Path(floorTiles);
 	} 
 }
