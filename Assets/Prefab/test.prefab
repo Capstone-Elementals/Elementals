@@ -74,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340261314333050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.577326, y: 28.550114, z: 0}
+  m_LocalPosition: {x: -4.075771, y: 0.2181676, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4818319496579432}
@@ -221,6 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84a76ccfc4f66545be3c5e94007f96d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toShoot: {fileID: 1967134909186848, guid: 2550362bedaba4a4c9d84159452bd5f9, type: 2}
+  fireRate: 30
 --- !u!114 &114597545690847818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,6 +238,7 @@ MonoBehaviour:
   gravityModifier: 1
   maxSpeed: 7
   jumpTakeOffSpeed: 7
+  fireRate: 30
 --- !u!124 &124461772124061340
 Behaviour:
   m_ObjectHideFlags: 1
@@ -314,8 +317,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 976222071
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 39d793605ec0a044cb2df6a84f9bfedb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

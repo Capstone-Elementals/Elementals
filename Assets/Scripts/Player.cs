@@ -9,6 +9,8 @@ public class Player : PhysicsObject
 
     public float maxSpeed = 7;
     public float jumpTakeOffSpeed = 7;
+	public float fireRate = 30f;
+
 	private Animator animator;
     private SpriteRenderer spriteRenderer;
 
@@ -18,13 +20,13 @@ public class Player : PhysicsObject
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
+
     protected override void ComputeVelocity()
     {
         Vector2 move = Vector2.zero;
 
 		move.x = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("HorizontalMove");
-		move.y = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalMove");
-	
+		move.y = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalMove");	
 			
 		if (move.x > 0.015f || move.x < -0.015f) {
 			animator.SetTrigger ("Move");
@@ -50,8 +52,11 @@ public class Player : PhysicsObject
         }
 
        // animator.SetBool("grounded", grounded);
-        //animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
+        //animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed)
+
+
 
         targetVelocity = move * maxSpeed;
+
     }
 }
