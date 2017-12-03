@@ -22,43 +22,21 @@ public class BoardManager : MonoBehaviour
         }
     }
 
-
-    public int columns = 8;                                         //Number of columns in our game board.
-    public int rows = 8; 							//Number of rows in our game board.
-	public int scalex = 7;
-	public int scaley = 6; 
-	public GameObject exit;                                         //Prefab to spawn for exit.
-    public GameObject[] floorTiles;                                 //Array of floor prefabs.
-    public GameObject[] e1Tiles;                                  
-    public GameObject[] e2Tiles;
-    public GameObject[] e3Tiles;
-    public GameObject[] e4Tiles;
-	public GameObject player;
-
-
-    private Transform boardHolder;                                  //A variable to store a reference to the transform of our Board object.
-    private List<Vector3> gridPositions = new List<Vector3>();   //A list of possible locations to place tiles.
-    private List<GameObject> objects = new List<GameObject>();
-
-    //Clears our list gridPositions and prepares it to generate a new board.
-    protected void InitialiseList()
-    {
-        //Clear our list gridPositions.
-        gridPositions.Clear();
-
-        //Loop through x axis (columns).
-		for (int x = 0; x < ( scalex *rows) ; x++)
-        {
-            //Within each column, loop through y axis (rows).
-			for (int y = 0; y < ( scaley * columns); y++)
-            {
-                //At each index add a new Vector3 to our list with the x and y coordinates of that position.
-                gridPositions.Add(new Vector3(x, y, 0f));
-            }
-        }
-    }
+    public int columns = 8;//Number of columns in our game board.
+    public int rows = 8;//Number of rows in our game board.
+	public int scalex = 7;//x-scale of each tile
+	public int scaley = 6; //y-scale of each tile
+	public GameObject boss;//Prefab to spawn for boss tile.
+    public GameObject[] floorTiles;//Array of All tiles.
+    public GameObject[] e1Tiles;//Array of tiles with 1 entrance                                  
+	public GameObject[] e2Tiles;//Array of tiles with 2 entrance
+	public GameObject[] e3Tiles;//Array of tiles with 3 entrance
+	public GameObject[] e4Tiles;//Array of tiles with 4 entrance
+	public GameObject player;//Prefab of player
 
 
+    private Transform boardHolder;//A variable to store a reference to the transform of our Board object.
+    private List<GameObject> objects = new List<GameObject>();//List of all objects in Board
     //Sets up the outer walls and floor (background) of the game board.
     protected void BoardSetup()
     {
@@ -93,10 +71,8 @@ public class BoardManager : MonoBehaviour
     public void SetupScene()
     {
         BoardSetup();
-        InitialiseList();
         Path(floorTiles);
     }
-
 	protected void PlaceTile (int y, int prevdir)
 	{
 		GameObject tileChoice = e4Tiles [Random.Range (0, e4Tiles.Length)];
@@ -105,13 +81,12 @@ public class BoardManager : MonoBehaviour
 		instance.transform.SetParent (boardHolder);
 		objects.Add (instance);
 	}
-
 	protected void RandomPath (int pos, int prevdir, bool gooddir, int invalid)
 	{	
 		List<int> traversedpath = new List<int>();
 		Instantiate (player, new Vector3 (objects [pos].transform.position.x, objects [pos].transform.position.y, objects [pos].transform.position.z), Quaternion.identity);
 		for (int y = pos; 0 <= y && y < rows * columns;) {
-			PlaceTile (y, prevdir);
+			PlaceTile (y);
 			traversedpath.Add (y);
 			while (gooddir == false) {
 				int dir = Random.Range (0, 100);
