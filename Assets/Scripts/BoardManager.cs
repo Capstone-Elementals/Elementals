@@ -22,7 +22,6 @@ public class BoardManager : MonoBehaviour
         }
     }
 
-
     public int columns = 8;//Number of columns in our game board.
     public int rows = 8;//Number of rows in our game board.
 	public int scalex = 7;//x-scale of each tile
@@ -39,7 +38,7 @@ public class BoardManager : MonoBehaviour
     private Transform boardHolder;//A variable to store a reference to the transform of our Board object.
     private List<GameObject> objects = new List<GameObject>();//List of all objects in Board
     //Sets up the outer walls and floor (background) of the game board.
-    void BoardSetup()
+    protected void BoardSetup()
     {
         //Instantiate Board and set boardHolder to its transform.
         boardHolder = new GameObject("Board").transform;
@@ -65,18 +64,16 @@ public class BoardManager : MonoBehaviour
             }
         }
     }
-	//Creates the path from start to finish
-    void Path(GameObject[] tileArray)
+	protected virtual void Path(GameObject[] tileArray)
     {
-		RandomPath (Random.Range(0, columns), 0, false);
+		
     }
     public void SetupScene()
     {
         BoardSetup();
         Path(floorTiles);
     }
-	//Places tile at selected Y position
-	void PlaceTile (int y)
+	protected void PlaceTile (int y, int prevdir)
 	{
 		GameObject tileChoice = e4Tiles [Random.Range (0, e4Tiles.Length)];
 		GameObject instance = Instantiate (tileChoice, new Vector3 (objects [y].transform.position.x, objects [y].transform.position.y, objects [y].transform.position.z), Quaternion.identity) as GameObject;
@@ -84,8 +81,7 @@ public class BoardManager : MonoBehaviour
 		instance.transform.SetParent (boardHolder);
 		objects.Add (instance);
 	}
-	//Creates the Random Path for the player
-	void RandomPath (int pos, int prevdir, bool gooddir)
+	protected void RandomPath (int pos, int prevdir, bool gooddir, int invalid)
 	{	
 		List<int> traversedpath = new List<int>();
 		Instantiate (player, new Vector3 (objects [pos].transform.position.x, objects [pos].transform.position.y, objects [pos].transform.position.z), Quaternion.identity);
@@ -95,8 +91,8 @@ public class BoardManager : MonoBehaviour
 			while (gooddir == false) {
 				int dir = Random.Range (0, 100);
 				switch ((dir % 4)) {
-				case 0:
-					if ((prevdir % 4) == 2 || (y - columns) < 0) {
+				case 0://Move Left
+					if ((prevdir % 4) == 2 || (y - columns) < 0 || invalid == 0) {
 						gooddir = false;
 					}
 					else {
@@ -109,8 +105,8 @@ public class BoardManager : MonoBehaviour
 						gooddir = true;
 					}
 					break;
-				case 1:
-					if ((prevdir % 4) == 3 || ((y + 1) % columns) == 0) {
+				case 1://Move Up
+					if ((prevdir % 4) == 3 || ((y + 1) % columns) == 0 || invalid == 1) {
 						gooddir = false;
 					}
 					else {
@@ -123,8 +119,8 @@ public class BoardManager : MonoBehaviour
 						gooddir = true;
 					}
 					break;
-				case 2:
-					if ((prevdir % 4) == 0) {
+				case 2://Move Right
+					if ((prevdir % 4) == 0 || invalid == 2) {
 						gooddir = false;
 					}
 					else {
@@ -137,8 +133,8 @@ public class BoardManager : MonoBehaviour
 						gooddir = true;
 					}
 					break;
-				case 3:
-					if ((prevdir % 4) == 1 || ((y - 1) % columns) == columns - 1 || (y - 1) < 0) {
+				case 3://Move Down
+					if ((prevdir % 4) == 1 || ((y - 1) % columns) == columns - 1 || (y - 1) < 0 || invalid == 3) {
 						gooddir = false;
 					}
 					else {
