@@ -8,11 +8,12 @@ public class HandleAiming : MonoBehaviour {
 	//Frames between shots
 	public GameObject toShoot;
 	public float fireRate = 30f;
+	public float distanceFromPlayer = 0.5f;
 	private float cooldown = 0f;
 
 	// Use this for initialization
 	void Start () {
-		transform.localPosition = new Vector3 (0, 1, 0);
+		transform.localPosition = new Vector3 (0, distanceFromPlayer, 0);
 	}
 	
 	// Update is called once per frame
@@ -38,7 +39,7 @@ public class HandleAiming : MonoBehaviour {
 			currentRotation = requiredAngle;
 
 			//Apply the new position
-			transform.localPosition = unitVector;
+			transform.localPosition = unitVector * distanceFromPlayer;
 			transform.Rotate (0, 0, deltaRotation);
 		}
 
