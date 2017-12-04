@@ -57,7 +57,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 0.75
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b4a1fe9c9feb340ad8c6b2f1c6c7df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 750
+  bulletSpeed: 500
   identifier: bullet
   timeout: 500
 --- !u!212 &212065373549658440

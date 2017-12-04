@@ -14,7 +14,7 @@ public class BasicBullet : MonoBehaviour{
 		bulletVelocity.x = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("HorizontalShoot");
 		bulletVelocity.y = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalShoot");
 		Rigidbody2D rb2d = this.GetComponent<Rigidbody2D> ();
-		rb2d.AddForce (bulletVelocity * bulletSpeed);
+		rb2d.AddForce ((bulletVelocity / bulletVelocity.magnitude) * bulletSpeed);
 	}
 
 	void FixedUpdate(){
