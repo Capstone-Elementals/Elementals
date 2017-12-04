@@ -25,6 +25,9 @@ public class BasicBullet : MonoBehaviour{
 	}
 
 	void OnCollisionEnter2D (Collision2D col) {
+		if (col.gameObject.name.Contains("Enemy"))
+			Destroy (col.gameObject);
+
 		Destroy(this.gameObject);
 	}
 }
