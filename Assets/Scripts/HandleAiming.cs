@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class HandleAiming : MonoBehaviour {
 
-	private float currentRotation = 90;
+	private float currentRotation = 90f;
+	//Frames between shots
+	public GameObject toShoot;
+	public float fireRate = 30f;
+	public float distanceFromPlayer = 0.5f;
+	private float cooldown = 0f;
 
 	// Use this for initialization
 	void Start () {
-		transform.localPosition = new Vector3 (0, 1, 0);
+		transform.localPosition = new Vector3 (0, distanceFromPlayer, 0);
 	}
 	
 	// Update is called once per frame
@@ -27,16 +32,28 @@ public class HandleAiming : MonoBehaviour {
 
 		//Calculate angle only if a direction needs to be calculated
 		// I used a small deadzone to prevent weird behaviour due to very small floats.
-		if (Mathf.Abs(unitVector.x) >= 0.05 && Mathf.Abs(unitVector.y) >= 0.05) {
+		if (Mathf.Abs(unitVector.x) >= 0.05 && Mathf.Abs(unitVector.y) >= 0.05 && !float.IsNaN(aimDirection.x)) {
 			
 			float requiredAngle = Mathf.Atan2 (aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
 			deltaRotation = requiredAngle - currentRotation;
 			currentRotation = requiredAngle;
+
+			//Apply the new position
+			transform.localPosition = unitVector * distanceFromPlayer;
+			transform.Rotate (0, 0, deltaRotation);
 		}
 
-		//Apply the new position
-		transform.localPosition = unitVector;
-		transform.Rotate (0, 0, deltaRotation);
+		//Check to see if the player is able to shoot a bullet
+		if (aimDirection.magnitude > 0.1 && cooldown <= 0) {
+			//Player is able is able to shoot
+			GameObject newBullet = Instantiate<GameObject>(toShoot, transform.position, transform.rotation);
+			//Assumes that the created component is a bullet, possible null call
+			cooldown = fireRate;
+		}
+
+		if(cooldown > 0)
+			cooldown--;
+
 	}
 
 }
