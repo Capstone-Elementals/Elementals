@@ -6,6 +6,10 @@ using UnityEngine.EventSystems;
 
 public class Player : PhysicsObject
 {
+	private Armor playerArmor;
+	private Boot playerBoot;
+	private Weapon playerWeapon1;
+	private Weapon playerWeapon2;
 	//Player Speed
     public float maxSpeed = 7;
 	//Player Vertical speed
@@ -15,6 +19,30 @@ public class Player : PhysicsObject
 	//Player Sprite
     private SpriteRenderer spriteRenderer;
 
+	public void setArmor(Armor armor){
+		this.playerArmor = armor;
+	}
+	public void setBoot(Boot boot){
+		this.playerBoot = boot;
+	}
+	public void setWeapon1(Weapon weapon1){
+		this.playerWeapon1 = weapon1;
+	}
+	public void setWeapon2(Weapon weapon2){
+		this.playerWeapon2 = weapon2;
+	}
+	public Armor getArmor(){
+		return playerArmor;
+	}
+	public Boot getBoot(){
+		return playerBoot;
+	}
+	public Weapon getWeapon1(){
+		return playerWeapon1;
+	}
+	public Weapon getWeapon2(){
+		return playerWeapon2;
+	}
     // Use this for initialization
     void Awake()
     {
