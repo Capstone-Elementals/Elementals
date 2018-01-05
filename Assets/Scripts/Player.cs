@@ -15,6 +15,8 @@ public class Player : PhysicsObject
 	//Player Sprite
     private SpriteRenderer spriteRenderer;
 
+	private float essence = 0;
+
     // Use this for initialization
     void Awake()
     {
@@ -58,4 +60,8 @@ public class Player : PhysicsObject
 
         targetVelocity = move * maxSpeed;
     }
+
+	public void incrementEssence() {
+		essence++;
+	}
 }

@@ -8,6 +8,7 @@ public class BasicBullet : MonoBehaviour{
 	public float bulletSpeed = 1000f;
 	public string identifier = "bullet";
 	public float timeout = 500f;
+	public float damage = 1f;
 
 	// Use this for initialization
 	void Start() {
@@ -25,9 +26,7 @@ public class BasicBullet : MonoBehaviour{
 	}
 
 	void OnCollisionEnter2D (Collision2D col) {
-		if (col.gameObject.name.Contains("Enemy"))
-			Destroy (col.gameObject);
-
 		Destroy(this.gameObject);
 	}
+
 }
