@@ -89,7 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b4a1fe9c9feb340ad8c6b2f1c6c7df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 500
   bulletSpeed: 400
   identifier: bullet
   timeout: 500
