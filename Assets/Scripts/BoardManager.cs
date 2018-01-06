@@ -33,7 +33,8 @@ public class BoardManager : MonoBehaviour
 	public GameObject[] e3Tiles;//Array of tiles with 3 entrance
 	public GameObject[] e4Tiles;//Array of tiles with 4 entrance
 	public GameObject player;//Prefab of player
-
+	public GameObject edgeV;
+	public GameObject edgeH;
 
     private Transform boardHolder;//A variable to store a reference to the transform of our Board object.
     private List<GameObject> objects = new List<GameObject>();//List of all objects in Board
@@ -49,6 +50,22 @@ public class BoardManager : MonoBehaviour
             //Loop along y axis, starting from -1 to place floor or outerwall tiles.
             for (int y = 0; y < ( scaley *columns) ; y = y + scaley)
             {
+				if (x == 0) {
+					GameObject edge = edgeV;
+					Instantiate (edge, new Vector3 (x - (scalex / 2), y, 0f), Quaternion.identity);
+				}
+				if(x == (scalex * rows) - scalex){
+					GameObject edge = edgeV;
+					Instantiate (edge, new Vector3 (x + (scalex / 2), y, 0f), Quaternion.identity);
+				}
+				if(y == 0){
+					GameObject edge = edgeH;
+					Instantiate (edge, new Vector3 (x, y - (scaley/2), 0f), Quaternion.identity);
+				}
+				if (y == (scaley * columns) - scaley) {
+					GameObject edge = edgeH;
+					Instantiate (edge, new Vector3 (x, y + (scaley/2), 0f), Quaternion.identity);
+				}
                 //Choose a random tile from our array of floor tile prefabs and prepare to instantiate it.
                 GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
 

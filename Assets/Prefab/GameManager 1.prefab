@@ -60,7 +60,7 @@ MonoBehaviour:
   rows: 5
   scalex: 7
   scaley: 6
-  exit: {fileID: 0}
+  boss: {fileID: 0}
   floorTiles:
   - {fileID: 1345254767298110, guid: fa7f711f8fec9da4583680bbaafa573a, type: 2}
   - {fileID: 1728032563386132, guid: f2bfde0c6c2dd1c49917546d7073e541, type: 2}
@@ -97,6 +97,8 @@ MonoBehaviour:
   e4Tiles:
   - {fileID: 1478648696307420, guid: 4e39d673d91d75c4188f41376ac5b425, type: 2}
   player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
+  edgeV: {fileID: 1241922943831126, guid: d15f2379fb128034fa0de052dfe8f82a, type: 2}
+  edgeH: {fileID: 1622422197677620, guid: 2e12febd1cabd8c469e8c80f5d20ee1b, type: 2}
 --- !u!114 &114457743336267146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,7 +114,7 @@ MonoBehaviour:
   rows: 5
   scalex: 7
   scaley: 6
-  exit: {fileID: 0}
+  boss: {fileID: 0}
   floorTiles:
   - {fileID: 1345254767298110, guid: fa7f711f8fec9da4583680bbaafa573a, type: 2}
   - {fileID: 1728032563386132, guid: f2bfde0c6c2dd1c49917546d7073e541, type: 2}
@@ -149,6 +151,8 @@ MonoBehaviour:
   e4Tiles:
   - {fileID: 1478648696307420, guid: 4e39d673d91d75c4188f41376ac5b425, type: 2}
   player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
+  edgeV: {fileID: 1241922943831126, guid: d15f2379fb128034fa0de052dfe8f82a, type: 2}
+  edgeH: {fileID: 1622422197677620, guid: 2e12febd1cabd8c469e8c80f5d20ee1b, type: 2}
 --- !u!114 &114783504018255998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,7 +168,7 @@ MonoBehaviour:
   rows: 5
   scalex: 7
   scaley: 6
-  exit: {fileID: 0}
+  boss: {fileID: 0}
   floorTiles:
   - {fileID: 1345254767298110, guid: fa7f711f8fec9da4583680bbaafa573a, type: 2}
   - {fileID: 1728032563386132, guid: f2bfde0c6c2dd1c49917546d7073e541, type: 2}
@@ -201,6 +205,8 @@ MonoBehaviour:
   e4Tiles:
   - {fileID: 1478648696307420, guid: 4e39d673d91d75c4188f41376ac5b425, type: 2}
   player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
+  edgeV: {fileID: 1241922943831126, guid: d15f2379fb128034fa0de052dfe8f82a, type: 2}
+  edgeH: {fileID: 1622422197677620, guid: 2e12febd1cabd8c469e8c80f5d20ee1b, type: 2}
 --- !u!114 &114826958094813138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,7 +222,7 @@ MonoBehaviour:
   rows: 5
   scalex: 7
   scaley: 6
-  exit: {fileID: 0}
+  boss: {fileID: 0}
   floorTiles:
   - {fileID: 1345254767298110, guid: fa7f711f8fec9da4583680bbaafa573a, type: 2}
   - {fileID: 1728032563386132, guid: f2bfde0c6c2dd1c49917546d7073e541, type: 2}
@@ -253,6 +259,8 @@ MonoBehaviour:
   e4Tiles:
   - {fileID: 1478648696307420, guid: 4e39d673d91d75c4188f41376ac5b425, type: 2}
   player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
+  edgeV: {fileID: 1241922943831126, guid: d15f2379fb128034fa0de052dfe8f82a, type: 2}
+  edgeH: {fileID: 1622422197677620, guid: 2e12febd1cabd8c469e8c80f5d20ee1b, type: 2}
 --- !u!114 &114976928423253796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -268,7 +276,7 @@ MonoBehaviour:
   rows: 5
   scalex: 7
   scaley: 6
-  exit: {fileID: 0}
+  boss: {fileID: 0}
   floorTiles:
   - {fileID: 1345254767298110, guid: fa7f711f8fec9da4583680bbaafa573a, type: 2}
   - {fileID: 1728032563386132, guid: f2bfde0c6c2dd1c49917546d7073e541, type: 2}
@@ -305,6 +313,8 @@ MonoBehaviour:
   e4Tiles:
   - {fileID: 1478648696307420, guid: 4e39d673d91d75c4188f41376ac5b425, type: 2}
   player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
+  edgeV: {fileID: 1241922943831126, guid: d15f2379fb128034fa0de052dfe8f82a, type: 2}
+  edgeH: {fileID: 1622422197677620, guid: 2e12febd1cabd8c469e8c80f5d20ee1b, type: 2}
 --- !u!114 &114986717591856520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -316,4 +326,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6930f7a6d60e5f74c91f24aa9c556b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 3
+  level: 0
