@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Player : PhysicsObject
 {
+  private float essence = 0;
 	private Armor playerArmor;
 	private Boot playerBoot;
 	private Weapon playerWeapon1;
@@ -18,7 +19,7 @@ public class Player : PhysicsObject
 	private Animator animator;
 	//Player Sprite
     private SpriteRenderer spriteRenderer;
-
+    
 	public void setArmor(Armor armor){
 		this.playerArmor = armor;
 	}
@@ -43,6 +44,10 @@ public class Player : PhysicsObject
 	public Weapon getWeapon2(){
 		return playerWeapon2;
 	}
+
+	
+
+
     // Use this for initialization
     void Awake()
     {
@@ -86,4 +91,8 @@ public class Player : PhysicsObject
 
         targetVelocity = move * maxSpeed;
     }
+
+	public void incrementEssence() {
+		essence++;
+	}
 }
