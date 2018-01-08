@@ -2,31 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicBullet : MonoBehaviour{
+
+[RequireComponent(typeof(Rigidbody2D))]
+public abstract class Bullet : MonoBehaviour {
+
+	public int damage = 1;
+	public int timeout = 500;
+	public float speed = 1000f;
 
 	Vector2 bulletVelocity = Vector2.zero;
-	public float bulletSpeed = 1000f;
-	public string identifier = "bullet";
-	public float timeout = 500f;
-	public float damage = 1f;
 
 	// Use this for initialization
-	void Start() {
+	public void Start () {
 		bulletVelocity.x = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("HorizontalShoot");
 		bulletVelocity.y = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalShoot");
 		Rigidbody2D rb2d = this.GetComponent<Rigidbody2D> ();
-		rb2d.AddForce ((bulletVelocity / bulletVelocity.magnitude) * bulletSpeed);
+		rb2d.AddForce ((bulletVelocity / bulletVelocity.magnitude) * speed);
 	}
-
-	void FixedUpdate(){
+	
+	// Update is called once per frame
+	public void FixedUpdate () {
 		if (timeout < 0)
 			Destroy (this.gameObject);
 
 		timeout--;
 	}
 
-	void OnCollisionEnter2D (Collision2D col) {
+	public void OnCollisionEnter2D (Collision2D col) {
 		Destroy(this.gameObject);
 	}
-
 }
