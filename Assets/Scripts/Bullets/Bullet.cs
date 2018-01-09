@@ -8,7 +8,7 @@ public abstract class Bullet : MonoBehaviour {
 
 	public int damage = 1;
 	public int timeout = 500;
-	public float speed = 1000f;
+	public float speed = 500f;
 
 	Vector2 bulletVelocity = Vector2.zero;
 

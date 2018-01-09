@@ -10,7 +10,7 @@ public class BasicBullet : Bullet{
 	}
 
 	void FixedUpdate() {
-		base.FixedUpdate ();	
+		base.FixedUpdate ();
 	}
 
 	void OnCollisionEnter2D (Collision2D col) {
