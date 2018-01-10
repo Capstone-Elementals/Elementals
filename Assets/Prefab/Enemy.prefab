@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4638208095883300}
   - component: {fileID: 212972400642026728}
+  - component: {fileID: 114034556200906958}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -37,10 +38,11 @@ GameObject:
   - component: {fileID: 4420159276020070}
   - component: {fileID: 61962180975220312}
   - component: {fileID: 114555454137178024}
+  - component: {fileID: 114350026851705282}
   - component: {fileID: 50315759758386288}
   - component: {fileID: 212248431660969124}
   m_Layer: 0
-  m_Name: Enemy 1
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1304499964885638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 545.0756, y: 349.1833, z: -5}
+  m_LocalPosition: {x: 540.92426, y: 350.35745, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4638208095883300}
@@ -116,8 +118,32 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!114 &114034556200906958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1124334213802130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85b120261ee04f742b8865bfa55c8884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114350026851705282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304499964885638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9b4388cc348f74d8062a3c6d618370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  health: 0
 --- !u!114 &114555454137178024
 MonoBehaviour:
   m_ObjectHideFlags: 1

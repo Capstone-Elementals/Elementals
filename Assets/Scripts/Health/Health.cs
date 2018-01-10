@@ -12,7 +12,7 @@ public class Health : MonoBehaviour {
 	void Start() {
 		//Try to grab the healthbar of the parent. Will return null if none is found
 		//  This allows for objects to have health without a health bar.
-		healthBar = (HealthBar)GetComponentInChildren<HealthBar>();
+		healthBar = (HealthBar)transform.GetComponentInChildren<HealthBar>();
 		health = maxHealth;
 	}
 
@@ -33,6 +33,8 @@ public class Health : MonoBehaviour {
 		if (health <= 0) {
 			Destroy (this.gameObject);
 		}
+
+		updateBar ();
 	}
 
 	public void heal(int healthRestored) {
@@ -44,14 +46,18 @@ public class Health : MonoBehaviour {
 		if (health + healthRestored > maxHealth) {
 			healthRestored = healthRestored - health;
 		}
+
+		updateBar ();
 	}
 
 	private void updateBar() {
 		//Check if item is using a HealthBar
-		if (healthBar == null)
+		if (healthBar == null) {
+			Debug.LogError ("Health could not find healthBar child");
 			return;
+		}
 
 		//Inform the healthbar of the update
-		healthBar.update();
+		healthBar.update(health, maxHealth);
 	} 
 }
