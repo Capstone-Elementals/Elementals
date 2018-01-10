@@ -14,7 +14,7 @@ public abstract class Bullet : MonoBehaviour {
 
 	// Use this for initialization
 	/**
-	 * As of right now, bullets get the aim direction upon spawn
+	 * As of right now, bullets get the aim direction upon spawn using the start method
 	 */
 	public void Start () {
 		bulletVelocity.x = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("HorizontalShoot");
