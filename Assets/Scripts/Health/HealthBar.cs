@@ -50,6 +50,9 @@ public class HealthBar : MonoBehaviour {
 		float redComponent = 1f - greenComponent;
 		//Colors are given in a vector4 as Red, Green, Blue, Opacity
 		renderer.color = new Vector4(redComponent, greenComponent, 0, 1);
+
+		//Adjust the size of the healthbar as well
+		transform.localScale = new Vector3(greenComponent, 1, 1);
 	}
 
 
