@@ -31,28 +31,26 @@ public class HealthBar : MonoBehaviour {
 
 	//Updates the healthbar of a gameObject. Called from a Health script. 
 	public void update(int health, int maxHealth) {
-		/*
-		//Catch and log any instances of trying to update a healthbar object that doesn't have health
-		if (parentHealth == null) {
-			Debug.LogError ("Tried to update a healthbar w/ no health object", this);
-			return;
+		
+		//Determine the red and green component of the health bar using the ratio of health to maxHealth
+		float healthRatio = (float)health / (float)maxHealth;
+		float greenComponent = 0f;
+		float redComponent = 0f;
+
+		//Fit the color combination to progress from green, to yellow, to red.
+		if (healthRatio >= 0.5f) {
+			greenComponent = 1f;
+			redComponent = healthRatio / 0.5f;
+		} else {
+			redComponent = 1f;
+			greenComponent = healthRatio / 0.5f;
 		}
 
-		//Determine the red and green component of the health bar using the ratio of health to maxHealth
-		float greenComponent = (float)parentHealth.health / (float)parentHealth.maxHealth;
-		float redComponent = 1f - greenComponent;
-		//Colors are given in a vector4 as Red, Green, Blue, Opacity
-		renderer.color = new Vector4(redComponent, greenComponent, 0, 1);
-		*/
-
-		//Determine the red and green component of the health bar using the ratio of health to maxHealth
-		float greenComponent = (float)health / (float)maxHealth;
-		float redComponent = 1f - greenComponent;
 		//Colors are given in a vector4 as Red, Green, Blue, Opacity
 		renderer.color = new Vector4(redComponent, greenComponent, 0, 1);
 
 		//Adjust the size of the healthbar as well
-		transform.localScale = new Vector3(greenComponent, 1, 1);
+		transform.localScale = new Vector3(healthRatio, 1, 1);
 	}
 
 

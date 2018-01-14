@@ -19,6 +19,8 @@ public class Player : PhysicsObject
 	private Animator animator;
 	//Player Sprite
     private SpriteRenderer spriteRenderer;
+
+	private bool jumpPending;
     
 	public void setArmor(Armor armor){
 		this.playerArmor = armor;
@@ -46,7 +48,9 @@ public class Player : PhysicsObject
 	}
 
 	
-
+	public void jump() {
+		jumpPending = true;
+	}
 
     // Use this for initialization
     void Awake()
@@ -66,16 +70,13 @@ public class Player : PhysicsObject
 			animator.SetTrigger ("Move");
 		}
 		//Vertical Movement
-		if (move.y > 0.5 && grounded) {
+		if (jumpPending && grounded) {
 			velocity.y = jumpTakeOffSpeed;
 			animator.SetTrigger ("Jump");
-		} else if (move.y < -0.5) {
-			if (grounded) {
-				animator.SetBool("Crouch", true);
-			}
-			velocity.y = -jumpTakeOffSpeed * 2f;
+		} 
 
-		}
+		jumpPending = false;
+
 		if (move.y > -0.5 && move.x == 0) {
 			animator.SetBool ("Crouch", false);
 		}

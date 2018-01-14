@@ -405,7 +405,6 @@ GameObject:
   - component: {fileID: 1658531163}
   - component: {fileID: 1658531166}
   - component: {fileID: 1658531165}
-  - component: {fileID: 1658531164}
   m_Layer: 5
   m_Name: MoveStick
   m_TagString: Untagged
@@ -432,22 +431,6 @@ RectTransform:
   m_AnchoredPosition: {x: 150, y: 150}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1658531164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114429895261480288, guid: 9529ecc3d479da5499993355e6c2cb4f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1658531162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c3c865782347f41b6358d9fba14b48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MovementRange: 100
-  axesToUse: 0
-  horizontalAxisName: HorizontalMove
-  verticalAxisName: VerticalMove
 --- !u!114 &1658531165
 MonoBehaviour:
   m_ObjectHideFlags: 0
