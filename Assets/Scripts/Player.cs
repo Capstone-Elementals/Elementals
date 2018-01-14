@@ -61,9 +61,10 @@ public class Player : PhysicsObject, PlayerInterface
     protected override void ComputeVelocity()
     {
         Vector2 move = Vector2.zero;
-		//X and Y movement using Touch sticks
-		move.x = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("HorizontalMove");
-		move.y = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalMove");
+		//Grab X and reduce
+		move.x = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("HorizontalMove") * 0.5f;
+		//Below line is deprecated
+		//move.y = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalMove");
 	
 		//Horizontal movement	
 		if (move.x > 0.015f || move.x < -0.015f) {
