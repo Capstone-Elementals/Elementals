@@ -40,7 +40,6 @@ namespace UnityStandardAssets.CrossPlatformInput
         void Start()
         {
             m_StartPos = transform.position;
-			player = GameObject.Find("Testplayer").GetComponent<PlayerInterface>();
         }
 
 		void UpdateVirtualAxes(Vector3 value)
@@ -134,6 +133,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
 		public void OnPointerDown(PointerEventData data) {
+			if (player == null)
+				player = GameObject.Find("Testplayer(Clone)").GetComponent<PlayerInterface>();
+
 			framesSinceLastTap = 0;
 		}
 
