@@ -40,7 +40,7 @@ public class HealthBar : MonoBehaviour {
 		//Fit the color combination to progress from green, to yellow, to red.
 		if (healthRatio >= 0.5f) {
 			greenComponent = 1f;
-			redComponent = healthRatio / 0.5f;
+			redComponent = Mathf.Abs(healthRatio / 0.5f - 2);
 		} else {
 			redComponent = 1f;
 			greenComponent = healthRatio / 0.5f;
