@@ -19,6 +19,13 @@ namespace UnityStandardAssets.CrossPlatformInput
 		public string horizontalAxisName = "Horizontal"; // The name given to the horizontal axis for the cross platform input
 		public string verticalAxisName = "Vertical"; // The name given to the vertical axis for the cross platform input
 
+		//Current method of calling the player's jump function
+		public PlayerInterface player = null;
+
+		//The number of frames in which the player has to release the joystick in order to jump
+		public int jumpWindow = 5;
+		private int framesSinceLastTap = 0;
+
 		Vector3 m_StartPos;
 		bool m_UseX; // Toggle for using the x axis
 		bool m_UseY; // Toggle for using the Y axis
@@ -33,6 +40,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         void Start()
         {
             m_StartPos = transform.position;
+			player = GameObject.Find("Testplayer").GetComponent<PlayerInterface>();
         }
 
 		void UpdateVirtualAxes(Vector3 value)
@@ -118,10 +126,17 @@ namespace UnityStandardAssets.CrossPlatformInput
 		{
 			transform.position = m_StartPos;
 			UpdateVirtualAxes(m_StartPos);
+
+			//If tap was fast enough to merit jump
+			if (framesSinceLastTap < jumpWindow)
+				player.jump ();
 		}
 
 
-		public void OnPointerDown(PointerEventData data) { }
+		public void OnPointerDown(PointerEventData data) {
+			framesSinceLastTap = 0;
+		}
+
 
 		void OnDisable()
 		{
@@ -134,6 +149,14 @@ namespace UnityStandardAssets.CrossPlatformInput
 			{
 				m_VerticalVirtualAxis.Remove();
 			}
+		}
+
+		void FixedUpdate() {
+
+			//Only increment frames since last tap if less than the jump window
+			//  to prevent overflow fuck-ery
+			if (framesSinceLastTap < jumpWindow)
+				framesSinceLastTap++;
 		}
 	}
 }

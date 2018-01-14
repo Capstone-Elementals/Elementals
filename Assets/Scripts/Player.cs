@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.EventSystems;
 
-public class Player : PhysicsObject
+public class Player : PhysicsObject, PlayerInterface
 {
   private float essence = 0;
 	private Armor playerArmor;
