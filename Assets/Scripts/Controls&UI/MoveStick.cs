@@ -101,7 +101,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 			//Assign the new position to the sticks
 			newPos.x = deltaX;
-			newPos.y = deltaY;
+			newPos.y = 0;
+
+
 
 			transform.position = new Vector3 (m_StartPos.x + newPos.x, m_StartPos.y + newPos.y, m_StartPos.z + newPos.z);
 
