@@ -28,10 +28,11 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
+	/*
 	void FixedUpdate (){
 		rb2d.velocity = new Vector2 (.5f, 0);
 	}
-
+	*/
 
 	//This is a Unity defined function called when an object is destroyed
 	void OnDestroy() {
