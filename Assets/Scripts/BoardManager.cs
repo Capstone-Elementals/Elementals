@@ -116,7 +116,6 @@ public class BoardManager : MonoBehaviour
 		}
 		RandomPosRecord.Add (randomint);
 		Transform temp = objects[randomint].transform;
-		Debug.Log ("x: " + temp.position.x + " y: " + temp.position.y);
 		Vector3 tempVectpor = new Vector3 (temp.position.x, temp.position.y, 0f);
 		return tempVectpor;
 	}
