@@ -38,7 +38,8 @@ public class TurnAroundAtEdge : MonoBehaviour {
 
 		//Raycast out 5 pixels
 		rh2d = Physics2D.Raycast (origin, direction, 0.03f);
-		Debug.DrawLine ((Vector3)origin, (Vector3)(origin + direction * 0.03f));
+		//Uncomment the following line to viewraycasts
+		//Debug.DrawLine ((Vector3)origin, (Vector3)(origin + direction * 0.03f));
 
 		//Returns true if nothing is hit
 		if (!rh2d) {
