@@ -13,7 +13,8 @@ public class Air : BoardManager {
 
 	public new void SetupScene()
 	{
-		BoardSetup();
-		Path(floorTiles);
+		//BoardSetup();
+		//Path(floorTiles);
+		base.SetupScene();
 	} 
 }

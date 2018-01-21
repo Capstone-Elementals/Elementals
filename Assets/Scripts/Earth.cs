@@ -20,7 +20,8 @@ public class Earth : BoardManager {
 
 	public new void SetupScene()
 	{
-		BoardSetup();
-		Path(floorTiles);
+//		BoardSetup();
+//		Path(floorTiles);
+		base.SetupScene();
 	} 
 }

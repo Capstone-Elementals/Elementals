@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
-using System.Collections.Generic;       //Allows us to use Lists.
-using Random = UnityEngine.Random;      //Tells Random to use the Unity Engine random number generator.
+using System.Collections.Generic;       //Lists
+using Random = UnityEngine.Random;      //Unity engine Random function
 
 
 public class BoardManager : MonoBehaviour
@@ -32,12 +32,15 @@ public class BoardManager : MonoBehaviour
 	public GameObject[] e2Tiles;//Array of tiles with 2 entrance
 	public GameObject[] e3Tiles;//Array of tiles with 3 entrance
 	public GameObject[] e4Tiles;//Array of tiles with 4 entrance
+	public GameObject[] enemies;
+	public Count enemiesCount = new Count (1, 10);
 	public GameObject player;//Prefab of player
 	public GameObject edgeV;
 	public GameObject edgeH;
 
     private Transform boardHolder;//A variable to store a reference to the transform of our Board object.
     private List<GameObject> objects = new List<GameObject>();//List of all objects in Board
+	protected List<int> RandomPosRecord = new List<int>();
     //Sets up the outer walls and floor (background) of the game board.
     protected void BoardSetup()
     {
@@ -89,12 +92,40 @@ public class BoardManager : MonoBehaviour
     {
         BoardSetup();
         Path(floorTiles);
+		ObjectRandomPos (enemies, enemiesCount.minimum, enemiesCount.maximum);
     }
+	protected void ObjectRandomPos (GameObject[] objectarray, int min, int max)
+	{
+		int limit = Random.Range (min, max + 1);
+		for (int i = 0; i < limit; i++) {
+			GameObject objecttobeinstantiated = objectarray[Random.Range(0,objectarray.Length)];
+			Vector3 randompos = RandomPos();
+			Instantiate(objecttobeinstantiated, randompos, Quaternion.identity);
+		}
+		RandomPosRecord.Clear ();
+	}
+	protected Vector3 RandomPos()
+	{
+		int randomint = Random.Range (0, objects.Count);
+		while (true) {
+				if (RandomPosRecord.Contains(randomint) == true) {
+					randomint = Random.Range (0, objects.Count);
+				} else {
+					break;
+				}	
+		}
+		RandomPosRecord.Add (randomint);
+		Transform temp = objects[randomint].transform;
+		Debug.Log ("x: " + temp.position.x + " y: " + temp.position.y);
+		Vector3 tempVectpor = new Vector3 (temp.position.x, temp.position.y, 0f);
+		return tempVectpor;
+	}
 	protected void PlaceTile (int y)
 	{
 		GameObject tileChoice = e4Tiles [Random.Range (0, e4Tiles.Length)];
 		GameObject instance = Instantiate (tileChoice, new Vector3 (objects [y].transform.position.x, objects [y].transform.position.y, objects [y].transform.position.z), Quaternion.identity) as GameObject;
 		Destroy (objects [y]);
+		objects.RemoveAt(y);
 		instance.transform.SetParent (boardHolder);
 		objects.Add (instance);
 	}
