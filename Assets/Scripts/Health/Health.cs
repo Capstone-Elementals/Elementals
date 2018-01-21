@@ -29,11 +29,6 @@ public class Health : MonoBehaviour {
 			health -= damageTaken;
 		}
 
-		//If no health left, destroy the gameObject
-		if (health <= 0) {
-			Destroy (this.gameObject);
-		}
-
 		updateBar ();
 	}
 

@@ -88,6 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4020234459248694}
   - component: {fileID: 61190030319794432}
+  - component: {fileID: 114104872694991704}
   - component: {fileID: 114076361367804784}
   - component: {fileID: 114356262647299800}
   - component: {fileID: 50883522311247568}
@@ -216,7 +217,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1478648696307420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 548.2131, y: 349.38748, z: 0}
+  m_LocalPosition: {x: -125.57964, y: 64.07939, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4422255637463886}
@@ -553,6 +554,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toDrop: {fileID: 1188165032963218, guid: bbc3044074e5ae3468b18c30e80f0601, type: 2}
+--- !u!114 &114104872694991704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437712684502286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcea39fd91feb9459e844ded8808d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 1
+  speed: 3
 --- !u!114 &114356262647299800
 MonoBehaviour:
   m_ObjectHideFlags: 1

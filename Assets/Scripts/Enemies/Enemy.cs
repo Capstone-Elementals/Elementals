@@ -28,14 +28,14 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	/*
-	void FixedUpdate (){
-		rb2d.velocity = new Vector2 (.5f, 0);
+	//Used to see if the object should die
+	void FixedUpdate() {
+		if (health.health == 0)
+			destroy ();
 	}
-	*/
 
 	//This is a Unity defined function called when an object is destroyed
-	void OnDestroy() {
+	void destroy() {
 		Instantiate<GameObject> (toDrop, transform.position, transform.rotation);
 		Destroy (this.gameObject);
 	}
