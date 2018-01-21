@@ -359,6 +359,7 @@ MonoBehaviour:
   axesToUse: 0
   horizontalAxisName: HorizontalShoot
   verticalAxisName: VerticalShoot
+  jumpWindow: 10
 --- !u!114 &1616188060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,6 +449,7 @@ MonoBehaviour:
   axesToUse: 0
   horizontalAxisName: HorizontalMove
   verticalAxisName: VerticalMove
+  jumpWindow: 5
 --- !u!114 &1658531165
 MonoBehaviour:
   m_ObjectHideFlags: 0
