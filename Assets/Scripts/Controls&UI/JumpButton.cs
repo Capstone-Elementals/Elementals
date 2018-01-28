@@ -10,7 +10,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 		public PlayerInterface player = null;
 
 		//The number of frames in which the player has to release the joystick in order to jump
-		//public int jumpWindow = 10;
+		public int jumpWindow = 10;
 		private int framesSinceLastTap = 0;
 
 		public void OnPointerUp(PointerEventData data)
