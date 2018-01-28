@@ -217,6 +217,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d4ef18a40d30194199e7cad422f15cd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &511432127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 511432128}
+  m_Layer: 0
+  m_Name: 1-r-way
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &511432128
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 511432127}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1380296348
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +387,6 @@ MonoBehaviour:
   axesToUse: 0
   horizontalAxisName: HorizontalShoot
   verticalAxisName: VerticalShoot
-  jumpWindow: 10
 --- !u!114 &1616188060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,7 +476,6 @@ MonoBehaviour:
   axesToUse: 0
   horizontalAxisName: HorizontalMove
   verticalAxisName: VerticalMove
-  jumpWindow: 5
 --- !u!114 &1658531165
 MonoBehaviour:
   m_ObjectHideFlags: 0
