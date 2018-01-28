@@ -102,7 +102,6 @@ public class BoardManager : MonoBehaviour
 			Vector3 randompos = RandomPos();
 			Instantiate(objecttobeinstantiated, randompos, Quaternion.identity);
 		}
-		RandomPosRecord.Clear ();
 	}
 	protected Vector3 RandomPos()
 	{
@@ -124,7 +123,6 @@ public class BoardManager : MonoBehaviour
 		GameObject tileChoice = e4Tiles [Random.Range (0, e4Tiles.Length)];
 		GameObject instance = Instantiate (tileChoice, new Vector3 (objects [y].transform.position.x, objects [y].transform.position.y, objects [y].transform.position.z), Quaternion.identity) as GameObject;
 		Destroy (objects [y]);
-		objects.RemoveAt(y);
 		instance.transform.SetParent (boardHolder);
 		objects.Add (instance);
 	}
