@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	public int level = 0;
     public static GameManager instance = null;
 	private BoardManager boardScript;
 	//Called when Game started
@@ -21,16 +20,16 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-		if (level == 0) {
+		if (LevelManager.level == 0) {
 			boardScript = GetComponent<Fire>();
 		}
-		if (level == 1) {
+		if (LevelManager.level  == 1) {
 			boardScript = GetComponent<Earth>();
 		}
-		if (level == 2) {
+		if (LevelManager.level  == 2) {
 			boardScript = GetComponent<Water>();
 		}
-		if (level == 3) {
+		if (LevelManager.level  == 3) {
 			boardScript = GetComponent<Air>();
 		}
         
