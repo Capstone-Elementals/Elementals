@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
 	private BoardManager boardScript;
 
-    private BoardManager boardScript;
 	//Called when Game started
     void Awake()
     {
