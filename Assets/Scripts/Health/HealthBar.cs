@@ -16,14 +16,14 @@ public class HealthBar : MonoBehaviour {
 		//Grab the sprite renderer for color control
 		renderer = (SpriteRenderer)GetComponent<SpriteRenderer> ();
 
-		if (renderer != null)
-			Debug.Log ("Successfully found sprite renderer.");
+		//if (renderer != null)
+		//	Debug.Log ("Successfully found sprite renderer.");
 
 		//Grab the health component of the parent object for health data
 		parentHealth = (Health) this.transform.parent.GetComponent<Health>();
 
-		if (parentHealth != null)
-			Debug.Log ("Successfully found parent health.");
+		//if (parentHealth != null)
+		//	Debug.Log ("Successfully found parent health.");
 
 		update (1, 1);
 	}
