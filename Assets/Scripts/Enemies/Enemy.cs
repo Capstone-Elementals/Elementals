@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour {
 		// Grab the health script of an enemy
 		health = (Health) GetComponent<Health> ();
 		rb2d = (Rigidbody2D) GetComponent<Rigidbody2D> ();
-		rb2d.freezeRotation = true;
+		//rb2d.freezeRotation = true;
 	}
 
 	void OnCollisionEnter2D (Collision2D col) {
