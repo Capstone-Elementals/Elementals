@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4062548822974096}
   - component: {fileID: 212123829011726746}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire_tile_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4173853985753252}
   - component: {fileID: 212896781803262962}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire_tile_0 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4286225741644476}
   - component: {fileID: 61990064240410482}
-  m_Layer: 0
+  - component: {fileID: 251204961220841774}
+  m_Layer: 9
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4453313415126914}
   - component: {fileID: 212046231832943566}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire_tile_0 (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4806748957559618}
   - component: {fileID: 212213248657998810}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire_tile_0 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4017315885403278}
   - component: {fileID: 212404409268021040}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire_tile_0 (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4882837614670168}
   - component: {fileID: 212394618054045980}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire_tile_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4170809973078340}
   - component: {fileID: 212217421925515308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire_tile_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4306393206669750}
   - component: {fileID: 212515309003304116}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire_tile_0 (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4822743827075144}
   - component: {fileID: 212364873630050348}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire_tile_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4190781095573994}
   - component: {fileID: 212215211650033012}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire_tile_0 (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +351,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -805,3 +806,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!251 &251204961220841774
+PlatformEffector2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162459349425148}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

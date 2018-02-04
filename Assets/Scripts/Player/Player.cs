@@ -46,7 +46,9 @@ public class Player : PhysicsObject, PlayerInterface
 	public Weapon getWeapon2(){
 		return playerWeapon2;
 	}
-
+	public Vector2 getVelocity(){
+		return velocity;
+	}
 	
 	public void jump() {
 		jumpPending = true;

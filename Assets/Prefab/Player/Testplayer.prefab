@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 50304875615581690}
   - component: {fileID: 70344190649821436}
   - component: {fileID: 114051403437561912}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Testplayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 124584594096796218}
   - component: {fileID: 92426278311496924}
   - component: {fileID: 81043369819516554}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 4570821599405180}
   - component: {fileID: 212699595748346096}
   - component: {fileID: 114972698178313462}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AimReticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,6 +139,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -222,6 +223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minGroundNormalY: 0.65
   gravityModifier: 1
+  identifier: nothing
+  velocity: {x: 0, y: 0}
   maxSpeed: 7
   jumpTakeOffSpeed: 7
 --- !u!114 &114972698178313462
@@ -237,6 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toShoot: {fileID: 1967134909186848, guid: 2550362bedaba4a4c9d84159452bd5f9, type: 2}
   fireRate: 30
+  distanceFromPlayer: 0.5
 --- !u!124 &124584594096796218
 Behaviour:
   m_ObjectHideFlags: 1
