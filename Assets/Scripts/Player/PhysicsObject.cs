@@ -73,6 +73,7 @@ public class PhysicsObject : MonoBehaviour
         {
             int count = rb2d.Cast(move, contactFilter, hitBuffer, distance + shellRadius);
             hitBufferList.Clear();
+
             for (int i = 0; i < count; i++)
             {
                 hitBufferList.Add(hitBuffer[i]);
@@ -87,7 +88,7 @@ public class PhysicsObject : MonoBehaviour
                     if (yMovement)
                     {
                         groundNormal = currentNormal;
-                        currentNormal.x = 0;
+                        //currentNormal.x = 0;
                     }
                 }
 

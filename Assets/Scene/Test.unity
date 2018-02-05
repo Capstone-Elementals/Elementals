@@ -568,9 +568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementRange: 100
-  axesToUse: 1
   horizontalAxisName: HorizontalMove
-  verticalAxisName: VerticalMove
 --- !u!114 &1658531165
 MonoBehaviour:
   m_ObjectHideFlags: 0
