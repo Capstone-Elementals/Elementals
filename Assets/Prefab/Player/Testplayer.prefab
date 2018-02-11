@@ -255,6 +255,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4294967039
+  jumpForce: 500
 --- !u!114 &114972698178313462
 MonoBehaviour:
   m_ObjectHideFlags: 1

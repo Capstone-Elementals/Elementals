@@ -56,7 +56,6 @@ public class PlayerController : MonoBehaviour
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
 		anim.SetBool ("Ground", grounded);
 		anim.SetFloat("vSpeed", rb2d.velocity.y);
-		Debug.Log (grounded);
 		float move = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("HorizontalMove") * 0.5f;
 		anim.SetFloat ("Speed", Mathf.Abs (move));
 		rb2d.velocity = new Vector2 (move * maxpeed, rb2d.velocity.y); 
