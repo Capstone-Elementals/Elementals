@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4423332002073520}
   - component: {fileID: 212622336355485766}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire_tile_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4779020974907824}
   - component: {fileID: 212525961433199490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire_tile_0 (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4743620575978892}
   - component: {fileID: 212210799735851982}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire_tile_0 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4079803679817030}
   - component: {fileID: 212878096484957072}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire_tile_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4845821416671314}
   - component: {fileID: 212888032955169362}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire_tile_0 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4040949860360588}
   - component: {fileID: 212564974685424470}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire_tile_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4872519688494552}
   - component: {fileID: 212652763824662090}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire_tile_0 (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4822496870308676}
   - component: {fileID: 212856757465386978}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire_tile_0 (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4521021277894906}
   - component: {fileID: 212546045549850330}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire_tile_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4353800683792392}
   - component: {fileID: 212987751758606846}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire_tile_0 (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4429400180147336}
   - component: {fileID: 61497488028552004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +529,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1828346077328600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.653727, y: -0.0015971661, z: 0}
+  m_LocalPosition: {x: -3.1739438, y: -3.8615754, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4935756931426192}
@@ -671,7 +671,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1855344849515162}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.04, y: 0.84, z: 0}
+  m_LocalPosition: {x: -0.13, y: 1.08, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 4168757508793760}
