@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
 		anim.SetFloat("vSpeed", rb2d.velocity.y);
 		float move = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("HorizontalMove") * 0.5f;
 		anim.SetFloat ("Speed", Mathf.Abs (move));
-		rb2d.velocity = new Vector2 (move * maxpeed, rb2d.velocity.y); 
+		rb2d.velocity = new Vector2 (Mathf.Clamp(move * maxpeed, -10, 10), rb2d.velocity.y); 
 		if (move > 0 && !facingRight) {
 			Flip ();		}
 		else if(move < 0 && facingRight)
