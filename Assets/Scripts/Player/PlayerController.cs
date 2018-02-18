@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
 public class PlayerController : MonoBehaviour
-{
+{	
+
+	private Health health; 
 	public float maxpeed = 10f;
 	bool facingRight = true;
 	private Rigidbody2D rb2d;
@@ -48,6 +51,7 @@ public class PlayerController : MonoBehaviour
 	}
 	void Start()
 	{
+		health = (Health) GetComponent<Health> ();
 		rb2d = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 	}
@@ -77,6 +81,10 @@ public class PlayerController : MonoBehaviour
 		} 
 
 		jumpPending = false;
+//		if (isDead ()) {
+//			destroy ();
+//		}
+
 	}
 	void Flip()
 	{
@@ -84,5 +92,25 @@ public class PlayerController : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+	void OnCollisionEnter2D (Collision2D col) {
+		if (col.gameObject.tag.Contains("Enemy")) {
+			//Grab the damage of the incoming bullet
+			int damage = col.gameObject.GetComponent<Enemy> ().bodyDamage;
+
+			//Hurt this object
+			health.damage (damage);
+		}
+	}
+	bool isDead()
+	{
+		if (health.health == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	void destroy() {
+		Destroy (this.gameObject);
 	}
 }

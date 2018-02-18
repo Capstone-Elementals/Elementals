@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour {
 
 	private Health health;
 	private Rigidbody2D rb2d;
+	public int bodyDamage = 1;
 
 	void Start() {
 		// Grab the health script of an enemy
