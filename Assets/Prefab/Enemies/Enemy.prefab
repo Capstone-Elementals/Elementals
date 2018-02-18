@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 212248431660969124}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toDrop: {fileID: 1188165032963218, guid: bbc3044074e5ae3468b18c30e80f0601, type: 2}
+  bodyDamage: 1
 --- !u!114 &114575396303133156
 MonoBehaviour:
   m_ObjectHideFlags: 1

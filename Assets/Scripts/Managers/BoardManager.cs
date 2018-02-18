@@ -37,7 +37,7 @@ public class BoardManager : MonoBehaviour
 	public GameObject player;//Prefab of player
 	public GameObject edgeV;
 	public GameObject edgeH;
-
+	public GameObject background;
     private Transform boardHolder;//A variable to store a reference to the transform of our Board object.
     private List<GameObject> objects = new List<GameObject>();//List of all objects in Board
 	protected List<int> RandomPosRecord = new List<int>();
@@ -93,7 +93,14 @@ public class BoardManager : MonoBehaviour
         BoardSetup();
         Path(floorTiles);
 		ObjectRandomPos (enemies, enemiesCount.minimum, enemiesCount.maximum);
+		//initBackground ();
     }
+	protected void initBackground()
+	{
+		GameObject background_setter = background;
+		background_setter.GetComponent<Transform> ().SetPositionAndRotation(new Vector3 (rows*scalex,columns*scaley, 100),Quaternion.identity);
+		Instantiate (background_setter, new Vector3 ((rows*scalex)/2, (columns*scaley/2), 0), Quaternion.identity);
+	}
 	protected void ObjectRandomPos (GameObject[] objectarray, int min, int max)
 	{
 		int limit = Random.Range (min, max + 1);

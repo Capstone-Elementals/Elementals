@@ -102,6 +102,7 @@ MonoBehaviour:
   player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
   edgeV: {fileID: 1241922943831126, guid: d15f2379fb128034fa0de052dfe8f82a, type: 2}
   edgeH: {fileID: 1622422197677620, guid: 2e12febd1cabd8c469e8c80f5d20ee1b, type: 2}
+  background: {fileID: 0}
 --- !u!114 &114457743336267146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,6 +167,7 @@ MonoBehaviour:
   player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
   edgeV: {fileID: 1507105017140918, guid: 92a2d2fea0cc2f9419c966e03cf33d64, type: 2}
   edgeH: {fileID: 1185186878638100, guid: 5e595f64f85f5e242b11a3387657d51c, type: 2}
+  background: {fileID: 0}
 --- !u!114 &114783504018255998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,6 +227,7 @@ MonoBehaviour:
   player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
   edgeV: {fileID: 1527009854326996, guid: 07d1464fc12b1c04aafce329dea4bead, type: 2}
   edgeH: {fileID: 1112059531994188, guid: 56bf78b8d0038c7478fdcd639d38de60, type: 2}
+  background: {fileID: 1140805347691986, guid: fd91d15779f021245b0da7b6cd03397d, type: 2}
 --- !u!114 &114976928423253796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,6 +286,7 @@ MonoBehaviour:
   player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
   edgeV: {fileID: 1241922943831126, guid: d15f2379fb128034fa0de052dfe8f82a, type: 2}
   edgeH: {fileID: 1622422197677620, guid: 2e12febd1cabd8c469e8c80f5d20ee1b, type: 2}
+  background: {fileID: 0}
 --- !u!114 &114986717591856520
 MonoBehaviour:
   m_ObjectHideFlags: 1
