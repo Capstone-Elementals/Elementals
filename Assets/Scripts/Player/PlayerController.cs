@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 	{
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
 		anim.SetBool ("Ground", grounded);
-		anim.SetFloat("vSpeed", rb2d.velocity.y);
+		anim.SetFloat("Speed", rb2d.velocity.y);
 		float move = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("HorizontalMove") * 0.5f;
 		anim.SetFloat ("Speed", Mathf.Abs (move));
 		rb2d.velocity = new Vector2 (Mathf.Clamp(move * maxpeed, -10, 10), rb2d.velocity.y); 
@@ -70,11 +70,13 @@ public class PlayerController : MonoBehaviour
 	}
 	void Update()
 	{
-		if(grounded && Input.GetKeyDown(KeyCode.Space))
-		{
-			anim.SetBool ("Ground", false);
+		//Vertical Movement
+		if ((jumpPending | Input.GetKeyDown(KeyCode.Space)) && grounded) {
 			rb2d.AddForce (new Vector2 (0, jumpForce));
-		}
+			anim.SetTrigger ("Jump");
+		} 
+
+		jumpPending = false;
 	}
 	void Flip()
 	{
