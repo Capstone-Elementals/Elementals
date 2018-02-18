@@ -5,23 +5,24 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class PlayerController : MonoBehaviour
 {	
-
 	private Health health; 
 	public float maxpeed = 10f;
-	bool facingRight = true;
+	private bool facingRight = true;
 	private Rigidbody2D rb2d;
-	Animator anim;
-	bool grounded = false;
+	private Animator anim;
+	private bool grounded = false;
 	public Transform groundCheck;
-	float groundRadius = 0.2f;
+	private float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
 	public float jumpForce = 700;
-	private float essence = 0;
 	private Armor playerArmor;
 	private Boot playerBoot;
 	private Weapon playerWeapon1;
 	private Weapon playerWeapon2;
 	private bool jumpPending;
+
+
+	//Set and Get functions
 	public void setArmor(Armor armor){
 		this.playerArmor = armor;
 	}
@@ -49,12 +50,15 @@ public class PlayerController : MonoBehaviour
 	public void jump() {
 		jumpPending = true;
 	}
+
+	//Initialization
 	void Start()
 	{
 		health = (Health) GetComponent<Health> ();
 		rb2d = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 	}
+	//Player physics
 	void FixedUpdate()
 	{
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
@@ -81,11 +85,12 @@ public class PlayerController : MonoBehaviour
 		} 
 
 		jumpPending = false;
-//		if (isDead ()) {
-//			destroy ();
-//		}
+		if (isDead ()) {
+			Dead();
+		}
 
 	}
+	//Flip sprite when changing direction
 	void Flip()
 	{
 		facingRight = !facingRight;
@@ -93,6 +98,7 @@ public class PlayerController : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+	//Damage functions
 	void OnCollisionEnter2D (Collision2D col) {
 		if (col.gameObject.tag.Contains("Enemy")) {
 			//Grab the damage of the incoming bullet
@@ -102,6 +108,8 @@ public class PlayerController : MonoBehaviour
 			health.damage (damage);
 		}
 	}
+
+	//Death handlers
 	bool isDead()
 	{
 		if (health.health == 0) {
@@ -112,5 +120,9 @@ public class PlayerController : MonoBehaviour
 	}
 	void destroy() {
 		Destroy (this.gameObject);
+	}
+	void Dead()
+	{
+
 	}
 }
