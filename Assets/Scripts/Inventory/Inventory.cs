@@ -36,6 +36,12 @@ public class Inventory : MonoBehaviour {
 	}
 	bool savefile()
 	{
+		bool exists = false;
 		//Check if a save file exists
+		if (exists) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
