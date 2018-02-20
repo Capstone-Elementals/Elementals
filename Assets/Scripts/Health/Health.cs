@@ -15,7 +15,14 @@ public class Health : MonoBehaviour {
 		healthBar = (HealthBar)transform.GetComponentInChildren<HealthBar>();
 		health = maxHealth;
 	}
-
+	public void setHealth(int inputHP)
+	{
+		health = inputHP;
+	}
+	public int getHealth()
+	{
+		return health;
+	}
 	public void damage(int damageTaken) {
 
 		//Catch negative damage

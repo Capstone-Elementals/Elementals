@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*	Author: Powered by Coffee
+ * 	Description: Earth Level script
+ * 
+ * 
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

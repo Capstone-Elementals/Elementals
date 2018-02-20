@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*	Author: Powered by Coffee
+ * 	Description: Armor object controls all defensive player gear
+ * 
+ * 
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,12 +14,15 @@ public class Armor {
 	private float defense;
 	private float bonusDefense;
 	private float totalDefense;
-	Armor(){
-		gem1 = null;
-		gem2 = null;
-		gem3 = null;
+	public Armor(){
+		gem1 = new Gem();
+		gem2 = new Gem();
+		gem3 = new Gem();
+		defense = 0;
+		bonusDefense = 0;
+		totalDefense = 0;
 	}
-	Armor(Gem gem1, Gem gem2, Gem gem3, float defense){
+	public Armor(Gem gem1, Gem gem2, Gem gem3, float defense){
 		this.gem1 = gem1;
 		this.gem2 = gem2;
 		this.gem3 = gem3;

@@ -1,25 +1,31 @@
-﻿using System.Collections;
+﻿/*	Author: Powered by Coffee
+ * 	Description: Player physics and controls are here.
+ * 
+ * 
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
 public class PlayerController : MonoBehaviour
 {	
-	private Health health; 
-	public float maxpeed = 10f;
-	private bool facingRight = true;
-	private Rigidbody2D rb2d;
-	private Animator anim;
-	private bool grounded = false;
-	public Transform groundCheck;
-	private float groundRadius = 0.2f;
-	public LayerMask whatIsGround;
-	public float jumpForce = 700;
-	private Armor playerArmor;
-	private Boot playerBoot;
-	private Weapon playerWeapon1;
-	private Weapon playerWeapon2;
-	private bool jumpPending;
+	private Health health; //Player health
+	private Stats playerStats = new Stats(); //Players Stats
+	public float maxpeed = 10f; // Player max speed
+	private bool facingRight = true; //Check which way player is facing
+	private Rigidbody2D rb2d; // Rigidbody 2D that is on this object
+	private Animator anim; // Animator that is on this object
+	private bool grounded = false; // Check if player is on the ground
+	public Transform groundCheck; // transform of where to check for ground
+	private float groundRadius = 0.2f; // Circle below player that checks of ground
+	public LayerMask whatIsGround; // Indicates which layers of game are ground
+	public float jumpForce = 700; // Force of player jump
+	private Armor playerArmor = new Armor(); // Players Armor
+	private Boot playerBoot = new Boot(); // Players Boots
+	private Weapon playerWeapon1 = new Weapon(); // Players Weapon 1
+	private Weapon playerWeapon2 = new Weapon(); // Players Weapon 2
+	private bool jumpPending; // Player is jumping or not
 
 
 	//Set and Get functions
@@ -35,11 +41,19 @@ public class PlayerController : MonoBehaviour
 	public void setWeapon2(Weapon weapon2){
 		this.playerWeapon2 = weapon2;
 	}
+	public void setStat(Stats inputStats)
+	{
+		playerStats = inputStats;
+	}
 	public Armor getArmor(){
 		return playerArmor;
 	}
 	public Boot getBoot(){
 		return playerBoot;
+	}
+	public Stats getStat()
+	{
+		return playerStats;
 	}
 	public Weapon getWeapon1(){
 		return playerWeapon1;
@@ -54,7 +68,9 @@ public class PlayerController : MonoBehaviour
 	//Initialization
 	void Start()
 	{
+		
 		health = (Health) GetComponent<Health> ();
+		health.setHealth ((int)(health.maxHealth * playerStats.getVitality ()));
 		rb2d = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 	}
@@ -102,10 +118,10 @@ public class PlayerController : MonoBehaviour
 	void OnCollisionEnter2D (Collision2D col) {
 		if (col.gameObject.tag.Contains("Enemy")) {
 			//Grab the damage of the incoming bullet
-			int damage = col.gameObject.GetComponent<Enemy> ().bodyDamage;
+			int damageTaken = col.gameObject.GetComponent<Enemy> ().bodyDamage;
 
 			//Hurt this object
-			health.damage (damage);
+			health.damage (damageTaken);
 		}
 	}
 

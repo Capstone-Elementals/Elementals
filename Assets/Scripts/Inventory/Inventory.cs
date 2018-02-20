@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*	Author: Powered by Coffee
+ * 	Description: Inventory object. Used to control players inventory.
+ *  Will communicate with ui scenes.
+ * 
+ * 
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

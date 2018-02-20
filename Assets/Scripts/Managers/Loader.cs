@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*	Author: Powered by Coffree
+ * Description: Loads up game on start up
+ * 
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

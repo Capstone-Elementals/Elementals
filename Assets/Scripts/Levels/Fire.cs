@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*	Author: Powered by Coffee
+ * 	Description: Fire level script
+ * 
+ * 
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

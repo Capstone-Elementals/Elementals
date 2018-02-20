@@ -1,11 +1,16 @@
-﻿using System.Collections;
+﻿/*	Author: Powered by Coffee
+ * 	Description: Boot object used to set player unqiue ability
+ * 
+ * 
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Boot {
 	private Gem bootgem;
 
-	Boot (){
+	public Boot (){
 		bootgem = null;
 	}
 

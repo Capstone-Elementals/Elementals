@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*	Author: Powered by Coffee
+ * 	Description: Weapons object, Controls all damage output of player
+ * 
+ * 
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,12 +14,15 @@ public class Weapon {
 	private float damage;
 	private float bonusDamage;
 	private float totalDamage;
-	Weapon(){
-		gem1 = null;
-		gem2 = null;
-		gem3 = null;
+	public Weapon(){
+		gem1 = new Gem();
+		gem2 = new Gem();
+		gem3 = new Gem();
+		damage = 1;
+		bonusDamage = 0;
+		totalDamage = 0;
 	}
-	Weapon(Gem gem1, Gem gem2, Gem gem3, float damage){
+	public Weapon(Gem gem1, Gem gem2, Gem gem3, float damage){
 		this.gem1 = gem1;
 		this.gem2 = gem2;
 		this.gem3 = gem3;

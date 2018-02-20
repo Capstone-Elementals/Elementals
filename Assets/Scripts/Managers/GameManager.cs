@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*	Author: Powered By Coffee
+ * Description: GameObject which holds the creation of the level.
+ * 
+ * 
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,6 +25,15 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+
+        
+
+        InitGame();
+    }
+
+    //Initializes the game for each level.
+    void InitGame()
+    {
 		if (LevelManager.level == 0) {
 			boardScript = GetComponent<Fire>();
 		}
@@ -32,14 +46,6 @@ public class GameManager : MonoBehaviour
 		if (LevelManager.level  == 3) {
 			boardScript = GetComponent<Air>();
 		}
-        
-
-        InitGame();
-    }
-
-    //Initializes the game for each level.
-    void InitGame()
-    {
         //Call the SetupScene function of the BoardManager script, pass it current level number.
 		boardScript.SetupScene ();
 

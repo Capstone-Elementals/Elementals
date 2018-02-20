@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*	Author: Powered by Coffee
+ * 	Description: Player Stats will be stored here
+ * 
+ * 
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,24 +11,24 @@ public class Stats {
 	private float Vitality;
 	private float Strength;
 
-	Stats(){
-		Vitality = 0;
-		Strength = 0;
+	public Stats(){
+		Vitality = 10;
+		Strength = 5;
 	}
-	Stats(float vit, float str){
+	 public Stats(float vit, float str){
 		Vitality = vit;
 		Strength = str;
 	}
-	public void setvit(float vit){
+	public void setVitality(float vit){
 		Vitality = vit;
 	}
-	public void setstr(float str){
+	public void setStrength(float str){
 		Strength = str;
 	}
-	public float getvit(){
+	public float getVitality(){
 		return Vitality;
 	}
-	public float getstr(){
+	public float getStrength(){
 		return Strength;
 	}
 }

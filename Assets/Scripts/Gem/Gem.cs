@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*	Author: Powered by Coffee
+ * 	Description: Gem object for upgrade player gear
+ * 
+ * 
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +11,7 @@ public class Gem {
 	private float bonus;
 	private char element;
 
-	Gem(){
+	public Gem(){
 		bonus = 0;
 		element = 'N';
 	}
