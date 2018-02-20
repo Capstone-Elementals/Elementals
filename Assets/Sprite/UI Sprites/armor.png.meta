@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 29cd6b5e1723b3d43952297fb4bc5eeb
-timeCreated: 1517789794
+timeCreated: 1519076219
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -525,6 +525,20 @@ TextureImporter:
         height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: armor_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 715
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
