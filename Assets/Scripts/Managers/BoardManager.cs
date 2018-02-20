@@ -1,4 +1,16 @@
-﻿using UnityEngine;
+﻿/*	Author: Power By Coffee 2017-2018
+ *	Lead Developer: Ahmed Shamiss 
+ *	Description: This object generates each level. Procedural generation of level and
+ *  placement of objects and enemies is done by this script. 
+ * 	There is a function for each step to fully create the level.
+ * 	BoardSetup
+ * 	Path
+ *	ObjectRandomPos
+ *
+*/
+
+
+using UnityEngine;
 using System;
 using System.Collections.Generic;       //Lists
 using Random = UnityEngine.Random;      //Unity engine Random function
@@ -32,42 +44,51 @@ public class BoardManager : MonoBehaviour
 	public GameObject[] e2Tiles;//Array of tiles with 2 entrance
 	public GameObject[] e3Tiles;//Array of tiles with 3 entrance
 	public GameObject[] e4Tiles;//Array of tiles with 4 entrance
-	public GameObject[] enemies;
-	public Count enemiesCount = new Count (1, 10);
+	public GameObject[] enemies;//Array of enemies to be used to leevel
+	public Count enemiesCount = new Count (1, 10); // max and min of amount of enemies to be placed in level
 	public GameObject player;//Prefab of player
-	public GameObject edgeV;
-	public GameObject edgeH;
-	public GameObject background;
+	public GameObject edgeV;//Prefab for vertical edge of level
+	public GameObject edgeH;//Prefab for horizontal edge of level
+	public GameObject background;//Prefab for background of level
     private Transform boardHolder;//A variable to store a reference to the transform of our Board object.
+	private Transform edgeHolder;//A variable to store a reference to the transform of our Edge object.
+	private Transform objectHolder;//A variable to store a reference to the transform of our objects.
     private List<GameObject> objects = new List<GameObject>();//List of all objects in Board
-	protected List<int> RandomPosRecord = new List<int>();
-    //Sets up the outer walls and floor (background) of the game board.
+	protected List<int> RandomPosRecord = new List<int>();//List of positions used to place enemies or items.
+    //Sets up the outer walls and background of the level.
+	//Places Random tiles inside the outer walls
     protected void BoardSetup()
     {
         //Instantiate Board and set boardHolder to its transform.
         boardHolder = new GameObject("Board").transform;
-
-        //Loop along x axis, starting from -1 (to fill corner) with floor or outerwall edge tiles.
+		edgeHolder = new GameObject ("Edge").transform;
+		objectHolder = new GameObject ("Objects").transform;
+        //Loop along x axis
         for (int x = 0; x < ( scalex *rows) ; x = x + scalex)
         {
-            //Loop along y axis, starting from -1 to place floor or outerwall tiles.
+            //Loop along y axis
             for (int y = 0; y < ( scaley *columns) ; y = y + scaley)
             {
+				//Place Borders
 				if (x == 0) {
 					GameObject edge = edgeV;
-					Instantiate (edge, new Vector3 (x - (scalex / 2), y, 0f), Quaternion.identity);
+					GameObject edgeinstance = Instantiate (edge, new Vector3 (x - (scalex/2), y, 0f), Quaternion.identity) as GameObject;
+					edgeinstance.transform.SetParent(edgeHolder);
 				}
 				if(x == (scalex * rows) - scalex){
 					GameObject edge = edgeV;
-					Instantiate (edge, new Vector3 (x + (scalex / 2), y, 0f), Quaternion.identity);
+					GameObject edgeinstance = Instantiate (edge, new Vector3 (x + (scalex/2), y, 0f), Quaternion.identity) as GameObject;
+					edgeinstance.transform.SetParent(edgeHolder);
 				}
 				if(y == 0){
 					GameObject edge = edgeH;
-					Instantiate (edge, new Vector3 (x, y - (scaley/2), 0f), Quaternion.identity);
+					GameObject edgeinstance = Instantiate (edge, new Vector3 (x, y - (scaley/2), 0f), Quaternion.identity) as GameObject;
+					edgeinstance.transform.SetParent(edgeHolder);
 				}
 				if (y == (scaley * columns) - scaley) {
 					GameObject edge = edgeH;
-					Instantiate (edge, new Vector3 (x, y + (scaley/2), 0f), Quaternion.identity);
+					GameObject edgeinstance = Instantiate (edge, new Vector3 (x, y + (scaley/2), 0f), Quaternion.identity) as GameObject;
+					edgeinstance.transform.SetParent(edgeHolder);
 				}
                 //Choose a random tile from our array of floor tile prefabs and prepare to instantiate it.
                 GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
@@ -84,10 +105,12 @@ public class BoardManager : MonoBehaviour
             }
         }
     }
+	//Create the path for the player from start to finish, to be used by each individual level
 	protected virtual void Path(GameObject[] tileArray)
     {
 		
     }
+	//Function called when unity enters the scene
     public void SetupScene()
     {
         BoardSetup();
@@ -95,21 +118,25 @@ public class BoardManager : MonoBehaviour
 		ObjectRandomPos (enemies, enemiesCount.minimum, enemiesCount.maximum);
 		//initBackground ();
     }
+	//Instantiates the background of the level
 	protected void initBackground()
 	{
 		GameObject background_setter = background;
 		background_setter.GetComponent<Transform> ().SetPositionAndRotation(new Vector3 (rows*scalex,columns*scaley, 100),Quaternion.identity);
 		Instantiate (background_setter, new Vector3 ((rows*scalex)/2, (columns*scaley/2), 0), Quaternion.identity);
 	}
+	//Places an object at a random position
 	protected void ObjectRandomPos (GameObject[] objectarray, int min, int max)
 	{
 		int limit = Random.Range (min, max + 1);
 		for (int i = 0; i < limit; i++) {
 			GameObject objecttobeinstantiated = objectarray[Random.Range(0,objectarray.Length)];
 			Vector3 randompos = RandomPos();
-			Instantiate(objecttobeinstantiated, randompos, Quaternion.identity);
+			GameObject objectInstance = Instantiate(objecttobeinstantiated, randompos, Quaternion.identity) as GameObject;
+			objectInstance.transform.SetParent(objectHolder);
 		}
 	}
+	//Selects a random Vector3 position and returns it
 	protected Vector3 RandomPos()
 	{
 		int randomint = Random.Range (0, objects.Count);
@@ -125,6 +152,7 @@ public class BoardManager : MonoBehaviour
 		Vector3 tempVectpor = new Vector3 (temp.position.x, temp.position.y, 0f);
 		return tempVectpor;
 	}
+	//Places a game tile into the scene
 	protected void PlaceTile (int y)
 	{
 		GameObject tileChoice = e4Tiles [Random.Range (0, e4Tiles.Length)];
@@ -133,6 +161,7 @@ public class BoardManager : MonoBehaviour
 		instance.transform.SetParent (boardHolder);
 		objects.Add (instance);
 	}
+	//Creates a random path for the player
 	protected void RandomPath (int pos, int prevdir, bool gooddir, int invalid)
 	{	
 		List<int> traversedpath = new List<int>();
