@@ -56,7 +56,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   columns: 5
-  rows: 9
+  rows: 7
   scalex: 14
   scaley: 10
   boss: {fileID: 0}
@@ -99,9 +99,6 @@ MonoBehaviour:
   - {fileID: 1360885501402866, guid: 2470dcb7f329f5a4da4a06257a44ae0b, type: 2}
   enemies:
   - {fileID: 1304499964885638, guid: 388702b7d1985f343ac775732876e04f, type: 2}
-  enemiesCount:
-    minimum: 10
-    maximum: 50
   player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
   edgeV: {fileID: 1287625631454392, guid: e0452344d53c8184c938362317be0b57, type: 2}
   edgeH: {fileID: 1982444075937248, guid: f9c14dd905453fd4ea33e33373003636, type: 2}
@@ -164,9 +161,6 @@ MonoBehaviour:
   - {fileID: 1298725157486752, guid: 842babfcbdad19043a83b19ac17f2893, type: 2}
   enemies:
   - {fileID: 1304499964885638, guid: 388702b7d1985f343ac775732876e04f, type: 2}
-  enemiesCount:
-    minimum: 20
-    maximum: 50
   player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
   edgeV: {fileID: 1507105017140918, guid: 92a2d2fea0cc2f9419c966e03cf33d64, type: 2}
   edgeH: {fileID: 1185186878638100, guid: 5e595f64f85f5e242b11a3387657d51c, type: 2}
@@ -182,8 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b05c99b0bd8ce4c86149040f85080d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 10
-  rows: 10
+  columns: 5
+  rows: 4
   scalex: 10
   scaley: 20
   boss: {fileID: 0}
@@ -224,9 +218,6 @@ MonoBehaviour:
   - {fileID: 1402277810536716, guid: 298dbfd860436e24398c9a18f1c4655d, type: 2}
   enemies:
   - {fileID: 1304499964885638, guid: 388702b7d1985f343ac775732876e04f, type: 2}
-  enemiesCount:
-    minimum: 50
-    maximum: 100
   player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
   edgeV: {fileID: 1527009854326996, guid: 07d1464fc12b1c04aafce329dea4bead, type: 2}
   edgeH: {fileID: 1112059531994188, guid: 56bf78b8d0038c7478fdcd639d38de60, type: 2}
@@ -242,8 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bcbdf3454ac6c47b01d2a8473d6dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 6
-  rows: 6
+  columns: 8
+  rows: 8
   scalex: 7
   scaley: 6
   boss: {fileID: 0}
@@ -282,10 +273,8 @@ MonoBehaviour:
   - {fileID: 1360287900996950, guid: a1f4435f0fc924044a448e873ef2b989, type: 2}
   e4Tiles:
   - {fileID: 1478648696307420, guid: e2a69a29f5a38d1498195d41012f20a1, type: 2}
-  enemies: []
-  enemiesCount:
-    minimum: 1
-    maximum: 10
+  enemies:
+  - {fileID: 1304499964885638, guid: 388702b7d1985f343ac775732876e04f, type: 2}
   player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
   edgeV: {fileID: 1241922943831126, guid: d15f2379fb128034fa0de052dfe8f82a, type: 2}
   edgeH: {fileID: 1622422197677620, guid: 2e12febd1cabd8c469e8c80f5d20ee1b, type: 2}

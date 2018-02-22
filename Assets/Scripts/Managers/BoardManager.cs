@@ -19,7 +19,7 @@ using Random = UnityEngine.Random;      //Unity engine Random function
 public class BoardManager : MonoBehaviour
 {
     // Using Serializable allows us to embed a class with sub properties in the inspector.
-    [Serializable]
+	[Serializable]
     public class Count
     {
         public int minimum;             //Minimum value for our Count class.
@@ -44,8 +44,8 @@ public class BoardManager : MonoBehaviour
 	public GameObject[] e2Tiles;//Array of tiles with 2 entrance
 	public GameObject[] e3Tiles;//Array of tiles with 3 entrance
 	public GameObject[] e4Tiles;//Array of tiles with 4 entrance
-	public GameObject[] enemies;//Array of enemies to be used to leevel
-	public Count enemiesCount = new Count (1, 10); // max and min of amount of enemies to be placed in level
+	public GameObject[] enemies;//Array of enemies to be used to level
+	private Count enemiesCount = new Count (1, 10); // max and min of amount of enemies to be placed in level
 	public GameObject player;//Prefab of player
 	public GameObject edgeV;//Prefab for vertical edge of level
 	public GameObject edgeH;//Prefab for horizontal edge of level
@@ -57,6 +57,15 @@ public class BoardManager : MonoBehaviour
 	protected List<int> RandomPosRecord = new List<int>();//List of positions used to place enemies or items.
     //Sets up the outer walls and background of the level.
 	//Places Random tiles inside the outer walls
+	public Count getEnemyCount()
+	{
+		return this.enemiesCount;
+	}
+	public void setEnemyCount(int min, int max)
+	{
+		this.enemiesCount.minimum = min;
+		this.enemiesCount.maximum = max;
+	}
     protected void BoardSetup()
     {
         //Used to keep Scene hierarchy clean
