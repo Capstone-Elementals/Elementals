@@ -59,14 +59,12 @@ public class BoardManager : MonoBehaviour
 	//Places Random tiles inside the outer walls
     protected void BoardSetup()
     {
-        //Instantiate Board and set boardHolder to its transform.
+        //Used to keep Scene hierarchy clean
         boardHolder = new GameObject("Board").transform;
 		edgeHolder = new GameObject ("Edge").transform;
 		objectHolder = new GameObject ("Objects").transform;
-        //Loop along x axis
         for (int x = 0; x < ( scalex *rows) ; x = x + scalex)
         {
-            //Loop along y axis
             for (int y = 0; y < ( scaley *columns) ; y = y + scaley)
             {
 				//Place Borders
@@ -149,7 +147,7 @@ public class BoardManager : MonoBehaviour
 		}
 		RandomPosRecord.Add (randomint);
 		Transform temp = objects[randomint].transform;
-		Vector3 tempVectpor = new Vector3 (temp.position.x, temp.position.y, 0f);
+		Vector3 tempVectpor = new Vector3 (temp.position.x + Random.Range (-scalex/4, scalex/4), temp.position.y + Random.Range (-scaley/4, scaley/4), 0f);
 		return tempVectpor;
 	}
 	//Places a game tile into the scene

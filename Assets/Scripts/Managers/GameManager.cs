@@ -46,17 +46,17 @@ public class GameManager : MonoBehaviour
 		if (LevelManager.level  == 3) {
 			boardScript = GetComponent<Air>();
 		}
-		if (LevelManager.difficulty == 0) {
-			boardScript.enemiesCount.maximum = 20;
-			boardScript.enemiesCount.minimum = 10;
-		}
-		if (LevelManager.difficulty  == 1) {
-			boardScript.enemiesCount.maximum = 30;
-			boardScript.enemiesCount.minimum = 20;
-		}
-		if (LevelManager.difficulty  == 2) {
-			boardScript.enemiesCount.maximum = 40;
+		if (DifficultyManager.difficulty == 0) {
+			boardScript.enemiesCount.maximum = 50;
 			boardScript.enemiesCount.minimum = 30;
+		}
+		if (DifficultyManager.difficulty  == 1) {
+			boardScript.enemiesCount.maximum = 75;
+			boardScript.enemiesCount.minimum = 50;
+		}
+		if (DifficultyManager.difficulty  == 2) {
+			boardScript.enemiesCount.maximum = 90;
+			boardScript.enemiesCount.minimum = 75;
 		}
 
         //Call the SetupScene function of the BoardManager script, pass it current level number.
