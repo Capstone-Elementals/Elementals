@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 	private Animator anim; // Animator that is on this object
 	private bool grounded = false; // Check if player is on the ground
 	public Transform groundCheck; // transform of where to check for ground
-	private float groundRadius = 0.2f; // Circle below player that checks of ground
+	private float groundRadius = 0.02f; // Circle below player that checks of ground
 	public LayerMask whatIsGround; // Indicates which layers of game are ground
 	public float jumpForce = 700; // Force of player jump
 	private Armor playerArmor = new Armor(); // Players Armor
