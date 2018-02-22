@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
 			boardScript = GetComponent<Air>();
 		}
 		if (DifficultyManager.difficulty == 0) {
-			boardScript.setEnemyCount(15,20);
+			boardScript.setEnemyCount(40,40);
 		}
 		if (DifficultyManager.difficulty  == 1) {
 			boardScript.setEnemyCount(20,25);
