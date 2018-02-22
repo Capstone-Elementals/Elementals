@@ -12,8 +12,8 @@ public class Stats {
 	private float Strength;
 
 	public Stats(){
-		Vitality = 10;
-		Strength = 5;
+		Vitality = 1;
+		Strength = 1;
 	}
 	 public Stats(float vit, float str){
 		Vitality = vit;

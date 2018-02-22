@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour {
 	void Start() {
 		// Grab the health script of an enemy
 		health = (Health) GetComponent<Health> ();
+		health.setHealth(health.maxHealth);
 		rb2d = (Rigidbody2D) GetComponent<Rigidbody2D> ();
 		//rb2d.freezeRotation = true;
 	}

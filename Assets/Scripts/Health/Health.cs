@@ -13,7 +13,6 @@ public class Health : MonoBehaviour {
 		//Try to grab the healthbar of the parent. Will return null if none is found
 		//  This allows for objects to have health without a health bar.
 		healthBar = (HealthBar)transform.GetComponentInChildren<HealthBar>();
-		health = maxHealth;
 	}
 	public void setHealth(int inputHP)
 	{

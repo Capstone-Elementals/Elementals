@@ -65,12 +65,14 @@ public class PlayerController : MonoBehaviour
 		jumpPending = true;
 	}
 
+	void Awake()
+	{
+		health = (Health) GetComponent<Health> ();
+		health.setHealth ((int)(health.maxHealth * playerStats.getVitality ()));
+	}
 	//Initialization
 	void Start()
 	{
-		
-		health = (Health) GetComponent<Health> ();
-		health.setHealth ((int)(health.maxHealth * playerStats.getVitality ()));
 		rb2d = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 	}
@@ -122,6 +124,7 @@ public class PlayerController : MonoBehaviour
 
 			//Hurt this object
 			health.damage (damageTaken);
+			Debug.Log ("Health = " + health.getHealth ());
 		}
 	}
 
