@@ -6,7 +6,7 @@ public class DifficultyManager : MonoBehaviour
 {
 
 	public static int difficulty;
-	// Use this for initialization of level difficulity
+	// Use this for initialization
 	public void difficultyNum(int diffNum)
 	{
 		difficulty = diffNum;
