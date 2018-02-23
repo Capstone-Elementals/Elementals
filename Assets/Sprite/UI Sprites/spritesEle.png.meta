@@ -1,18 +1,16 @@
 fileFormatVersion: 2
-guid: cf0c1f33d1809ed47aaabe607def1025
-timeCreated: 1517792886
+guid: dd7fed1cad929c6418eb75cc32e7cd1b
+timeCreated: 1517778199
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Boots_0
-    21300002: Boots_1
-    21300004: Boots_2
-    21300006: Boots_3
-    21300008: Boots_5
-    21300010: Boots_4
-    21300012: Boots_6
-    21300014: Boots_7
-    21300016: Boots_8
+    21300000: spritesEle_0
+    21300002: spritesEle_1
+    21300004: spritesEle_2
+    21300006: spritesEle_3
+    21300008: spritesEle_4
+    21300010: spritesEle_5
+    21300012: spritesEle_6
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -99,97 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boots_0
+      name: spritesEle_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 459
-        width: 21
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Boots_1
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 458
-        width: 20
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Boots_2
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 458
-        width: 22
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Boots_3
-      rect:
-        serializedVersion: 2
-        x: 27
-        y: 439
-        width: 24
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Boots_5
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 438
-        width: 22
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Boots_4
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 467
-        width: 7
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Boots_6
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 468
-        width: 9
-        height: 7
+        x: 0
+        y: 9
+        width: 87
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,13 +111,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Boots_7
+      name: spritesEle_1
       rect:
         serializedVersion: 2
-        x: 39
-        y: 447
-        width: 11
-        height: 8
+        x: 119
+        y: 8
+        width: 45
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,13 +125,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Boots_8
+      name: spritesEle_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 447
-        width: 7
-        height: 7
+        x: 205
+        y: 10
+        width: 44
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spritesEle_6
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 43
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
