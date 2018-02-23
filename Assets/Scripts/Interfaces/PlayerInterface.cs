@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface PlayerInterface {
+public interface PlayerInterface 
+{
 	void jump();
 }

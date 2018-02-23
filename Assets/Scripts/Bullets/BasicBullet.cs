@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicBullet : Bullet{
-
+public class BasicBullet : Bullet
+{
 	// Use this for initialization
-	void Start() {
+	void Start() 
+	{
 		base.Start ();
 	}
 
-	void FixedUpdate() {
+	void FixedUpdate()
+	{
 		base.FixedUpdate ();
 	}
 
-	void OnCollisionEnter2D (Collision2D col) {
+	void OnCollisionEnter2D (Collision2D col) 
+	{
 		base.OnCollisionEnter2D (col);
 	}
-
 }

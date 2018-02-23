@@ -4,7 +4,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour 
+{
 
 	public GameObject toDrop;
 
@@ -12,32 +13,37 @@ public class Enemy : MonoBehaviour {
 	private Rigidbody2D rb2d;
 	public int bodyDamage = 1;
 
-	void Start() {
+	void Start() 
+	{
 		// Grab the health script of an enemy
 		health = (Health) GetComponent<Health> ();
-		health.setHealth(health.maxHealth);
+		health.SetHealth(health.maxHealth);
 		rb2d = (Rigidbody2D) GetComponent<Rigidbody2D> ();
 		//rb2d.freezeRotation = true;
 	}
 
-	void OnCollisionEnter2D (Collision2D col) {
-		if (col.gameObject.name.Contains ("Bullet")) {
+	void OnCollisionEnter2D (Collision2D col) 
+	{
+		if (col.gameObject.name.Contains ("Bullet")) 
+		{
 			//Grab the damage of the incoming bullet
 			int damage = col.gameObject.GetComponent<Bullet> ().damage;
 
 			//Hurt this object
-			health.damage (damage);
+			health.Damage (damage);
 		}
 	}
 
 	//Used to see if the object should die
-	void FixedUpdate() {
+	void FixedUpdate() 
+	{
 		if (health.health == 0)
 			destroy ();
 	}
 
 	//This is a Unity defined function called when an object is destroyed
-	void destroy() {
+	void destroy() 
+	{
 		Instantiate<GameObject> (toDrop, transform.position, transform.rotation);
 		Destroy (this.gameObject);
 	}

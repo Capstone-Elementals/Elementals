@@ -7,12 +7,14 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 //Require a transform even though it should already be there. Just to be safe!
 [RequireComponent(typeof(Transform))]
-public class HealthBar : MonoBehaviour {
+public class HealthBar : MonoBehaviour 
+{
 
 	private SpriteRenderer renderer;
 	private Health parentHealth;
 
-	void Start() {
+	void Start()
+	{
 		//Grab the sprite renderer for color control
 		renderer = (SpriteRenderer)GetComponent<SpriteRenderer> ();
 
@@ -30,7 +32,8 @@ public class HealthBar : MonoBehaviour {
 
 
 	//Updates the healthbar of a gameObject. Called from a Health script. 
-	public void update(int health, int maxHealth) {
+	public void update(int health, int maxHealth) 
+	{
 		
 		//Determine the red and green component of the health bar using the ratio of health to maxHealth
 		float healthRatio = (float)health / (float)maxHealth;
@@ -38,10 +41,12 @@ public class HealthBar : MonoBehaviour {
 		float redComponent = 0f;
 
 		//Fit the color combination to progress from green, to yellow, to red.
-		if (healthRatio >= 0.5f) {
+		if (healthRatio >= 0.5f)
+		{
 			greenComponent = 1f;
 			redComponent = Mathf.Abs(healthRatio / 0.5f - 2);
-		} else {
+		} else 
+		{
 			redComponent = 1f;
 			greenComponent = healthRatio / 0.5f;
 		}
@@ -52,6 +57,4 @@ public class HealthBar : MonoBehaviour {
 		//Adjust the size of the healthbar as well
 		transform.localScale = new Vector3(healthRatio, 1, 1);
 	}
-
-
 }

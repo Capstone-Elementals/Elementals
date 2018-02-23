@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
 	//Called when Game started
     void Awake()
     {
-
-
         if (instance == null)
         {
             instance = this;
@@ -25,40 +23,42 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-
-        
-
         InitGame();
     }
 
     //Initializes the game for each level.
     void InitGame()
     {
-		if (LevelManager.level == 0) {
+		if (LevelManager.level == 0) 
+		{
 			boardScript = GetComponent<Fire>();
 		}
-		if (LevelManager.level  == 1) {
+		if (LevelManager.level  == 1)
+		{
 			boardScript = GetComponent<Earth>();
 		}
-		if (LevelManager.level  == 2) {
+		if (LevelManager.level  == 2)
+		{
 			boardScript = GetComponent<Water>();
 		}
-		if (LevelManager.level  == 3) {
+		if (LevelManager.level  == 3)
+		{
 			boardScript = GetComponent<Air>();
 		}
-		if (DifficultyManager.difficulty == 0) {
-			boardScript.setEnemyCount(15,20);
+		if (DifficultyManager.difficulty == 0)
+		{
+			boardScript.SetEnemyCount(15,20);
 		}
-		if (DifficultyManager.difficulty  == 1) {
-			boardScript.setEnemyCount(20,25);
+		if (DifficultyManager.difficulty  == 1)
+		{
+			boardScript.SetEnemyCount(20,25);
 		}
-		if (DifficultyManager.difficulty  == 2) {
-			boardScript.setEnemyCount(25,30);
+		if (DifficultyManager.difficulty  == 2)
+		{
+			boardScript.SetEnemyCount(25,30);
 		}
-
-        //Call the SetupScene function of the BoardManager script, pass it current level number.
+        //Call the SetupScene function of the BoardManager script.
 		boardScript.SetupScene ();
-
     }
 
 
