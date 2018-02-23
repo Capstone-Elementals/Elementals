@@ -263,7 +263,7 @@ Animator:
   m_GameObject: {fileID: 1131575127462470}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fccd9f026efd94641a13c0bc8591c6d3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4d7690dd6144a8446be11ca99020fa3f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c76d716bbbe0c7449ad6fc49787eb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxpeed: 10
+  maxSpeed: 10
   groundCheck: {fileID: 4996915742502860}
   whatIsGround:
     serializedVersion: 2
@@ -375,7 +375,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.08}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212530752362498346
 SpriteRenderer:
@@ -463,5 +463,5 @@ SpriteRenderer:
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
