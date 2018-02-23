@@ -5,7 +5,7 @@ using UnityEngine;
 public class DifficultyManager : MonoBehaviour {
 
 	public static int difficulty;
-	// Use this for initialization
+	// Use this for initialization of level difficulity
 	public void difficultyNum(int diffNum)
 	{
 		difficulty = diffNum;
