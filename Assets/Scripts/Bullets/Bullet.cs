@@ -4,8 +4,8 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
-public abstract class Bullet : MonoBehaviour {
-
+public abstract class Bullet : MonoBehaviour 
+{
 	public int damage = 1;
 	public int timeout = 500;
 	public float speed = 500f;
@@ -16,7 +16,8 @@ public abstract class Bullet : MonoBehaviour {
 	/**
 	 * As of right now, bullets get the aim direction upon spawn using the start method
 	 */
-	public void Start () {
+	public void Start () 
+	{
 		bulletVelocity.x = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("HorizontalShoot");
 		bulletVelocity.y = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalShoot");
 		Rigidbody2D rb2d = this.GetComponent<Rigidbody2D> ();
@@ -25,7 +26,8 @@ public abstract class Bullet : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	public void FixedUpdate () {
+	public void FixedUpdate () 
+	{
 		if (timeout < 0)
 			Destroy (this.gameObject);
 
@@ -33,7 +35,8 @@ public abstract class Bullet : MonoBehaviour {
 	}
 
 	// Most bullets will call this upon collision
-	public void OnCollisionEnter2D (Collision2D col) {
+	public void OnCollisionEnter2D (Collision2D col) 
+	{
 		Destroy(this.gameObject);
 	}
 }

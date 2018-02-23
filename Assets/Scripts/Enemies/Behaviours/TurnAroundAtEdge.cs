@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurnAroundAtEdge : MonoBehaviour {
+public class TurnAroundAtEdge : MonoBehaviour 
+{
 
 	private Movement movement;
 	private Rigidbody2D rb2d;
 	private BoxCollider2D box2d;
 
-	void Start() {
+	void Start() 
+	{
 		movement = (Movement)GetComponent<Movement> ();
 		rb2d = (Rigidbody2D)GetComponent<Rigidbody2D> ();
 		box2d = (BoxCollider2D)GetComponent<BoxCollider2D> ();
@@ -16,7 +18,8 @@ public class TurnAroundAtEdge : MonoBehaviour {
 
 	//Coding plan: raycast a few pixels in the direction of movement
 	// if anything but a bullet or player is hit, turn around
-	void FixedUpdate () {
+	void FixedUpdate () 
+	{
 
 		bool aimLeft = false;
 		RaycastHit2D rh2d;
@@ -29,7 +32,8 @@ public class TurnAroundAtEdge : MonoBehaviour {
 		float yOffset = -(box2d.size.y / 2f) * 1.03f;
 
 		//If moving left, offset must be 
-		if (movement.direction == Movement.movementDirection.left) {
+		if (movement.direction == Movement.movementDirection.left)
+		{
 			aimLeft = true;
 			xOffset = -xOffset;
 		}
@@ -42,7 +46,8 @@ public class TurnAroundAtEdge : MonoBehaviour {
 		//Debug.DrawLine ((Vector3)origin, (Vector3)(origin + direction * 0.03f));
 
 		//Returns true if nothing is hit
-		if (!rh2d) {
+		if (!rh2d) 
+		{
 			//If nothing was hit, that means the enemy is by an edge
 			movement.turnAround();
 		}
