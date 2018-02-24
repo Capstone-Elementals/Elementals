@@ -57,8 +57,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   columns: 6
   rows: 3
-  scalex: 14
-  scaley: 10
+  scaleX: 14
+  scaleY: 10
   boss: {fileID: 0}
   floorTiles:
   - {fileID: 1058841864107950, guid: 682a91e1d7253384e9d38ce5ac25028a, type: 2}
@@ -116,8 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   columns: 8
   rows: 8
-  scalex: 10
-  scaley: 10
+  scaleX: 10
+  scaleY: 10
   boss: {fileID: 0}
   floorTiles:
   - {fileID: 1781633247212144, guid: b82099dcae67a6147a4dc71659904194, type: 2}
@@ -178,8 +178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   columns: 5
   rows: 4
-  scalex: 10
-  scaley: 20
+  scaleX: 10
+  scaleY: 20
   boss: {fileID: 0}
   floorTiles:
   - {fileID: 1468799065291820, guid: b433bac60cbbc3640b1100bfa640ba26, type: 2}
@@ -235,8 +235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   columns: 8
   rows: 8
-  scalex: 7
-  scaley: 6
+  scaleX: 7
+  scaleY: 6
   boss: {fileID: 0}
   floorTiles:
   - {fileID: 1345254767298110, guid: fa7f711f8fec9da4583680bbaafa573a, type: 2}
