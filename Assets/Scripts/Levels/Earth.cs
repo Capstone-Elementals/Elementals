@@ -7,8 +7,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Earth : BoardManager 
-{
+public class Earth : BoardManager {
+
+
+
+
 	protected override void Path(GameObject[] tileArray)
 	{
 //		List<int> startpos = new List<int>();

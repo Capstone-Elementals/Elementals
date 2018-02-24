@@ -1,4 +1,4 @@
-﻿/*	Author: Powered By Coffee 2017-2018
+﻿/*	Author: Power By Coffee 2017-2018
  *	Lead Developer: Ahmed Shamiss 
  *	Description: This object generates each level. Procedural generation of level and
  *  placement of objects and enemies is done by this script. 
@@ -36,8 +36,8 @@ public class BoardManager : MonoBehaviour
 
     public int columns = 8;//Number of columns in our game board.
     public int rows = 8;//Number of rows in our game board.
-	public int scaleX = 7;//x-scale of each tile
-	public int scaleY = 6; //y-scale of each tile
+	public int scalex = 7;//x-scale of each tile
+	public int scaley = 6; //y-scale of each tile
 	public GameObject boss;//Prefab to spawn for boss tile.
     public GameObject[] floorTiles;//Array of All tiles.
     public GameObject[] e1Tiles;//Array of tiles with 1 entrance                                  
@@ -54,57 +54,48 @@ public class BoardManager : MonoBehaviour
 	private Transform edgeHolder;//A variable to store a reference to the transform of our Edge object.
 	private Transform objectHolder;//A variable to store a reference to the transform of our objects.
     private List<GameObject> objects = new List<GameObject>();//List of all objects in Board
-	protected List<int> randomPosRecord = new List<int>();//List of positions used to place enemies or items.
-
-	//Getter to get enemy count for this object
-	public Count GetEnemyCount()
+	protected List<int> RandomPosRecord = new List<int>();//List of positions used to place enemies or items.
+    //Sets up the outer walls and background of the level.
+	//Places Random tiles inside the outer walls
+	public Count getEnemyCount()
 	{
 		return this.enemiesCount;
 	}
-	//Setter to set the enemy count
-	public void SetEnemyCount(int min, int max)
+	public void setEnemyCount(int min, int max)
 	{
 		this.enemiesCount.minimum = min;
 		this.enemiesCount.maximum = max;
 	}
-
-	/*	Sets up the outer walls and background of the level.
-	* 	Places Random tiles inside the outer walls
-	*/
     protected void BoardSetup()
     {
         //Used to keep Scene hierarchy clean
         boardHolder = new GameObject("Board").transform;
 		edgeHolder = new GameObject ("Edge").transform;
 		objectHolder = new GameObject ("Objects").transform;
-        for (int x = 0; x < ( scaleX * rows) ; x = x + scaleX)
+        for (int x = 0; x < ( scalex *rows) ; x = x + scalex)
         {
-            for (int y = 0; y < ( scaleY * columns) ; y = y + scaleY)
+            for (int y = 0; y < ( scaley *columns) ; y = y + scaley)
             {
 				//Place Borders
-				if (x == 0) 
-				{
+				if (x == 0) {
 					GameObject edge = edgeV;
-					GameObject edgeInstance = Instantiate (edge, new Vector3 (x - (scaleX / 2), y, 0f), Quaternion.identity) as GameObject;
-					edgeInstance.transform.SetParent(edgeHolder);
+					GameObject edgeinstance = Instantiate (edge, new Vector3 (x - (scalex/2), y, 0f), Quaternion.identity) as GameObject;
+					edgeinstance.transform.SetParent(edgeHolder);
 				}
-				if(x == (scaleX * rows) - scaleX)
-				{
+				if(x == (scalex * rows) - scalex){
 					GameObject edge = edgeV;
-					GameObject edgeInstance = Instantiate (edge, new Vector3 (x + (scaleX / 2), y, 0f), Quaternion.identity) as GameObject;
-					edgeInstance.transform.SetParent(edgeHolder);
+					GameObject edgeinstance = Instantiate (edge, new Vector3 (x + (scalex/2), y, 0f), Quaternion.identity) as GameObject;
+					edgeinstance.transform.SetParent(edgeHolder);
 				}
-				if(y == 0)
-				{
+				if(y == 0){
 					GameObject edge = edgeH;
-					GameObject edgeInstance = Instantiate (edge, new Vector3 (x, y - (scaleY / 2), 0f), Quaternion.identity) as GameObject;
-					edgeInstance.transform.SetParent(edgeHolder);
+					GameObject edgeinstance = Instantiate (edge, new Vector3 (x, y - (scaley/2), 0f), Quaternion.identity) as GameObject;
+					edgeinstance.transform.SetParent(edgeHolder);
 				}
-				if (y == (scaleY * columns) - scaleY) 
-				{
+				if (y == (scaley * columns) - scaley) {
 					GameObject edge = edgeH;
-					GameObject edgeInstance = Instantiate (edge, new Vector3 (x, y + (scaleY / 2), 0f), Quaternion.identity) as GameObject;
-					edgeInstance.transform.SetParent(edgeHolder);
+					GameObject edgeinstance = Instantiate (edge, new Vector3 (x, y + (scaley/2), 0f), Quaternion.identity) as GameObject;
+					edgeinstance.transform.SetParent(edgeHolder);
 				}
                 //Choose a random tile from our array of floor tile prefabs and prepare to instantiate it.
                 GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
@@ -131,159 +122,124 @@ public class BoardManager : MonoBehaviour
     {
         BoardSetup();
         Path(floorTiles);
-		ObjectRandomPosition (enemies, enemiesCount.minimum, enemiesCount.maximum);
-		//InitBackground ();
+		ObjectRandomPos (enemies, enemiesCount.minimum, enemiesCount.maximum);
+		//initBackground ();
     }
 	//Instantiates the background of the level
-	protected void InitBackground()
+	protected void initBackground()
 	{
-		GameObject backgroundSetter = background;
-		backgroundSetter.GetComponent<Transform> ().SetPositionAndRotation(new Vector3 (rows*scaleX,columns*scaleY, 100),
-			Quaternion.identity);
-		Instantiate (backgroundSetter, new Vector3 ((rows*scaleX)/2, (columns*scaleY/2), 0), Quaternion.identity);
+		GameObject background_setter = background;
+		background_setter.GetComponent<Transform> ().SetPositionAndRotation(new Vector3 (rows*scalex,columns*scaley, 100),Quaternion.identity);
+		Instantiate (background_setter, new Vector3 ((rows*scalex)/2, (columns*scaley/2), 0), Quaternion.identity);
 	}
 	//Places an object at a random position
-	protected void ObjectRandomPosition (GameObject[] objectArray, int min, int max)
+	protected void ObjectRandomPos (GameObject[] objectarray, int min, int max)
 	{
 		int limit = Random.Range (min, max + 1);
-		for (int i = 0; i < limit; i++) 
-		{
-			GameObject objectToBeInstantiated = objectArray[Random.Range(0,objectArray.Length)];
-			Vector3 randomPosition = RandomPosition();
-			GameObject objectInstance = Instantiate(objectToBeInstantiated, randomPosition, Quaternion.identity) as GameObject;
+		for (int i = 0; i < limit; i++) {
+			GameObject objecttobeinstantiated = objectarray[Random.Range(0,objectarray.Length)];
+			Vector3 randompos = RandomPos();
+			GameObject objectInstance = Instantiate(objecttobeinstantiated, randompos, Quaternion.identity) as GameObject;
 			objectInstance.transform.SetParent(objectHolder);
 		}
 	}
 	//Selects a random Vector3 position and returns it
-	protected Vector3 RandomPosition ()
+	protected Vector3 RandomPos()
 	{
-		int randomInt = Random.Range (0, objects.Count);
-		while (true)
-		{
-			if (randomPosRecord.Contains(randomInt) == true) 
-			{
-				randomInt = Random.Range (0, objects.Count);
-			} 
-			else 
-			{
-				break;
-			}	
+		int randomint = Random.Range (0, objects.Count);
+		while (true) {
+				if (RandomPosRecord.Contains(randomint) == true) {
+					randomint = Random.Range (0, objects.Count);
+				} else {
+					break;
+				}	
 		}
-		randomPosRecord.Add (randomInt);
-		Transform temp = objects[randomInt].transform;
-		Vector3 tempVectPosition = new Vector3 (temp.position.x + Random.Range (-scaleX / 4, scaleX / 4), 
-			temp.position.y + Random.Range (-scaleY / 4, scaleY / 4), 0f);
-		return tempVectPosition;
+		RandomPosRecord.Add (randomint);
+		Transform temp = objects[randomint].transform;
+		Vector3 tempVectpor = new Vector3 (temp.position.x + Random.Range (-scalex/4, scalex/4), temp.position.y + Random.Range (-scaley/4, scaley/4), 0f);
+		return tempVectpor;
 	}
 	//Places a game tile into the scene
 	protected void PlaceTile (int y)
 	{
 		GameObject tileChoice = e4Tiles [Random.Range (0, e4Tiles.Length)];
-		GameObject instance = Instantiate (tileChoice, new Vector3 (objects [y].transform.position.x, 
-			objects [y].transform.position.y, objects [y].transform.position.z), Quaternion.identity) as GameObject;
+		GameObject instance = Instantiate (tileChoice, new Vector3 (objects [y].transform.position.x, objects [y].transform.position.y, objects [y].transform.position.z), Quaternion.identity) as GameObject;
 		Destroy (objects [y]);
 		instance.transform.SetParent (boardHolder);
 		objects.Add (instance);
 	}
-	/*	Creates a random path for the player
-	 * 	Takes the initial starting position pos 
-	 * 	The previous direction used in the algorithm ( this is mainly used for the initial direction when starting the game)
-	 * 	gooddir used to indicate if the direction is a valid direction or not.
-	 * 	invalid indicates a direction that should never be taken. 
-	 * 	These inputs are used to start the algorithm going aswell as allowing method to be able to move in different directions
-	 * 	depending on what was input. e.g. If we want the algorithm to move from left to right we ensure that it can never go
-	 * 	left and vice versa.
-	 * 	The algorithm selects a random number in checks using ifs whether that direction is valid or not, if it is not we try again.
-	 * 	The algorithm runs until we have reached the edge of the game board.
-	 * 
-	*/
-	protected void RandomPath (int position, int previousDirection, bool goodDirection, int invalid)
+	//Creates a random path for the player
+	protected void RandomPath (int pos, int prevdir, bool gooddir, int invalid)
 	{	
-		List<int> traversedPath = new List<int>();
-		Instantiate (player, new Vector3 (objects [position].transform.position.x, objects [position].transform.position.y, 
-			objects [position].transform.position.z), Quaternion.identity);
-		for (int y = position; 0 <= y && y < rows * columns;) 
-		{
+		List<int> traversedpath = new List<int>();
+		Instantiate (player, new Vector3 (objects [pos].transform.position.x, objects [pos].transform.position.y, objects [pos].transform.position.z), Quaternion.identity);
+		for (int y = pos; 0 <= y && y < rows * columns;) {
 			PlaceTile (y);
-			traversedPath.Add (y);
-			while (goodDirection == false) 
-			{
-				int direction = Random.Range (0, 100);
-				switch ((direction % 4)) 
-				{
+			traversedpath.Add (y);
+			while (gooddir == false) {
+				int dir = Random.Range (0, 100);
+				switch ((dir % 4)) {
 				case 0://Move Left
-					if ((previousDirection % 4) == 2 || (y - columns) < 0 || invalid == 0)
-					{
-						goodDirection = false;
+					if ((prevdir % 4) == 2 || (y - columns) < 0 || invalid == 0) {
+						gooddir = false;
 					}
-					else 
-					{
-						if (traversedPath.Contains(y - columns)) 
-						{
-							goodDirection = false;
+					else {
+						if (traversedpath.Contains(y - columns)) {
+							gooddir = false;
 							break;
 						}
 						y = y - columns;
-						previousDirection = 0;
-						goodDirection = true;
+						prevdir = 0;
+						gooddir = true;
 					}
 					break;
 				case 1://Move Up
-					if ((previousDirection % 4) == 3 || ((y + 1) % columns) == 0 || invalid == 1) 
-					{
-						goodDirection = false;
+					if ((prevdir % 4) == 3 || ((y + 1) % columns) == 0 || invalid == 1) {
+						gooddir = false;
 					}
-					else 
-					{
-						if (traversedPath.Contains(y + 1)) 
-						{
-							goodDirection = false;
+					else {
+						if (traversedpath.Contains(y + 1)) {
+							gooddir = false;
 							break;
 						}
 						y = y + 1;
-						previousDirection = 1;
-						goodDirection = true;
+						prevdir = 1;
+						gooddir = true;
 					}
 					break;
 				case 2://Move Right
-					if ((previousDirection % 4) == 0 || invalid == 2) 
-					{
-						goodDirection = false;
+					if ((prevdir % 4) == 0 || invalid == 2) {
+						gooddir = false;
 					}
-					else 
-					{
-						if (traversedPath.Contains(y + columns)) 
-						{
-							goodDirection = false;
+					else {
+						if (traversedpath.Contains(y + columns)) {
+							gooddir = false;
 							break;
 						}
 						y = y + columns;
-						previousDirection = 2;
-						goodDirection = true;
+						prevdir = 2;
+						gooddir = true;
 					}
 					break;
 				case 3://Move Down
-					if ((previousDirection % 4) == 1 || ((y - 1) % columns) == columns - 1 || (y - 1) < 0 || invalid == 3) 
-					{
-						goodDirection = false;
+					if ((prevdir % 4) == 1 || ((y - 1) % columns) == columns - 1 || (y - 1) < 0 || invalid == 3) {
+						gooddir = false;
 					}
-					else 
-					{
-						if (traversedPath.Contains(y - 1)) 
-						{
-							goodDirection = false;
+					else {
+						if (traversedpath.Contains(y - 1)) {
+							gooddir = false;
 							break;
 						}
 						y = y - 1;
-						previousDirection = 3;
-						goodDirection = true;
+						prevdir = 3;
+						gooddir = true;
 					}
 					break;
 				default:
 					break;
 				}
 			}
-			goodDirection = false;
+			gooddir = false;
 		}
 	}
 }

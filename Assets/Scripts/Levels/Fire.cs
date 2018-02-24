@@ -7,8 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fire : BoardManager 
-{
+public class Fire : BoardManager {
 
 	protected override void Path(GameObject[] tileArray)
 	{

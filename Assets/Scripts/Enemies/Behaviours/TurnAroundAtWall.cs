@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Movement))]
-public class TurnAroundAtWall : MonoBehaviour 
-{
+public class TurnAroundAtWall : MonoBehaviour {
 
 	private Movement movement;
 	private Rigidbody2D rb2d;
 	private BoxCollider2D box2d;
 
-	void Start()
-	{
+	void Start() {
 		movement = (Movement)GetComponent<Movement> ();
 		rb2d = (Rigidbody2D)GetComponent<Rigidbody2D> ();
 		box2d = (BoxCollider2D)GetComponent<BoxCollider2D> ();
@@ -19,8 +17,7 @@ public class TurnAroundAtWall : MonoBehaviour
 
 	//Coding plan: raycast a few pixels in the direction of movement
 	// if anything but a bullet or player is hit, turn around
-	void FixedUpdate ()
-	{
+	void FixedUpdate () {
 
 		bool aimLeft = false;
 		RaycastHit2D rh2d;
@@ -30,8 +27,7 @@ public class TurnAroundAtWall : MonoBehaviour
 		float offset = (box2d.size.x / 2f) * 1.03f;
 
 		//If moving left, offset must be 
-		if (movement.direction == Movement.movementDirection.left)
-		{
+		if (movement.direction == Movement.movementDirection.left) {
 			aimLeft = true;
 			offset = -offset;
 			direction = Vector2.left;
@@ -45,11 +41,9 @@ public class TurnAroundAtWall : MonoBehaviour
 		//Debug.DrawLine ((Vector3)origin, (Vector3)(origin + direction * 0.03f));
 
 		//Returns false if nothing was hit
-		if (rh2d) 
-		{
+		if (rh2d) {
 			//If hit object is another enemy or a wall turn around
-			if (rh2d.rigidbody == null || rh2d.rigidbody.gameObject.name.Contains ("Enemy"))
-			{
+			if (rh2d.rigidbody == null || rh2d.rigidbody.gameObject.name.Contains ("Enemy")) {
 				movement.turnAround ();
 			}
 		}

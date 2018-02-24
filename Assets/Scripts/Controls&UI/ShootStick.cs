@@ -121,8 +121,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 		}
 
 
-		public void OnPointerDown(PointerEventData data)
-		{
+		public void OnPointerDown(PointerEventData data) {
 		}
 
 

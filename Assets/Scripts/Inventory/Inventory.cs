@@ -8,18 +8,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour 
-{
+public class Inventory : MonoBehaviour {
 
 	private List<Gem> inventory;
 	// Use this for initialization
-	void Start () 
-	{
-		if (savefile()) 
-		{
+	void Start () {
+		if (savefile()) {
 			inventory = new List<Gem> ();
-		} else
-		{
+		} else {
 			//Read save file from memory
 		}
 	}
@@ -41,19 +37,16 @@ public class Inventory : MonoBehaviour
 		this.inventory = inventory;
 	}
 	// Update is called once per frame
-	void Update ()
-	{
+	void Update () {
 		
 	}
 	bool savefile()
 	{
 		bool exists = false;
 		//Check if a save file exists
-		if (exists)
-		{
+		if (exists) {
 			return true;
-		} else 
-		{
+		} else {
 			return false;
 		}
 	}

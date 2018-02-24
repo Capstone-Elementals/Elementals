@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 {	
 	private Health health; //Player health
 	private Stats playerStats = new Stats(); //Players Stats
-	public float maxSpeed = 10f; // Player max speed
+	public float maxpeed = 10f; // Player max speed
 	private bool facingRight = true; //Check which way player is facing
 	private Rigidbody2D rb2d; // Rigidbody 2D that is on this object
 	private Animator anim; // Animator that is on this object
@@ -29,55 +29,46 @@ public class PlayerController : MonoBehaviour
 
 
 	//Set and Get functions
-	public void SetArmor(Armor armor)
-	{
+	public void setArmor(Armor armor){
 		this.playerArmor = armor;
 	}
-	public void SetBoot(Boot boot)
-	{
+	public void setBoot(Boot boot){
 		this.playerBoot = boot;
 	}
-	public void SetWeapon1(Weapon weapon1)
-	{
+	public void setWeapon1(Weapon weapon1){
 		this.playerWeapon1 = weapon1;
 	}
-	public void SetWeapon2(Weapon weapon2)
-	{
+	public void setWeapon2(Weapon weapon2){
 		this.playerWeapon2 = weapon2;
 	}
-	public void SetStat(Stats inputStats)
+	public void setStat(Stats inputStats)
 	{
 		playerStats = inputStats;
 	}
-	public Armor GetArmor()
-	{
+	public Armor getArmor(){
 		return playerArmor;
 	}
-	public Boot GetBoot()
-	{
+	public Boot getBoot(){
 		return playerBoot;
 	}
-	public Stats GetStat()
+	public Stats getStat()
 	{
 		return playerStats;
 	}
-	public Weapon GetWeapon1()
-	{
+	public Weapon getWeapon1(){
 		return playerWeapon1;
 	}
-	public Weapon GetWeapon2()
-	{
+	public Weapon getWeapon2(){
 		return playerWeapon2;
 	}
-	public void Jump()
-	{
+	public void jump() {
 		jumpPending = true;
 	}
 
 	void Awake()
 	{
 		health = (Health) GetComponent<Health> ();
-		health.SetHealth ((int)(health.maxHealth * playerStats.getVitality ()));
+		health.setHealth ((int)(health.maxHealth * playerStats.getVitality ()));
 	}
 	//Initialization
 	void Start()
@@ -93,11 +84,9 @@ public class PlayerController : MonoBehaviour
 		anim.SetFloat("Speed", rb2d.velocity.y);
 		float move = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("HorizontalMove") * 0.5f;
 		anim.SetFloat ("Speed", Mathf.Abs (move));
-		rb2d.velocity = new Vector2 (Mathf.Clamp(move * maxSpeed, -10, 10), rb2d.velocity.y); 
-		if (move > 0 && !facingRight) 
-		{
-			Flip ();		
-		}
+		rb2d.velocity = new Vector2 (Mathf.Clamp(move * maxpeed, -10, 10), rb2d.velocity.y); 
+		if (move > 0 && !facingRight) {
+			Flip ();		}
 		else if(move < 0 && facingRight)
 		{
 			Flip();
@@ -108,15 +97,13 @@ public class PlayerController : MonoBehaviour
 	void Update()
 	{
 		//Vertical Movement
-		if ((jumpPending | Input.GetKeyDown(KeyCode.Space)) && grounded) 
-		{
+		if ((jumpPending | Input.GetKeyDown(KeyCode.Space)) && grounded) {
 			rb2d.AddForce (new Vector2 (0, jumpForce));
 			anim.SetTrigger ("Jump");
 		} 
 
 		jumpPending = false;
-		if (IsDead ())
-		{
+		if (isDead ()) {
 			Dead();
 		}
 
@@ -130,30 +117,27 @@ public class PlayerController : MonoBehaviour
 		transform.localScale = theScale;
 	}
 	//Damage functions
-	void OnCollisionEnter2D (Collision2D col) 
-	{
-		if (col.gameObject.tag.Contains("Enemy")) 
-		{
+	void OnCollisionEnter2D (Collision2D col) {
+		if (col.gameObject.tag.Contains("Enemy")) {
 			//Grab the damage of the incoming bullet
 			int damageTaken = col.gameObject.GetComponent<Enemy> ().bodyDamage;
 
 			//Hurt this object
-			health.Damage (damageTaken);
+			health.damage (damageTaken);
+			Debug.Log ("Health = " + health.getHealth ());
 		}
 	}
 
 	//Death handlers
-	bool IsDead()
+	bool isDead()
 	{
-		if (health.health == 0) 
-		{
+		if (health.health == 0) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	void Destroy() 
-	{
+	void destroy() {
 		Destroy (this.gameObject);
 	}
 	void Dead()

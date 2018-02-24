@@ -22,16 +22,14 @@ namespace UnityStandardAssets.CrossPlatformInput
 		}
 
 
-		public void OnPointerDown(PointerEventData data) 
-		{
+		public void OnPointerDown(PointerEventData data) {
 			if (player == null)
 				player = GameObject.Find("Testplayer(Clone)").GetComponent<PlayerInterface>();
 
 			framesSinceLastTap = 0;
 		}
 			
-		void FixedUpdate() 
-		{
+		void FixedUpdate() {
 
 			//Only increment frames since last tap if less than the jump window
 			//  to prevent overflow fuck-ery

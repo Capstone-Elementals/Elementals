@@ -7,8 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Water : BoardManager 
-{
+public class Water : BoardManager {
 
 	protected override void Path(GameObject[] tileArray)
 	{	

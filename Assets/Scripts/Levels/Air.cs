@@ -7,8 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Air : BoardManager 
-{
+public class Air : BoardManager {
 
 	protected override void Path(GameObject[] tileArray)
 	{

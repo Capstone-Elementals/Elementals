@@ -7,28 +7,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boot 
-{
+public class Boot {
 	private Gem bootgem;
 
-	public Boot ()
-	{
+	public Boot (){
 		bootgem = null;
 	}
 
-	public void setBootGem(Gem gem)
-	{
+	public void setBootGem(Gem gem){
 		bootgem = gem;
 	}
-	public Gem getBootGem()
-	{
+	public Gem getBootGem(){
 		return this.bootgem;
 	}
 
-	public void skill()
-	{
-		switch (bootgem.getElement()) 
-		{
+	public void skill(){
+		switch (bootgem.getElement()) {
 			case 'F':
 				//Fire gem bonus
 				break;

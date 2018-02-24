@@ -3,66 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Health : MonoBehaviour 
-{
+public class Health : MonoBehaviour {
 	public int maxHealth = 3;
 	public int health;
 
 	private HealthBar healthBar = null;
 
-	void Start() 
-	{
+	void Start() {
 		//Try to grab the healthbar of the parent. Will return null if none is found
 		//  This allows for objects to have health without a health bar.
 		healthBar = (HealthBar)transform.GetComponentInChildren<HealthBar>();
 	}
-	public void SetHealth(int inputHP)
+	public void setHealth(int inputHP)
 	{
 		health = inputHP;
 	}
-	public int GetHealth()
+	public int getHealth()
 	{
 		return health;
 	}
-	public void Damage(int damageTaken)
-	{
+	public void damage(int damageTaken) {
 
 		//Catch negative damage
 		if (damageTaken <= 0)
 			return;
 
 		//Compensate for overkill
-		if (damageTaken > health)
-		{
+		if (damageTaken > health) {
 			health = 0;
-		} else 
-		{
+		} else {
 			health -= damageTaken;
 		}
 
-		UpdateBar ();
+		updateBar ();
 	}
 
-	public void Heal(int healthRestored)
-	{
+	public void heal(int healthRestored) {
 		//Check for negative healing
 		if (healthRestored <= 0)
 			return;
 
 		//Clamp health to prevent overheal
-		if (health + healthRestored > maxHealth)
-		{
+		if (health + healthRestored > maxHealth) {
 			healthRestored = healthRestored - health;
 		}
 
-		UpdateBar ();
+		updateBar ();
 	}
 
-	private void UpdateBar()
-	{
+	private void updateBar() {
 		//Check if item is using a HealthBar
-		if (healthBar == null)
-		{
+		if (healthBar == null) {
 			Debug.LogError ("Health could not find healthBar child");
 			return;
 		}
