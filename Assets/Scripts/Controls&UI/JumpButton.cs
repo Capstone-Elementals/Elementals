@@ -25,7 +25,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 		public void OnPointerDown(PointerEventData data) 
 		{
 			if (player == null)
-				player = GameObject.Find("Testplayer(Clone)").GetComponent<PlayerInterface>();
+				player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInterface>();
 
 			framesSinceLastTap = 0;
 		}
