@@ -55,12 +55,21 @@ public class BoardManager : MonoBehaviour
 	private Transform objectHolder;//A variable to store a reference to the transform of our objects.
     private List<GameObject> objects = new List<GameObject>();//List of all objects in Board
 	protected List<int> RandomPosRecord = new List<int>();//List of positions used to place enemies or items.
+<<<<<<< HEAD
     //Sets up the outer walls and background of the level.
 	//Places Random tiles inside the outer walls
+=======
+
+	//Getter to get enemy count for this object
+>>>>>>> parent of b370ab8... Refactor
 	public Count getEnemyCount()
 	{
 		return this.enemiesCount;
 	}
+<<<<<<< HEAD
+=======
+	//Setter to set the enemy count
+>>>>>>> parent of b370ab8... Refactor
 	public void setEnemyCount(int min, int max)
 	{
 		this.enemiesCount.minimum = min;
@@ -129,7 +138,12 @@ public class BoardManager : MonoBehaviour
 	protected void initBackground()
 	{
 		GameObject background_setter = background;
+<<<<<<< HEAD
 		background_setter.GetComponent<Transform> ().SetPositionAndRotation(new Vector3 (rows*scalex,columns*scaley, 100),Quaternion.identity);
+=======
+		background_setter.GetComponent<Transform> ().SetPositionAndRotation(new Vector3 (rows*scalex,columns*scaley, 100),
+			Quaternion.identity);
+>>>>>>> parent of b370ab8... Refactor
 		Instantiate (background_setter, new Vector3 ((rows*scalex)/2, (columns*scaley/2), 0), Quaternion.identity);
 	}
 	//Places an object at a random position
@@ -144,7 +158,11 @@ public class BoardManager : MonoBehaviour
 		}
 	}
 	//Selects a random Vector3 position and returns it
+<<<<<<< HEAD
 	protected Vector3 RandomPos()
+=======
+	protected Vector3 RandomPos ()
+>>>>>>> parent of b370ab8... Refactor
 	{
 		int randomint = Random.Range (0, objects.Count);
 		while (true) {
@@ -156,7 +174,12 @@ public class BoardManager : MonoBehaviour
 		}
 		RandomPosRecord.Add (randomint);
 		Transform temp = objects[randomint].transform;
+<<<<<<< HEAD
 		Vector3 tempVectpor = new Vector3 (temp.position.x + Random.Range (-scalex/4, scalex/4), temp.position.y + Random.Range (-scaley/4, scaley/4), 0f);
+=======
+		Vector3 tempVectpor = new Vector3 (temp.position.x + Random.Range (-scalex/4, scalex/4), 
+			temp.position.y + Random.Range (-scaley/4, scaley/4), 0f);
+>>>>>>> parent of b370ab8... Refactor
 		return tempVectpor;
 	}
 	//Places a game tile into the scene
@@ -168,11 +191,31 @@ public class BoardManager : MonoBehaviour
 		instance.transform.SetParent (boardHolder);
 		objects.Add (instance);
 	}
+<<<<<<< HEAD
 	//Creates a random path for the player
 	protected void RandomPath (int pos, int prevdir, bool gooddir, int invalid)
 	{	
 		List<int> traversedpath = new List<int>();
 		Instantiate (player, new Vector3 (objects [pos].transform.position.x, objects [pos].transform.position.y, objects [pos].transform.position.z), Quaternion.identity);
+=======
+	/*	Creates a random path for the player
+	 * 	Takes the initial starting position pos 
+	 * 	The previous direction used in the algorithm ( this is mainly used for the initial direction when starting the game)
+	 * 	gooddir used to indicate if the direction is a valid direction or not.
+	 * 	invalid indicates a direction that should never be taken. 
+	 * 	These inputs are used to start the algorithm going aswell as allowing method to be able to move in different directions
+	 * 	depending on what was input. e.g. If we want the algorithm to move from left to right we ensure that it can never go
+	 * 	left and vice versa.
+	 * 	The algorithm selects a random number in checks using ifs whether that direction is valid or not, if it is not we try again.
+	 * 	The algorithm runs until we have reached the edge of the game board.
+	 * 
+	*/
+	protected void RandomPath (int pos, int prevdir, bool gooddir, int invalid)
+	{	
+		List<int> traversedpath = new List<int>();
+		Instantiate (player, new Vector3 (objects [pos].transform.position.x, objects [pos].transform.position.y, 
+			objects [pos].transform.position.z), Quaternion.identity);
+>>>>>>> parent of b370ab8... Refactor
 		for (int y = pos; 0 <= y && y < rows * columns;) {
 			PlaceTile (y);
 			traversedpath.Add (y);

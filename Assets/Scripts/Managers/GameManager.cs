@@ -47,7 +47,11 @@ public class GameManager : MonoBehaviour
 			boardScript = GetComponent<Air>();
 		}
 		if (DifficultyManager.difficulty == 0) {
+<<<<<<< HEAD
 			boardScript.setEnemyCount(40,40);
+=======
+			boardScript.setEnemyCount(15,20);
+>>>>>>> parent of b370ab8... Refactor
 		}
 		if (DifficultyManager.difficulty  == 1) {
 			boardScript.setEnemyCount(20,25);
