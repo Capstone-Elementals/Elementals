@@ -986,7 +986,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FaceTex:
-        m_Texture: {fileID: 2800000, guid: 03d6cadedd3ffad478dc94c72d96ed20, type: 3}
+        m_Texture: {fileID: 2800000, guid: ac5a0a5373b36e049bb7f98f88dbc244, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -994,7 +994,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: c30270e41dccf9441ab56d94261bdcfa, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -1053,11 +1053,11 @@ Material:
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 0.41176468, g: 0.14866962, b: 0.03027682, a: 1}
+    - _OutlineColor: {r: 0.47794116, g: 0.36197016, b: 0.3787659, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 0.7794118, b: 0.7794118, a: 1}
-    - _UnderlayColor: {r: 1, g: 1, b: 1, a: 0.5}
+    - _UnderlayColor: {r: 1, g: 0.39705884, b: 0.39705884, a: 0.5}
 --- !u!28 &28231792223548534
 Texture2D:
   m_ObjectHideFlags: 0
