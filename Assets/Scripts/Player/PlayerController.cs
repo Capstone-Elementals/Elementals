@@ -8,12 +8,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, PlayerInterface
 {	
 	private Health health; //Player health
 	private Stats playerStats = new Stats(); //Players Stats
 	public float maxSpeed = 10f; // Player max speed
-	private bool facingRight = true; //Check which way player is facing
+	public bool facingRight = true; //Check which way player is facing
 	private Rigidbody2D rb2d; // Rigidbody 2D that is on this object
 	private Animator anim; // Animator that is on this object
 	private bool grounded = false; // Check if player is on the ground
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
 	{
 		return playerWeapon2;
 	}
-	public void Jump()
+	public void jump()
 	{
 		jumpPending = true;
 	}

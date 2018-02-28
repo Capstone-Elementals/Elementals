@@ -37,12 +37,16 @@ public class HandleAiming : MonoBehaviour
 		// I used a small deadzone to prevent weird behaviour due to very small floats.
 		if (Mathf.Abs(unitVector.x) >= 0.05 && Mathf.Abs(unitVector.y) >= 0.05 && !float.IsNaN(aimDirection.x)) 
 		{
-			
+			PlayerController playerScript = this.GetComponentInParent<PlayerController>();
+			//Apply the new position
+			if (!playerScript.facingRight)
+			{
+				unitVector.x = -unitVector.x;
+				aimDirection.x = -aimDirection.x;
+			}
 			float requiredAngle = Mathf.Atan2 (aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
 			deltaRotation = requiredAngle - currentRotation;
 			currentRotation = requiredAngle;
-
-			//Apply the new position
 			transform.localPosition = unitVector * distanceFromPlayer;
 			transform.Rotate (0, 0, deltaRotation);
 		}
