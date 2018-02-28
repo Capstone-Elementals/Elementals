@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	}
 	void Update()
 	{
+		UpdateHealth ();
 		//Vertical Movement
 		if ((jumpPending | Input.GetKeyDown(KeyCode.Space)) && grounded) 
 		{
@@ -159,5 +160,9 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	void Dead()
 	{
 
+	}
+	void UpdateHealth()
+	{
+		GameObject.FindGameObjectWithTag ("HPbar").GetComponent<UnityEngine.UI.Text> ().text = health.GetHealth ().ToString ();
 	}
 }
