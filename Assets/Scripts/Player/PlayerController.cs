@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	private Weapon playerWeapon1 = new Weapon(); // Players Weapon 1
 	private Weapon playerWeapon2 = new Weapon(); // Players Weapon 2
 	private bool jumpPending; // Player is jumping or not
-
+	public Weapon equippedWeapon;
 
 	//Set and Get functions
 	public void SetArmor(Armor armor)
@@ -73,9 +73,19 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	{
 		jumpPending = true;
 	}
-
+	public void ChangeWeapon()
+	{
+		if (equippedWeapon == playerWeapon1) 
+		{
+			equippedWeapon = playerWeapon2;
+		} else 
+		{
+			equippedWeapon = playerWeapon1;
+		}
+	}
 	void Awake()
 	{
+		equippedWeapon = playerWeapon1;
 		health = (Health) GetComponent<Health> ();
 		health.SetHealth ((int)(health.maxHealth * playerStats.getVitality ()));
 	}
