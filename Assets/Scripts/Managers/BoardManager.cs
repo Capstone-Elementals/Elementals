@@ -138,7 +138,7 @@ public class BoardManager : MonoBehaviour
 	protected void InitBackground()
 	{
 		GameObject backgroundSetter = background;
-		Instantiate (backgroundSetter, new Vector3 ((float)(rows*scaleX)/2, (columns*scaleY/2), 0), Quaternion.identity);
+		Instantiate (backgroundSetter, new Vector3 (((float)(rows*scaleX)/2) - (scaleX/2), ((float)(columns*scaleY/2)) - (scaleY/2), 0), Quaternion.identity);
 	}
 	//Places an object at a random position
 	protected void ObjectRandomPosition (GameObject[] objectArray, int min, int max)
