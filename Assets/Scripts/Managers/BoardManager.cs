@@ -138,10 +138,7 @@ public class BoardManager : MonoBehaviour
 	protected void InitBackground()
 	{
 		GameObject backgroundSetter = background;
-		backgroundSetter.GetComponent<Transform> ().SetPositionAndRotation(new Vector3 (rows*scaleX,columns*scaleY, 100),
-			Quaternion.identity);
-		backgroundSetter.GetComponent<Transform> ().localScale.Set (rows*scaleX, columns*scaleY , 0);
-		Instantiate (backgroundSetter, new Vector3 ((rows*scaleX)/2, (columns*scaleY/2), 0), Quaternion.identity);
+		Instantiate (backgroundSetter, new Vector3 ((float)(rows*scaleX)/2, (columns*scaleY/2), 0), Quaternion.identity);
 	}
 	//Places an object at a random position
 	protected void ObjectRandomPosition (GameObject[] objectArray, int min, int max)
