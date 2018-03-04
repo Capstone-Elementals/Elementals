@@ -38,12 +38,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/CraftGems.unity
     guid: 09d0579a9a43e51498f3129d474d2f29
-  - enabled: 0
-    path: Assets/Scene/GemShop.unity
+  - enabled: 1
+    path: Assets/Scene/UpgradeGems.unity
     guid: ee2ed4940f689b044865d73298936b1f
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scene/HelpCraft.unity
+    guid: 0079b813240db2e458a169a3960d69f3
+  - enabled: 1
+    path: Assets/Scene/HelpArmory.unity
+    guid: 172cfd03fa319874ba34f2aff2aea5e0
+  - enabled: 1
+    path: Assets/Scene/HelpUpgrade.unity
+    guid: 8df37259e10d1814a9ebe3ff5195b5f5
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
