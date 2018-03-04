@@ -132,7 +132,7 @@ public class BoardManager : MonoBehaviour
         BoardSetup();
         Path(floorTiles);
 		ObjectRandomPosition (enemies, enemiesCount.minimum, enemiesCount.maximum);
-		//InitBackground ();
+		InitBackground ();
     }
 	//Instantiates the background of the level
 	protected void InitBackground()
@@ -140,6 +140,7 @@ public class BoardManager : MonoBehaviour
 		GameObject backgroundSetter = background;
 		backgroundSetter.GetComponent<Transform> ().SetPositionAndRotation(new Vector3 (rows*scaleX,columns*scaleY, 100),
 			Quaternion.identity);
+		backgroundSetter.GetComponent<Transform> ().localScale.Set (rows*scaleX, columns*scaleY , 0);
 		Instantiate (backgroundSetter, new Vector3 ((rows*scaleX)/2, (columns*scaleY/2), 0), Quaternion.identity);
 	}
 	//Places an object at a random position

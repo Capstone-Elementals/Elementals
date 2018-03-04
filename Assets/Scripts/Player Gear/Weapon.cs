@@ -23,6 +23,8 @@ public class Weapon
 		damage = 1;
 		bonusDamage = 0;
 		totalDamage = 0;
+		calculateBonusDamage ();
+		calculateTotalDamage ();
 	}
 	public Weapon(Gem gem1, Gem gem2, Gem gem3, float damage)
 	{
