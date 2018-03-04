@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class EarthAspect : MonoBehaviour {
 
-	public int mass = 50;
+	public int mass = 500;
 
-	// Use this for initialization
-	void Start () {
+	public void OnCollisionEnter2D (Collision2D col) {
 		GetComponent<Rigidbody2D> ().mass = mass;
 	}
 }

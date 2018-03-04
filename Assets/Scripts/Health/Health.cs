@@ -6,6 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour 
 {
 	public int maxHealth = 3;
+	public int damageMult = 1;
 	public int health;
 
 	private HealthBar healthBar = null;
@@ -24,8 +25,10 @@ public class Health : MonoBehaviour
 	{
 		return health;
 	}
-	public void Damage(int damageTaken)
+	public void Damage(int rawDamage)
 	{
+
+		int damageTaken = rawDamage * damageMult;
 
 		//Catch negative damage
 		if (damageTaken <= 0)
