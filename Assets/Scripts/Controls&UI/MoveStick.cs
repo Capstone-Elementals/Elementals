@@ -31,8 +31,10 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 		void CreateVirtualAxes()
 		{
-			m_HorizontalVirtualAxis = new CrossPlatformInputManager.VirtualAxis(horizontalAxisName);
-			CrossPlatformInputManager.RegisterVirtualAxis(m_HorizontalVirtualAxis);
+			if (!CrossPlatformInputManager.AxisExists (horizontalAxisName)) {
+				m_HorizontalVirtualAxis = new CrossPlatformInputManager.VirtualAxis (horizontalAxisName);
+				CrossPlatformInputManager.RegisterVirtualAxis (m_HorizontalVirtualAxis);
+			}
 		}
 
 
