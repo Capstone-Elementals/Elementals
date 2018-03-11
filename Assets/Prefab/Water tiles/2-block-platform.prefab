@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4389467538428590}
   - component: {fileID: 212302673544192938}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1-block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4633251128614436}
   - component: {fileID: 251114363438376536}
   - component: {fileID: 61681449134494746}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 2-block-platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4588164393222800}
   - component: {fileID: 212387881018688832}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: underwater-rock-faris (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
