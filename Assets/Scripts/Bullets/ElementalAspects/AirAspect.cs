@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AirAspect : MonoBehaviour {
-	public int damageMultiplier = 2;
+public class AirAspect : MonoBehaviour, Aspect {
+	public int damageMultiplier = 1;
 	public int duration = 50;
 
 	public void OnCollisionEnter2D (Collision2D col) {
@@ -12,5 +12,9 @@ public class AirAspect : MonoBehaviour {
 			col.gameObject.GetComponent<DamageAmp> ().setData (damageMultiplier, duration);
 		}
 
+	}
+
+	public void scale (int level) {
+		damageMultiplier += level;
 	}
 }

@@ -7,7 +7,8 @@ public class HandleAiming : MonoBehaviour
 
 	private float currentRotation = 90f;
 	//Frames between shots
-	public GameObject toShoot;
+	private GameObject toShoot;
+	public GameObject player;
 	public float fireRate = 30f;
 	public float distanceFromPlayer = 0.5f;
 	private float cooldown = 0f;
@@ -16,6 +17,8 @@ public class HandleAiming : MonoBehaviour
 	void Start () 
 	{
 		transform.localPosition = new Vector3 (0, distanceFromPlayer, 0);
+		player = GameObject.FindGameObjectWithTag ("Player");
+		toShoot = (GameObject)Resources.Load("/Prefab/Bullets/Bullet.prefab", typeof(GameObject));
 	}
 	
 	// Update is called once per frame
@@ -56,6 +59,8 @@ public class HandleAiming : MonoBehaviour
 		{
 			//Player is able is able to shoot
 			GameObject newBullet = Instantiate<GameObject>(toShoot, transform.position, transform.rotation);
+
+
 			//Assumes that the created component is a bullet, possible null call
 			cooldown = fireRate;
 		}

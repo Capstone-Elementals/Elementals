@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterAspect : MonoBehaviour {
+public class WaterAspect : MonoBehaviour, Aspect {
 	public float slowPercentage = 0.75f;
 	public int duration = 50;
 
@@ -12,5 +12,10 @@ public class WaterAspect : MonoBehaviour {
 			col.gameObject.GetComponent<Slow> ().setData (slowPercentage, duration);
 		}
 
+	}
+
+	public void scale (int level) {
+		slowPercentage *= level;
+		//duration *= level;
 	}
 }

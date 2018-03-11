@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
+		equippedWeapon = playerWeapon1;
 	}
 	//Player physics
 	void FixedUpdate()
