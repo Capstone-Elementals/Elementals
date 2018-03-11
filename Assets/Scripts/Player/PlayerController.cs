@@ -27,7 +27,8 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	private Weapon playerWeapon2 = new Weapon(); // Players Weapon 2
 	private bool jumpPending; // Player is jumping or not
 	public Weapon equippedWeapon;
-
+	private CapsuleCollider2D playerCollider;
+	private Collision2D lastCollision = null;
 	//Set and Get functions
 	public void SetArmor(Armor armor)
 	{
@@ -84,7 +85,8 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		}
 	}
 	void Awake()
-	{
+	{	
+		playerCollider = gameObject.GetComponent<CapsuleCollider2D> ();
 		equippedWeapon = playerWeapon1;
 		health = (Health) GetComponent<Health> ();
 		health.SetHealth ((int)(health.maxHealth * playerStats.getVitality ()));
@@ -130,7 +132,19 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		{
 			Dead();
 		}
+		float direction = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalShoot");
+		if (lastCollision != null) {
+			if (direction < 0 && lastCollision.gameObject.layer == 9) {
+				playerCollider.enabled = false;
+				Invoke ("ScriptThatTurnsPlatformBackOn", 0.3f);
+			}
+		}
 
+	}
+
+	void ScriptThatTurnsPlatformBackOn()
+	{
+		playerCollider.enabled = true;
 	}
 	//Flip sprite when changing direction
 	void Flip()
@@ -143,6 +157,7 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	//Damage functions
 	void OnCollisionEnter2D (Collision2D col) 
 	{
+		lastCollision = col;
 		if (col.gameObject.tag.Contains("Enemy")) 
 		{
 			//Grab the damage of the incoming bullet
