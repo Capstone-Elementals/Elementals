@@ -107,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1131575127462470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.722837, y: 170.07657, z: 0}
+  m_LocalPosition: {x: 141.47528, y: -122.93266, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4514403438282700}
@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  damageMult: 1
   health: 0
 --- !u!114 &114365276412183634
 MonoBehaviour:
@@ -296,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
+  facingRight: 1
   groundCheck: {fileID: 4996915742502860}
   whatIsGround:
     serializedVersion: 2
@@ -324,6 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toShoot: {fileID: 1967134909186848, guid: 2550362bedaba4a4c9d84159452bd5f9, type: 2}
+  player: {fileID: 0}
   fireRate: 30
   distanceFromPlayer: 0.5
 --- !u!124 &124584594096796218
