@@ -40,9 +40,6 @@ public class BoardManager : MonoBehaviour
 	public int scaleY = 6; //y-scale of each tile
 	public GameObject boss;//Prefab to spawn for boss tile.
     public GameObject[] floorTiles;//Array of All tiles.
-    public GameObject[] e1Tiles;//Array of tiles with 1 entrance                                  
-	public GameObject[] e2Tiles;//Array of tiles with 2 entrance
-	public GameObject[] e3Tiles;//Array of tiles with 3 entrance
 	public GameObject[] e4Tiles;//Array of tiles with 4 entrance
 	public GameObject[] enemies;//Array of enemies to be used to level
 	private Count enemiesCount = new Count (1, 10); // max and min of amount of enemies to be placed in level
@@ -85,25 +82,25 @@ public class BoardManager : MonoBehaviour
 				if (x == 0) 
 				{
 					GameObject edge = edgeV;
-					GameObject edgeInstance = Instantiate (edge, new Vector3 (x - (scaleX / 2), y, 0f), Quaternion.identity) as GameObject;
+					GameObject edgeInstance = Instantiate (edge, new Vector3 (x - (scaleX / 2) + 0.5f, y, 0f), Quaternion.identity) as GameObject;
 					edgeInstance.transform.SetParent(edgeHolder);
 				}
 				if(x == (scaleX * rows) - scaleX)
 				{
 					GameObject edge = edgeV;
-					GameObject edgeInstance = Instantiate (edge, new Vector3 (x + (scaleX / 2), y, 0f), Quaternion.identity) as GameObject;
+					GameObject edgeInstance = Instantiate (edge, new Vector3 (x + (scaleX / 2) - 0.5f, y, 0f), Quaternion.identity) as GameObject;
 					edgeInstance.transform.SetParent(edgeHolder);
 				}
 				if(y == 0)
 				{
 					GameObject edge = edgeH;
-					GameObject edgeInstance = Instantiate (edge, new Vector3 (x, y - (scaleY / 2), 0f), Quaternion.identity) as GameObject;
+					GameObject edgeInstance = Instantiate (edge, new Vector3 (x, y - (scaleY / 2) + 0.5f, 0f), Quaternion.identity) as GameObject;
 					edgeInstance.transform.SetParent(edgeHolder);
 				}
 				if (y == (scaleY * columns) - scaleY) 
 				{
 					GameObject edge = edgeH;
-					GameObject edgeInstance = Instantiate (edge, new Vector3 (x, y + (scaleY / 2), 0f), Quaternion.identity) as GameObject;
+					GameObject edgeInstance = Instantiate (edge, new Vector3 (x, y + (scaleY / 2) - 0.5f, 0f), Quaternion.identity) as GameObject;
 					edgeInstance.transform.SetParent(edgeHolder);
 				}
                 //Choose a random tile from our array of floor tile prefabs and prepare to instantiate it.
