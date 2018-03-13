@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
+  facingRight: 1
   groundCheck: {fileID: 4996915742502860}
   whatIsGround:
     serializedVersion: 2
