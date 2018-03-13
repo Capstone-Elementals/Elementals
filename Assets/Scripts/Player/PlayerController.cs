@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		if (lastCollision != null) {
 			if (direction < 0 && lastCollision.gameObject.layer == 9) {
 				playerCollider.enabled = false;
-				Invoke ("ScriptThatTurnsPlatformBackOn", 0.3f);
+				Invoke ("ScriptThatTurnsPlatformBackOn", 0.5f);
 			}
 		}
 
