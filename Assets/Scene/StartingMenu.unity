@@ -142,7 +142,7 @@ RectTransform:
   m_Children:
   - {fileID: 1662871292}
   - {fileID: 1316551839}
-  - {fileID: 1296192682}
+  - {fileID: 966586429}
   m_Father: {fileID: 1958806412}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6392157, g: 0.6392157, b: 0.6392157, a: 1}
+  m_Color: {r: 0.4627451, g: 0.4627451, b: 0.4627451, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -819,6 +819,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95919d144c976fb418dbed391576ba79, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &966586429 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 966586428}
 --- !u!1 &1146476429
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,11 +904,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &1296192682 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224535875340829504, guid: 95919d144c976fb418dbed391576ba79,
-    type: 2}
-  m_PrefabInternal: {fileID: 966586428}
 --- !u!1 &1316551838
 GameObject:
   m_ObjectHideFlags: 0
