@@ -47,6 +47,7 @@ public class BoardManager : MonoBehaviour
 	public GameObject edgeV;//Prefab for vertical edge of level
 	public GameObject edgeH;//Prefab for horizontal edge of level
 	public GameObject background;//Prefab for background of level
+	public GameObject music;//Prefab for Music of level
     private Transform boardHolder;//A variable to store a reference to the transform of our Board object.
 	private Transform edgeHolder;//A variable to store a reference to the transform of our Edge object.
 	private Transform objectHolder;//A variable to store a reference to the transform of our objects.
@@ -130,7 +131,14 @@ public class BoardManager : MonoBehaviour
         Path(floorTiles);
 		ObjectRandomPosition (enemies, enemiesCount.minimum, enemiesCount.maximum);
 		InitBackground ();
+		InitMusic ();
     }
+	//Instantiate the music of the level
+	protected void InitMusic()
+	{
+		GameObject musicSetter = music;
+		Instantiate (musicSetter, new Vector3 (0,0,0), Quaternion.identity);
+	}
 	//Instantiates the background of the level
 	protected void InitBackground()
 	{
