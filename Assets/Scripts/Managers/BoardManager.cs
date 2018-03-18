@@ -53,7 +53,7 @@ public class BoardManager : MonoBehaviour
 	private Transform objectHolder;//A variable to store a reference to the transform of our objects.
     private List<GameObject> objects = new List<GameObject>();//List of all objects in Board
 	protected List<int> randomPosRecord = new List<int>();//List of positions used to place enemies or items.
-
+	public GameObject portal;
 	//Getter to get enemy count for this object
 	public Count GetEnemyCount()
 	{
@@ -133,6 +133,12 @@ public class BoardManager : MonoBehaviour
 		InitBackground ();
 		InitMusic ();
     }
+	protected void InitPortal()
+	{
+		GameObject endPortal = portal;
+		Instantiate (endPortal, new Vector3 (objects [objects.Count - 1].transform.position.x,
+			objects [objects.Count - 1].transform.position.y, 0f), Quaternion.identity);
+	}
 	//Instantiate the music of the level
 	protected void InitMusic()
 	{
