@@ -177,33 +177,5 @@ public class CameraManager : MonoBehaviour {
             Gizmos.DrawLine(new Vector2(j.position.x, i.position.y), new Vector2(j.position.x, j.position.y));
         }
     }
-
-
-    /* The method CameraControls is implemented for purpose of showing the workings of the CameraManager class. The below used methods/accessors can be
-     * called from outside the class with preferred parameters. The below given parameters are used as an example.
-     * The method can be removed without further problems for own use.
-     
-    
-	private void CameraControls() {
-        // When pressed the focusPosition changes to that of the current position of the cursor and the camera will move towards this location
-        // FocusPosition (accessor) requires a Vector3 type
-        if (Input.GetKeyDown(KeyCode.Z)) {
-            FocusPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        }
-        // When pressed the camera follows the given object
-        // FocusObject (accessor) requires a GameObject type
-        if (Input.GetKeyDown(KeyCode.X)) {
-            FocusObject = GameObject.Find("Player");
-        }
-        // When pressed the camera zooms in to the value given as parameter which translates to the camera's orthographicsize
-        if (Input.GetKeyDown(KeyCode.C)) {
-            ZoomIn(1);
-        }
-        // When pressed the camera zooms out to the value given as parameter which translates to the camera's orthographicsize
-        // For purpose of showing workings the camera zooms out to its original orthographicsize value (orthographicsize_base)
-        if (Input.GetKeyDown(KeyCode.V)) {
-            ZoomOut(orthographicsize_base);
-        }
-    }
-	*/
+		
 }
