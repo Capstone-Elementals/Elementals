@@ -48,6 +48,7 @@ public class BoardManager : MonoBehaviour
 	public GameObject edgeH;//Prefab for horizontal edge of level
 	public GameObject background;//Prefab for background of level
 	public GameObject music;//Prefab for Music of level
+	public GameObject camera;
     private Transform boardHolder;//A variable to store a reference to the transform of our Board object.
 	private Transform edgeHolder;//A variable to store a reference to the transform of our Edge object.
 	private Transform objectHolder;//A variable to store a reference to the transform of our objects.
@@ -288,5 +289,11 @@ public class BoardManager : MonoBehaviour
 			}
 			goodDirection = false;
 		}
+	}
+
+	protected void InitCamera()
+	{
+		GameObject cameraSetter = camera;
+		Instantiate (cameraSetter, new Vector3 (0,0,0), Quaternion.identity);
 	}
 }
