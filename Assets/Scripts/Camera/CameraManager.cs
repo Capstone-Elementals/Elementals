@@ -26,13 +26,15 @@ public class CameraManager : MonoBehaviour {
 //        if (focusObject != null)
 //            FocusObject = focusObject;
 
+		FocusObject = focusObject;
+
         if (listAreaNodes.Count == 0)
             Debug.LogWarning(gameObject.name.ToString() + " (CameraManager): No Area boundaries are assigned. The camera will move freely to the set targets");
     }
 
     void Update() {
 
-		FocusObject = focusObject;
+//		FocusObject = focusObject;
 		
         // Declare Vector3 for the new position
         Vector3 newPosition;

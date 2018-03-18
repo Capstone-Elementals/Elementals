@@ -55,6 +55,13 @@ public class BoardManager : MonoBehaviour
     private List<GameObject> objects = new List<GameObject>();//List of all objects in Board
 	protected List<int> randomPosRecord = new List<int>();//List of positions used to place enemies or items.
 
+
+	protected void InitCamera()
+	{
+		GameObject cameraSetter = camera;
+		Instantiate (cameraSetter, new Vector3 (0,0,-10), Quaternion.identity);
+	}
+
 	//Getter to get enemy count for this object
 	public Count GetEnemyCount()
 	{
@@ -128,6 +135,7 @@ public class BoardManager : MonoBehaviour
 	//Function called when unity enters the scene
     public void SetupScene()
     {
+		InitCamera();
         BoardSetup();
         Path(floorTiles);
 		ObjectRandomPosition (enemies, enemiesCount.minimum, enemiesCount.maximum);
@@ -290,10 +298,5 @@ public class BoardManager : MonoBehaviour
 			goodDirection = false;
 		}
 	}
-
-	protected void InitCamera()
-	{
-		GameObject cameraSetter = camera;
-		Instantiate (cameraSetter, new Vector3 (0,0,0), Quaternion.identity);
-	}
+		
 }
