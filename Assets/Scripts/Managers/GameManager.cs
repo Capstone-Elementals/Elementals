@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
         InitGame();
     }
 
@@ -51,11 +51,11 @@ public class GameManager : MonoBehaviour
 		}
 		if (DifficultyManager.difficulty  == 1)
 		{
-			boardScript.SetEnemyCount(20,25);
+			boardScript.SetEnemyCount(25,40);
 		}
 		if (DifficultyManager.difficulty  == 2)
 		{
-			boardScript.SetEnemyCount(25,30);
+			boardScript.SetEnemyCount(75,100);
 		}
         //Call the SetupScene function of the BoardManager script.
 		boardScript.SetupScene ();

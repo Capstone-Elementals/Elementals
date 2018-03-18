@@ -8,10 +8,10 @@ public class GameMusic : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		GameObject.DontDestroyOnLoad (gameObject);
-		UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
+		SceneManager.sceneLoaded += OnSceneLoaded;
 	}
 
-	void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+	void OnSceneLoaded(	Scene scene, LoadSceneMode mode)
 	{
 		if (scene.name == "World") {
 			Destroy (gameObject);
