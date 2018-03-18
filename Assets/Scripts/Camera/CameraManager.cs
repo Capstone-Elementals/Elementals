@@ -9,9 +9,10 @@ public class CameraManager : MonoBehaviour {
 
     private float orthographicsize_base;
 
+	public GameObject focusObject;
+
     [Header("Target Elements")]
     private Vector3 followtarget;
-    [SerializeField] private GameObject focusObject;
     [SerializeField] private Vector3 focusPosition;
 
     // Area boundary elements
@@ -22,14 +23,17 @@ public class CameraManager : MonoBehaviour {
     void Start() {
         orthographicsize_base = Camera.main.orthographicSize;
 
-        if (focusObject != null)
-            FocusObject = focusObject;
+//        if (focusObject != null)
+//            FocusObject = focusObject;
 
         if (listAreaNodes.Count == 0)
             Debug.LogWarning(gameObject.name.ToString() + " (CameraManager): No Area boundaries are assigned. The camera will move freely to the set targets");
     }
 
     void Update() {
+
+		FocusObject = focusObject;
+		
         // Declare Vector3 for the new position
         Vector3 newPosition;
 
@@ -97,7 +101,7 @@ public class CameraManager : MonoBehaviour {
     public GameObject FocusObject {
         get { return focusObject; }
         set {
-            focusObject = value;
+			focusObject = GameObject.FindWithTag("Player");
             focusPosition = Vector3.zero;
         }
     }
