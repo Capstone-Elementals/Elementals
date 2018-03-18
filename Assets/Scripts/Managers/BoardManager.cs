@@ -132,12 +132,13 @@ public class BoardManager : MonoBehaviour
 		ObjectRandomPosition (enemies, enemiesCount.minimum, enemiesCount.maximum);
 		InitBackground ();
 		InitMusic ();
+		InitPortal ();
     }
 	protected void InitPortal()
 	{
 		GameObject endPortal = portal;
 		Instantiate (endPortal, new Vector3 (objects [objects.Count - 1].transform.position.x,
-			objects [objects.Count - 1].transform.position.y, 0f), Quaternion.identity);
+			objects [objects.Count - 1].transform.position.y + 0.5f, 5f), Quaternion.identity);
 	}
 	//Instantiate the music of the level
 	protected void InitMusic()
@@ -149,7 +150,7 @@ public class BoardManager : MonoBehaviour
 	protected void InitBackground()
 	{
 		GameObject backgroundSetter = background;
-		Instantiate (backgroundSetter, new Vector3 (((float)(rows*scaleX)/2) - (scaleX/2), ((float)(columns*scaleY/2)) - (scaleY/2), 0), Quaternion.identity);
+		Instantiate (backgroundSetter, new Vector3 (((float)(rows*scaleX)/2) - (scaleX/2), ((float)(columns*scaleY/2)) - (scaleY/2), 10), Quaternion.identity);
 	}
 	//Places an object at a random position
 	protected void ObjectRandomPosition (GameObject[] objectArray, int min, int max)
