@@ -7,7 +7,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 public class Inventory : MonoBehaviour 
 {
 	static public int essence;
@@ -32,7 +33,7 @@ public class Inventory : MonoBehaviour
 	}
 	void Start () 
 	{
-		if (savefile()) 
+		if (!savefile()) 
 		{
 			inventory = new List<Gem> ();
 			essence = 0;
@@ -69,6 +70,10 @@ public class Inventory : MonoBehaviour
 	void ReduceEssence(int decrement)
 	{
 		essence -= decrement;
+	}
+	void SetEssence(int newessence)
+	{
+		essence = newessence;
 	}
 	//Set and Get functions
 	public void SetArmor(Armor armor)
@@ -109,11 +114,23 @@ public class Inventory : MonoBehaviour
 	{
 		
 	}
+	public void Save()
+	{
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Create (Application.persistentDataPath + "/inventory.data");
+
+		Inventory data = new Inventory ();
+		data.SetEssence (Inventory.essence);
+	}
+
+	public void Load()
+	{
+
+	}
 	bool savefile()
 	{
-		bool exists = false;
-		//Check if a save file exists
-		if (exists)
+		
+		if (File.Exists(Application.persistentDataPath + "/inventory.data"))
 		{
 			return true;
 		} else 
