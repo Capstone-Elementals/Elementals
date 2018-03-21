@@ -25,4 +25,12 @@ public class Portal : MonoBehaviour {
 	{
 		this.transform.Rotate(0,0,currentAngle);
 	}
+
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if(col.gameObject.tag.Contains("Player"))
+		{
+			Application.LoadLevel ("FinishLevel");
+		}
+	}
 }
