@@ -210,7 +210,7 @@ public class BoardManager : MonoBehaviour
 	protected void RandomPath (int position, int previousDirection, bool goodDirection, int invalid)
 	{	
 		List<int> traversedPath = new List<int>();
-		Instantiate (player, new Vector3 (objects [position].transform.position.x, objects [position].transform.position.y, 
+		GameObject instantiatedPlayer = Instantiate (player, new Vector3 (objects [position].transform.position.x, objects [position].transform.position.y, 
 			objects [position].transform.position.z), Quaternion.identity);
 		for (int y = position; 0 <= y && y < rows * columns;) 
 		{
