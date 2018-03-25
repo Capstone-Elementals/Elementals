@@ -21,7 +21,7 @@ public class Burn : MonoBehaviour {
 		timer++;
 
 		if (timer > timePerTick) {
-			entityHealth.Damage (damagePerTick);
+			entityHealth.Damage (damagePerTick, 'F');
 			tickCount++;
 			timer = 0;
 

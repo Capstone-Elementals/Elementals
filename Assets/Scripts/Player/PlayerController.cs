@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 			equippedWeapon = playerWeapon1;
 		}
 	}
+
 	void Awake()
 	{	
 		playerCollider = gameObject.GetComponent<CapsuleCollider2D> ();
@@ -91,12 +92,14 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		health = (Health) GetComponent<Health> ();
 		health.SetHealth ((int)(health.maxHealth * playerStats.getVitality ()));
 	}
+
 	//Initialization
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 	}
+
 	//Player physics
 	void FixedUpdate()
 	{
@@ -114,9 +117,8 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		{
 			Flip();
 		}
-
-
 	}
+
 	void Update()
 	{
 		UpdateHealth ();
@@ -178,14 +180,17 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 			return false;
 		}
 	}
+
 	void Destroy() 
 	{
 		Destroy (this.gameObject);
 	}
+
 	void Dead()
 	{
 
 	}
+
 	void UpdateHealth()
 	{
 		GameObject.FindGameObjectWithTag ("HPbar").GetComponent<UnityEngine.UI.Text> ().text = health.GetHealth ().ToString ();

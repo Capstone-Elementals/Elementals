@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Enemy : MonoBehaviour 
 {
-
 	public GameObject toDrop;
 
 	private Health health;
