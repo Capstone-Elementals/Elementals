@@ -58,7 +58,7 @@ public class Health : MonoBehaviour
 	public void Damage(float rawDamage, char element) {
 		float multiplier = 1f;
 
-		if (element = 'F') {
+		if (element == 'F') {
 			if (GetComponent<AirType> () != null)
 				multiplier *= 2f;
 
@@ -66,7 +66,7 @@ public class Health : MonoBehaviour
 				multiplier /= 2f;
 
 			Damage (rawDamage * multiplier);
-		} else if (element = 'W') {
+		} else if (element == 'W') {
 			if (GetComponent<FireType> () != null)
 				multiplier *= 2f;
 
@@ -74,7 +74,7 @@ public class Health : MonoBehaviour
 				multiplier /= 2f;
 
 			Damage (rawDamage * multiplier);
-		} else if (element = 'E') {
+		} else if (element == 'E') {
 			if (GetComponent<WaterType> () != null)
 				multiplier *= 2f;
 
@@ -82,7 +82,7 @@ public class Health : MonoBehaviour
 				multiplier /= 2f;
 
 			Damage (rawDamage * multiplier);
-		} else if (element = 'A') {
+		} else if (element == 'A') {
 			if (GetComponent<EarthType> () != null)
 				multiplier *= 2f;
 
