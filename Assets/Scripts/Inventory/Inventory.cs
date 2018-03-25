@@ -44,6 +44,7 @@ public class Inventory : MonoBehaviour
 		} else
 		{
 			//Read save file from memory
+			Load();
 		}
 	}
 
@@ -70,6 +71,10 @@ public class Inventory : MonoBehaviour
 	void ReduceEssence(int decrement)
 	{
 		essence -= decrement;
+	}
+	int getEssence()
+	{
+		return essence;
 	}
 	void SetEssence(int newessence)
 	{
@@ -121,11 +126,31 @@ public class Inventory : MonoBehaviour
 
 		Inventory data = new Inventory ();
 		data.SetEssence (Inventory.essence);
+		data.setInventory (Inventory.inventory);
+		data.SetWeapon1 (Inventory.playerWeapon1);
+		data.SetWeapon2 (Inventory.playerWeapon2);
+		data.SetArmor (Inventory.playerArmor);
+		data.SetBoot (Inventory.playerBoot);
+
+		bf.Serialize (file, data);
+		file.Close ();
 	}
 
 	public void Load()
 	{
+		if (savefile ()) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (Application.persistentDataPath + "/inventory.data", FileMode.Open);
+			Inventory data = (Inventory)bf.Deserialize (file);
+			file.Close ();
 
+			Inventory.essence = data.getEssence ();
+			Inventory.inventory = data.getInventory ();
+			Inventory.playerWeapon1 = data.GetWeapon1 ();
+			Inventory.playerWeapon1 = data.GetWeapon2 ();
+			Inventory.playerArmor = data.GetArmor ();
+			Inventory.playerBoot = data.GetBoot ();
+		}
 	}
 	bool savefile()
 	{
