@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+[System.Serializable]
 public class Inventory : MonoBehaviour 
 {
 	static public int essence;
@@ -122,16 +123,16 @@ public class Inventory : MonoBehaviour
 	}
 	public void Save()
 	{
+		Debug.Log ("Saving");
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Create (Application.persistentDataPath + "/inventory.data");
-
-		Inventory data = new Inventory ();
-		data.SetEssence (Inventory.essence);
-		data.setInventory (Inventory.inventory);
-		data.SetWeapon1 (Inventory.playerWeapon1);
-		data.SetWeapon2 (Inventory.playerWeapon2);
-		data.SetArmor (Inventory.playerArmor);
-		data.SetBoot (Inventory.playerBoot);
+		PlayerData data = new PlayerData ();
+		data.essence =  Inventory.essence;
+		data.inventory =  Inventory.inventory;
+		data.playerWeapon1 = Inventory.playerWeapon1;
+		data.playerWeapon2 =Inventory.playerWeapon2;
+		data.playerArmor =Inventory.playerArmor;
+		data.playerBoot =Inventory.playerBoot;
 
 		bf.Serialize (file, data);
 		file.Close ();
@@ -140,22 +141,22 @@ public class Inventory : MonoBehaviour
 	public void Load()
 	{
 		if (savefile ()) {
+			Debug.Log ("Load");
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (Application.persistentDataPath + "/inventory.data", FileMode.Open);
-			Inventory data = (Inventory)bf.Deserialize (file);
+			PlayerData data = (PlayerData)bf.Deserialize (file);
 			file.Close ();
 
-			Inventory.essence = data.getEssence ();
-			Inventory.inventory = data.getInventory ();
-			Inventory.playerWeapon1 = data.GetWeapon1 ();
-			Inventory.playerWeapon1 = data.GetWeapon2 ();
-			Inventory.playerArmor = data.GetArmor ();
-			Inventory.playerBoot = data.GetBoot ();
+			Inventory.essence = data.essence;
+			Inventory.inventory = data.inventory;
+			Inventory.playerWeapon1 = data.playerWeapon1;
+			Inventory.playerWeapon1 = data.playerWeapon2;
+			Inventory.playerArmor = data.playerArmor;
+			Inventory.playerBoot = data.playerBoot;
 		}
 	}
 	bool savefile()
 	{
-		
 		if (File.Exists(Application.persistentDataPath + "/inventory.data"))
 		{
 			return true;
@@ -163,5 +164,15 @@ public class Inventory : MonoBehaviour
 		{
 			return false;
 		}
+	}
+	[System.Serializable]
+	class PlayerData
+	{
+		public int essence;
+	 	public List<Gem> inventory;
+	 	public Weapon playerWeapon1;
+		public Weapon playerWeapon2;
+		public Armor playerArmor;
+		public Boot playerBoot;
 	}
 }
