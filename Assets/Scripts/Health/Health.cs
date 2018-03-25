@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour 
 {
-	public int maxHealth = 3;
-	public int damageMult = 1;
-	public int health;
+	public float maxHealth = 3f;
+	public float damageMult = 1f;
+	public float health;
 
+	private float carry_over = 0f;
 	private HealthBar healthBar = null;
 
 	void Start() 
@@ -17,39 +18,87 @@ public class Health : MonoBehaviour
 		//  This allows for objects to have health without a health bar.
 		healthBar = (HealthBar)transform.GetComponentInChildren<HealthBar>();
 	}
-	public void SetHealth(int inputHP)
+
+	public void SetHealth(float inputHP)
 	{
 		health = inputHP;
 	}
-	public int GetHealth()
+
+	public float GetHealth()
 	{
 		return health;
 	}
-	public void Damage(int rawDamage)
-	{
 
-		int damageTaken = rawDamage * damageMult;
+	public void Damage(float rawDamage)
+	{
+		float damageTaken = rawDamage * damageMult;
 
 		//Catch negative damage
-		if (damageTaken <= 0)
+		if (damageTaken <= 0f)
 			return;
+
+		carry_over += damageTaken % 1f;
+
+		if (carry_over >= 1f) {
+			carry_over--;
+			damageTaken++;
+		}
 
 		//Compensate for overkill
 		if (damageTaken > health)
 		{
-			health = 0;
-		} else 
-		{
+			health = 0f;
+		} else {
 			health -= damageTaken;
 		}
 
 		UpdateBar ();
 	}
 
-	public void Heal(int healthRestored)
+	public void Damage(float rawDamage, char element) {
+		float multiplier = 1f;
+
+		if (element == 'F') {
+			if (GetComponent<AirType> () != null)
+				multiplier *= 2f;
+
+			if (GetComponent<FireType> () != null)
+				multiplier /= 2f;
+
+			Damage (rawDamage * multiplier);
+		} else if (element == 'W') {
+			if (GetComponent<FireType> () != null)
+				multiplier *= 2f;
+
+			if (GetComponent<WaterType> () != null)
+				multiplier /= 2f;
+
+			Damage (rawDamage * multiplier);
+		} else if (element == 'E') {
+			if (GetComponent<WaterType> () != null)
+				multiplier *= 2f;
+
+			if (GetComponent<EarthType> () != null)
+				multiplier /= 2f;
+
+			Damage (rawDamage * multiplier);
+		} else if (element == 'A') {
+			if (GetComponent<EarthType> () != null)
+				multiplier *= 2f;
+
+			if (GetComponent<AirType> () != null)
+				multiplier /= 2f;
+
+			Damage (rawDamage * multiplier);
+		} else {
+			Damage (rawDamage);
+		}
+	}
+
+	public void Heal(float healthRestored)
 	{
 		//Check for negative healing
-		if (healthRestored <= 0)
+		if (healthRestored <= 0f)
 			return;
 
 		//Clamp health to prevent overheal
