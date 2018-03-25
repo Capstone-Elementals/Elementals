@@ -12,11 +12,11 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class Inventory : MonoBehaviour 
 {
 	static public int essence;
-	static private List<Gem> inventory;
-	static private Weapon playerWeapon1;
-	static private Weapon playerWeapon2;
-	static private Armor playerArmor;
-	static private Boot playerBoot;
+	static public List<Gem> inventory;
+	static public Weapon playerWeapon1;
+	static public Weapon playerWeapon2;
+	static public Armor playerArmor;
+	static public Boot playerBoot;
 	// Use this for initialization
 	public static Inventory instance = null;
 	void Awake()
@@ -30,9 +30,6 @@ public class Inventory : MonoBehaviour
 			Destroy(gameObject);
 		}
 		DontDestroyOnLoad(gameObject);
-	}
-	void Start () 
-	{
 		if (!savefile()) 
 		{
 			inventory = new List<Gem> ();
@@ -47,36 +44,40 @@ public class Inventory : MonoBehaviour
 			Load();
 		}
 	}
+	void Start () 
+	{
 
-	void AddGem(Gem gem)
+	}
+
+	public void AddGem(Gem gem)
 	{
 		inventory.Add (gem);
 	}
-	void removeGem(Gem gem)
+	public void removeGem(Gem gem)
 	{
 		inventory.Remove (gem);
 	}
-	List<Gem> getInventory()
+	public List<Gem> getInventory()
 	{
 		return inventory;
 	}
-	void setInventory(List<Gem> newinventory)
+	public void setInventory(List<Gem> newinventory)
 	{
 		inventory = newinventory;
 	}
-	void AddEssence(int increment)
+	public void AddEssence(int increment)
 	{
 		essence += increment;
 	}
-	void ReduceEssence(int decrement)
+	public void ReduceEssence(int decrement)
 	{
 		essence -= decrement;
 	}
-	int getEssence()
+	public int getEssence()
 	{
 		return essence;
 	}
-	void SetEssence(int newessence)
+	public void SetEssence(int newessence)
 	{
 		essence = newessence;
 	}

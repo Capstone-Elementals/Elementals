@@ -86,6 +86,13 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	}
 	void Awake()
 	{	
+		this.SetWeapon1 (Inventory.playerWeapon1);
+		this.SetWeapon2 (Inventory.playerWeapon2);
+		this.SetArmor (Inventory.playerArmor);
+		this.SetBoot (Inventory.playerBoot);
+		playerWeapon1.calculateTotalDamage ();
+		playerWeapon2.calculateTotalDamage ();
+		playerArmor.calculateTotalDefense ();
 		playerCollider = gameObject.GetComponent<CapsuleCollider2D> ();
 		equippedWeapon = playerWeapon1;
 		health = (Health) GetComponent<Health> ();
