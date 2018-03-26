@@ -160,7 +160,7 @@ public class BoardManager : MonoBehaviour
 		{
 			GameObject objectToBeInstantiated = objectArray[Random.Range(0,objectArray.Length)];
 			Vector3 randomPosition = RandomPosition();
-			GameObject objectInstance = Instantiate(objectToBeInstantiated, randomPosition, Quaternion.identity) as GameObject;
+			GameObject objectInstance = Instantiate (objectToBeInstantiated, randomPosition, Quaternion.identity) as GameObject;
 			objectInstance.transform.SetParent(objectHolder);
 		}
 	}
