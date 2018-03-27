@@ -161,8 +161,29 @@ public class BoardManager : MonoBehaviour
 			GameObject objectToBeInstantiated = objectArray[Random.Range(0,objectArray.Length)];
 			Vector3 randomPosition = RandomPosition();
 			GameObject objectInstance = Instantiate (objectToBeInstantiated, randomPosition, Quaternion.identity) as GameObject;
+			EnemyElement (objectInstance);
 			objectInstance.transform.SetParent(objectHolder);
 		}
+
+	}
+	protected void EnemyElement(GameObject enemy)
+	{
+		switch (LevelManager.level) {	
+			case 0:
+				enemy.AddComponent<FireType> ();
+				break;
+			case 1:
+				enemy.AddComponent<EarthType> ();
+				break;
+			case 2:
+				enemy.AddComponent<WaterType> ();
+				break;
+			case 3:
+				enemy.AddComponent<AirType> ();
+				break;
+			default:
+				break;
+			}
 	}
 	//Selects a random Vector3 position and returns it
 	protected Vector3 RandomPosition ()
