@@ -31,19 +31,16 @@ public class Inventory : MonoBehaviour
 			Destroy(gameObject);
 		}
 		DontDestroyOnLoad(gameObject);
-		if (!savefile()) 
-		{
-			inventory = new List<Gem> ();
-			essence = 0;
-			playerWeapon1 = new Weapon ();
-			playerWeapon2 = new Weapon ();
-			playerArmor = new Armor ();
-			playerBoot = new Boot ();
-		} else
-		{
-			//Read save file from memory
-			Load();
-		}
+
+	}
+	public void newGame()
+	{
+		inventory = new List<Gem> ();
+		essence = 0;
+		playerWeapon1 = new Weapon ();
+		playerWeapon2 = new Weapon ();
+		playerArmor = new Armor ();
+		playerBoot = new Boot ();
 	}
 	void Start () 
 	{
@@ -150,18 +147,22 @@ public class Inventory : MonoBehaviour
 			Inventory.essence = data.essence;
 			Inventory.inventory = data.inventory;
 			Inventory.playerWeapon1 = data.playerWeapon1;
-			Inventory.playerWeapon1 = data.playerWeapon2;
+			Inventory.playerWeapon2 = data.playerWeapon2;
 			Inventory.playerArmor = data.playerArmor;
 			Inventory.playerBoot = data.playerBoot;
+			Debug.Log ("Inventory: " + Inventory.essence + " Data: " + data.essence);
 		}
 	}
+
 	bool savefile()
 	{
 		if (File.Exists(Application.persistentDataPath + "/inventory.data"))
 		{
+			Debug.Log ("True");
 			return true;
 		} else 
 		{
+			Debug.Log ("False");
 			return false;
 		}
 	}

@@ -20,8 +20,7 @@ public class Enemy : MonoBehaviour
 		rb2d = (Rigidbody2D) GetComponent<Rigidbody2D> ();
 		//rb2d.freezeRotation = true;
 	}
-
-	void OnCollisionEnter2D (Collision2D col) 
+	void OnTriggerEnter2D (Collider2D col) 
 	{
 		if (col.gameObject.name.Contains ("Bullet")) 
 		{
@@ -32,7 +31,6 @@ public class Enemy : MonoBehaviour
 			health.Damage (damage);
 		}
 	}
-
 	//Used to see if the object should die
 	void FixedUpdate() 
 	{

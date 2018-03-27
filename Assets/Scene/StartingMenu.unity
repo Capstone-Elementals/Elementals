@@ -1035,7 +1035,6 @@ GameObject:
   - component: {fileID: 1662871295}
   - component: {fileID: 1662871294}
   - component: {fileID: 1662871293}
-  - component: {fileID: 1662871296}
   m_Layer: 5
   m_Name: New Game
   m_TagString: Untagged
@@ -1112,6 +1111,30 @@ MonoBehaviour:
           m_StringArgument: Hub
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114419058254410332, guid: 4c3e808c09d78d946aa9bd22976d9f69,
+          type: 2}
+        m_MethodName: newGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114231867678033454, guid: 800bd8a0367b73e4b8163923d6d2b79b,
+          type: 2}
+        m_MethodName: DeleteOldSave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1662871294
@@ -1147,18 +1170,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1662871291}
---- !u!114 &1662871296
-MonoBehaviour:
+--- !u!1001 &1735602304
+Prefab:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1662871291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f626249027a55ce44bf0fb800b589eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 1037561874471508, guid: 4c3e808c09d78d946aa9bd22976d9f69, type: 2}
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4660961486480708, guid: 873a83deae5cd114688f89dc11174e93, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1784.0531
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660961486480708, guid: 873a83deae5cd114688f89dc11174e93, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 410.86838
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660961486480708, guid: 873a83deae5cd114688f89dc11174e93, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.04003906
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660961486480708, guid: 873a83deae5cd114688f89dc11174e93, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660961486480708, guid: 873a83deae5cd114688f89dc11174e93, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660961486480708, guid: 873a83deae5cd114688f89dc11174e93, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660961486480708, guid: 873a83deae5cd114688f89dc11174e93, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660961486480708, guid: 873a83deae5cd114688f89dc11174e93, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 873a83deae5cd114688f89dc11174e93, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1824652506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,7 +1223,6 @@ GameObject:
   - component: {fileID: 1824652511}
   - component: {fileID: 1824652510}
   - component: {fileID: 1824652509}
-  - component: {fileID: 1824652508}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -1197,18 +1249,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 750, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1824652508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1824652506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c54146de75f1c741b5d88dba8ad6280, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 1037561874471508, guid: 4c3e808c09d78d946aa9bd22976d9f69, type: 2}
 --- !u!114 &1824652509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1257,6 +1297,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Hub
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114419058254410332, guid: 4c3e808c09d78d946aa9bd22976d9f69,
+          type: 2}
+        m_MethodName: Load
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

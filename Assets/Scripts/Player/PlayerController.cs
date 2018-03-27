@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		}
 		float direction = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalShoot");
 		if (lastCollision != null) {
-			if (direction < 0 && lastCollision.gameObject.layer == 9) {
+			if (direction < -0.6 && lastCollision.gameObject.layer == 9) {
 				playerCollider.enabled = false;
 				Invoke ("ScriptThatTurnsPlatformBackOn", 0.5f);
 			}

@@ -21,6 +21,7 @@ public abstract class Bullet : MonoBehaviour
 		bulletVelocity.x = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("HorizontalShoot");
 		bulletVelocity.y = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalShoot");
 		Rigidbody2D rb2d = this.GetComponent<Rigidbody2D> ();
+		Physics2D.IgnoreLayerCollision (12, 9);
 		//Add a force equal to speed times the unit vector of the aiming joystick
 		rb2d.AddForce ((bulletVelocity / bulletVelocity.magnitude) * speed);
 	}
@@ -34,9 +35,11 @@ public abstract class Bullet : MonoBehaviour
 		timeout--;
 	}
 
-	// Most bullets will call this upon collision
-	public void OnCollisionEnter2D (Collision2D col) 
+	// Most bullets will call this upon Trigger
+	public void OnTriggerEnter2D(Collider2D col)
 	{
-		Destroy(this.gameObject);
+		if (!(col.gameObject.layer == 9)) {
+			Destroy (this.gameObject);
+		}
 	}
 }
