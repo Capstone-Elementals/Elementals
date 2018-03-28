@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114986937461705856}
   - component: {fileID: 50812942260860272}
   - component: {fileID: 70671259057028540}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

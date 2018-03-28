@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
         InitGame();
     }
 
@@ -68,14 +68,4 @@ public class GameManager : MonoBehaviour
     {
 
     }
-
-	public void DestroyLevel()
-	{
-		Destroy (boardScript);
-	}
-
-	public void newLevel()
-	{
-		InitGame ();
-	}
 }

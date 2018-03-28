@@ -32,7 +32,7 @@ public class HealthBar : MonoBehaviour
 
 
 	//Updates the healthbar of a gameObject. Called from a Health script. 
-	public void update(float health, float maxHealth) 
+	public void update(int health, int maxHealth) 
 	{
 		
 		//Determine the red and green component of the health bar using the ratio of health to maxHealth

@@ -7,17 +7,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-[System.Serializable]
+
 public class Inventory : MonoBehaviour 
 {
 	static public int essence;
-	static public List<Gem> inventory;
-	static public Weapon playerWeapon1;
-	static public Weapon playerWeapon2;
-	static public Armor playerArmor;
-	static public Boot playerBoot;
+	static private List<Gem> inventory;
+	static private Weapon playerWeapon1;
+	static private Weapon playerWeapon2;
+	static private Armor playerArmor;
+	static private Boot playerBoot;
 	// Use this for initialization
 	public static Inventory instance = null;
 	void Awake()
@@ -31,53 +29,46 @@ public class Inventory : MonoBehaviour
 			Destroy(gameObject);
 		}
 		DontDestroyOnLoad(gameObject);
-
-	}
-	public void newGame()
-	{
-		inventory = new List<Gem> ();
-		essence = 0;
-		playerWeapon1 = new Weapon ();
-		playerWeapon2 = new Weapon ();
-		playerArmor = new Armor ();
-		playerBoot = new Boot ();
 	}
 	void Start () 
 	{
-
+		if (savefile()) 
+		{
+			inventory = new List<Gem> ();
+			essence = 0;
+			playerWeapon1 = new Weapon ();
+			playerWeapon2 = new Weapon ();
+			playerArmor = new Armor ();
+			playerBoot = new Boot ();
+		} else
+		{
+			//Read save file from memory
+		}
 	}
 
-	public void AddGem(Gem gem)
+	void AddGem(Gem gem)
 	{
 		inventory.Add (gem);
 	}
-	public void removeGem(Gem gem)
+	void removeGem(Gem gem)
 	{
 		inventory.Remove (gem);
 	}
-	public List<Gem> getInventory()
+	List<Gem> getInventory()
 	{
 		return inventory;
 	}
-	public void setInventory(List<Gem> newinventory)
+	void setInventory(List<Gem> newinventory)
 	{
 		inventory = newinventory;
 	}
-	public void AddEssence(int increment)
+	void AddEssence(int increment)
 	{
 		essence += increment;
 	}
-	public void ReduceEssence(int decrement)
+	void ReduceEssence(int decrement)
 	{
 		essence -= decrement;
-	}
-	public int getEssence()
-	{
-		return essence;
-	}
-	public void SetEssence(int newessence)
-	{
-		essence = newessence;
 	}
 	//Set and Get functions
 	public void SetArmor(Armor armor)
@@ -118,62 +109,16 @@ public class Inventory : MonoBehaviour
 	{
 		
 	}
-	public void Save()
-	{
-		Debug.Log ("Saving");
-		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Create (Application.persistentDataPath + "/inventory.data");
-		PlayerData data = new PlayerData ();
-		data.essence =  Inventory.essence;
-		data.inventory =  Inventory.inventory;
-		data.playerWeapon1 = Inventory.playerWeapon1;
-		data.playerWeapon2 =Inventory.playerWeapon2;
-		data.playerArmor =Inventory.playerArmor;
-		data.playerBoot =Inventory.playerBoot;
-
-		bf.Serialize (file, data);
-		file.Close ();
-	}
-
-	public void Load()
-	{
-		if (savefile ()) {
-			Debug.Log ("Load");
-			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream file = File.Open (Application.persistentDataPath + "/inventory.data", FileMode.Open);
-			PlayerData data = (PlayerData)bf.Deserialize (file);
-			file.Close ();
-
-			Inventory.essence = data.essence;
-			Inventory.inventory = data.inventory;
-			Inventory.playerWeapon1 = data.playerWeapon1;
-			Inventory.playerWeapon2 = data.playerWeapon2;
-			Inventory.playerArmor = data.playerArmor;
-			Inventory.playerBoot = data.playerBoot;
-			Debug.Log ("Inventory: " + Inventory.essence + " Data: " + data.essence);
-		}
-	}
-
 	bool savefile()
 	{
-		if (File.Exists(Application.persistentDataPath + "/inventory.data"))
+		bool exists = false;
+		//Check if a save file exists
+		if (exists)
 		{
-			Debug.Log ("True");
 			return true;
 		} else 
 		{
-			Debug.Log ("False");
 			return false;
 		}
-	}
-	[System.Serializable]
-	class PlayerData
-	{
-		public int essence;
-	 	public List<Gem> inventory;
-	 	public Weapon playerWeapon1;
-		public Weapon playerWeapon2;
-		public Armor playerArmor;
-		public Boot playerBoot;
 	}
 }

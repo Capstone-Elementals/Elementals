@@ -60,7 +60,6 @@ public class Player : PhysicsObject, PlayerInterface
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
-
     protected override void ComputeVelocity()
     {
         Vector2 move = Vector2.zero;

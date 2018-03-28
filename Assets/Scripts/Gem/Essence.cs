@@ -10,7 +10,6 @@ public class Essence : MonoBehaviour
 		{
 			Destroy (this.gameObject);
 			//Increment essence here
-			Inventory.essence += 1;
 		}
 	}
 }

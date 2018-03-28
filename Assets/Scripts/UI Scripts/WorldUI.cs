@@ -22,13 +22,10 @@ public class WorldUI : MonoBehaviour {
 		if (player == null) {
 			player = GameObject.FindGameObjectWithTag ("Player");
 		}
-		else
-		{
 			gem1.GetComponentInChildren<UnityEngine.UI.Text> ().text = player.GetComponent<PlayerController> ().equippedWeapon.getGem1 ().getGrade ().ToString ();
 			gem2.GetComponentInChildren<UnityEngine.UI.Text> ().text = player.GetComponent<PlayerController> ().equippedWeapon.getGem2 ().getGrade ().ToString ();
 			gem3.GetComponentInChildren<UnityEngine.UI.Text> ().text = player.GetComponent<PlayerController> ().equippedWeapon.getGem3 ().getGrade ().ToString ();
 			essence.GetComponentInChildren<UnityEngine.UI.Text> ().text = Inventory.essence.ToString ();
-		}
 	}
 
 }
