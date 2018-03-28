@@ -11,7 +11,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, PlayerInterface
 {	
 	private Health health; 						 // Player health
-	private Stats playerStats = new Stats(); 	 // Players Stats
+	private Stats playerStats; 	 // Players Stats
 	public float maxSpeed = 10f; 				 // Player max speed
 	public bool facingRight = true; 			 // Check which way player is facing
 	private Rigidbody2D rb2d; 					 // Rigidbody 2D that is on this object
@@ -21,10 +21,10 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	private float groundRadius = 0.02f; 		 // Circle below player that checks of ground
 	public LayerMask whatIsGround; 				 // Indicates which layers of game are ground
 	public float jumpForce = 700; 				 // Force of player jump
-	private Armor playerArmor = new Armor();	 // Players Armor
-	private Boot playerBoot = new Boot(); 		 // Players Boots
-	private Weapon playerWeapon1 = new Weapon(); // Players Weapon 1
-	private Weapon playerWeapon2 = new Weapon(); // Players Weapon 2
+	private Armor playerArmor;	 // Players Armor
+	private Boot playerBoot; 		 // Players Boots
+	private Weapon playerWeapon1; // Players Weapon 1
+	private Weapon playerWeapon2; // Players Weapon 2
 	private bool jumpPending; 					 // Player is jumping or not
 	public Weapon equippedWeapon;
 	private CapsuleCollider2D playerCollider;
