@@ -4,15 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Bullet
-  - Enemy
-  - Inventory
-  - HPbar
-  - Essence
-  - Gem1
-  - Gem2
-  - Gem3
   - Portal
+  - Enemy
+  - Essence
+  - Bullet
+  - empty
+  - Slot
+  - Inventory
+  - Gem2
+  - HPbar
+  - Gem3
+  - Gem1
   layers:
   - Default
   - TransparentFX
@@ -22,11 +24,6 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - Platform
-  - Ground
-  - Portal
-  - Bullet
   - 
   - 
   - 
@@ -45,23 +42,13 @@ TagManager:
   - 
   - 
   - 
-  - Background
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Floor
-    uniqueID: 2599685177
-    locked: 0
-  - name: Pick up
-    uniqueID: 118062675
-    locked: 0
-  - name: Unit
-    uniqueID: 3621395681
-    locked: 0
-  - name: Player
-    uniqueID: 976222071
-    locked: 0
-  - name: Background
-    uniqueID: 3457383399
     locked: 0
