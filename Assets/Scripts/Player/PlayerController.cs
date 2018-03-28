@@ -10,22 +10,22 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class PlayerController : MonoBehaviour, PlayerInterface
 {	
-	private Health health; //Player health
-	private Stats playerStats = new Stats(); //Players Stats
-	public float maxSpeed = 10f; // Player max speed
-	public bool facingRight = true; //Check which way player is facing
-	private Rigidbody2D rb2d; // Rigidbody 2D that is on this object
-	private Animator anim; // Animator that is on this object
-	private bool grounded = false; // Check if player is on the ground
-	public Transform groundCheck; // transform of where to check for ground
-	private float groundRadius = 0.02f; // Circle below player that checks of ground
-	public LayerMask whatIsGround; // Indicates which layers of game are ground
-	public float jumpForce = 700; // Force of player jump
-	private Armor playerArmor = new Armor(); // Players Armor
-	private Boot playerBoot = new Boot(); // Players Boots
-	private Weapon playerWeapon1 = new Weapon(); // Players Weapon 1
-	private Weapon playerWeapon2 = new Weapon(); // Players Weapon 2
-	private bool jumpPending; // Player is jumping or not
+	private Health health; 						 // Player health
+	private Stats playerStats; 	 // Players Stats
+	public float maxSpeed = 10f; 				 // Player max speed
+	public bool facingRight = true; 			 // Check which way player is facing
+	private Rigidbody2D rb2d; 					 // Rigidbody 2D that is on this object
+	private Animator anim; 						 // Animator that is on this object
+	private bool grounded = false; 				 // Check if player is on the ground
+	public Transform groundCheck; 				 // transform of where to check for ground
+	private float groundRadius = 0.02f; 		 // Circle below player that checks of ground
+	public LayerMask whatIsGround; 				 // Indicates which layers of game are ground
+	public float jumpForce = 700; 				 // Force of player jump
+	private Armor playerArmor;	 // Players Armor
+	private Boot playerBoot; 		 // Players Boots
+	private Weapon playerWeapon1; // Players Weapon 1
+	private Weapon playerWeapon2; // Players Weapon 2
+	private bool jumpPending; 					 // Player is jumping or not
 	public Weapon equippedWeapon;
 	private CapsuleCollider2D playerCollider;
 	private Collision2D lastCollision = null;
@@ -84,19 +84,36 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 			equippedWeapon = playerWeapon1;
 		}
 	}
+
 	void Awake()
 	{	
+		this.SetWeapon1 (Inventory.playerWeapon1);
+		this.SetWeapon2 (Inventory.playerWeapon2);
+		this.SetArmor (Inventory.playerArmor);
+		this.SetBoot (Inventory.playerBoot);
+		playerStats = new Stats ();
+		if (playerWeapon1 != null)
+			playerWeapon1.calculateTotalDamage ();
+		
+		if (playerWeapon2 != null)
+			playerWeapon2.calculateTotalDamage ();
+		
+		if (playerArmor != null)
+			playerArmor.calculateTotalDefense ();
+		
 		playerCollider = gameObject.GetComponent<CapsuleCollider2D> ();
 		equippedWeapon = playerWeapon1;
 		health = (Health) GetComponent<Health> ();
 		health.SetHealth ((int)(health.maxHealth * playerStats.getVitality ()));
 	}
+
 	//Initialization
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 	}
+
 	//Player physics
 	void FixedUpdate()
 	{
@@ -114,9 +131,8 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		{
 			Flip();
 		}
-
-
 	}
+
 	void Update()
 	{
 		UpdateHealth ();
@@ -134,7 +150,7 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		}
 		float direction = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalShoot");
 		if (lastCollision != null) {
-			if (direction < 0 && lastCollision.gameObject.layer == 9) {
+			if (direction < -0.6 && lastCollision.gameObject.layer == 9) {
 				playerCollider.enabled = false;
 				Invoke ("ScriptThatTurnsPlatformBackOn", 0.5f);
 			}
@@ -178,14 +194,17 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 			return false;
 		}
 	}
+
 	void Destroy() 
 	{
 		Destroy (this.gameObject);
 	}
+
 	void Dead()
 	{
 
 	}
+
 	void UpdateHealth()
 	{
 		GameObject.FindGameObjectWithTag ("HPbar").GetComponent<UnityEngine.UI.Text> ().text = health.GetHealth ().ToString ();

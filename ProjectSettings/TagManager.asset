@@ -12,9 +12,7 @@ TagManager:
   - Gem1
   - Gem2
   - Gem3
-  - Trash
-  - Slot
-  - empty
+  - Portal
   layers:
   - Default
   - TransparentFX
@@ -27,8 +25,8 @@ TagManager:
   - Player
   - Platform
   - Ground
-  - 
-  - 
+  - Portal
+  - Bullet
   - 
   - 
   - 
