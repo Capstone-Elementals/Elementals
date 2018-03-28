@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		this.SetWeapon2 (Inventory.playerWeapon2);
 		this.SetArmor (Inventory.playerArmor);
 		this.SetBoot (Inventory.playerBoot);
-
+		playerStats = new Stats ();
 		if (playerWeapon1 != null)
 			playerWeapon1.calculateTotalDamage ();
 		
@@ -104,9 +104,7 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		playerCollider = gameObject.GetComponent<CapsuleCollider2D> ();
 		equippedWeapon = playerWeapon1;
 		health = (Health) GetComponent<Health> ();
-
-		if (playerStats != null)
-			health.SetHealth ((int)(health.maxHealth * playerStats.getVitality ()));
+		health.SetHealth ((int)(health.maxHealth * playerStats.getVitality ()));
 	}
 
 	//Initialization
