@@ -12,7 +12,13 @@ TagManager:
   - Gem1
   - Gem2
   - Gem3
+<<<<<<< HEAD
   - Portal
+=======
+  - Trash
+  - Slot
+  - empty
+>>>>>>> Dynamic_Inventory
   layers:
   - Default
   - TransparentFX
