@@ -29,6 +29,12 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	public Weapon equippedWeapon;
 	private CapsuleCollider2D playerCollider;
 	private Collision2D lastCollision = null;
+
+	private bool knocked_back = false;
+	private float knock_back_x = 0f;
+	private int knock_back_counter = 0;
+	public int knock_back_frames = 5;
+
 	//Set and Get functions
 	public void SetArmor(Armor armor)
 	{
@@ -122,7 +128,16 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		anim.SetFloat("Speed", rb2d.velocity.y);
 		float move = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("HorizontalMove") * 0.5f;
 		anim.SetFloat ("Speed", Mathf.Abs (move));
-		rb2d.velocity = new Vector2 (Mathf.Clamp(move * maxSpeed, -10, 10), rb2d.velocity.y); 
+
+		rb2d.velocity = new Vector2 (Mathf.Clamp((move * maxSpeed) + knock_back_x, -10, 10), rb2d.velocity.y); 
+
+		if (knocked_back && (knock_back_counter < knock_back_frames || !grounded)) {
+			knock_back_counter++;
+		} else {
+			knocked_back = false;
+			knock_back_x = 0f;
+		}
+
 		if (move > 0 && !facingRight) 
 		{
 			Flip ();		
@@ -174,10 +189,23 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	void OnCollisionEnter2D (Collision2D col) 
 	{
 		lastCollision = col;
+
 		if (col.gameObject.tag.Contains("Enemy")) 
 		{
 			//Grab the damage of the incoming bullet
 			int damageTaken = col.gameObject.GetComponent<Enemy> ().bodyDamage;
+
+			knocked_back = true;
+			knock_back_counter = 0;
+			// Destroy current vector to avoid memory leak
+
+			if (col.gameObject.GetComponent<Rigidbody2D> ().position.x > rb2d.position.x) {
+				rb2d.velocity = new Vector2 (0f, 3f);
+				knock_back_x = -3f;
+			} else {
+				rb2d.velocity = new Vector2(0f, 3f);
+				knock_back_x = 3f;
+			}
 
 			//Hurt this object
 			health.Damage (damageTaken);
