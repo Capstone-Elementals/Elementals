@@ -20,6 +20,8 @@ public class Player : PhysicsObject, PlayerInterface
 	//Player Sprite
     private SpriteRenderer spriteRenderer;
 
+	private float initial_friction = 0f;
+
 	private bool jumpPending;
     
 	public void setArmor(Armor armor){
@@ -59,6 +61,7 @@ public class Player : PhysicsObject, PlayerInterface
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+		initial_friction = GetComponent<CapsuleCollider2D> ().sharedMaterial.friction;
     }
 
     protected override void ComputeVelocity()
