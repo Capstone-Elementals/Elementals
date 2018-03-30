@@ -13,6 +13,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class Inventory : MonoBehaviour 
 {
 	static public int essence;
+	static public int tempEssence;
 	static public List<Gem> inventory;
 	static public Weapon playerWeapon1;
 	static public Weapon playerWeapon2;
