@@ -38,6 +38,7 @@ public class Inventory : MonoBehaviour
 	{
 		inventory = new List<Gem> ();
 		essence = 0;
+		tempEssence = 0;
 		playerWeapon1 = new Weapon ();
 		playerWeapon2 = new Weapon ();
 		playerArmor = new Armor ();
@@ -151,6 +152,7 @@ public class Inventory : MonoBehaviour
 			Inventory.playerWeapon2 = data.playerWeapon2;
 			Inventory.playerArmor = data.playerArmor;
 			Inventory.playerBoot = data.playerBoot;
+			Inventory.tempEssence = 0;
 			Debug.Log ("Inventory: " + Inventory.essence + " Data: " + data.essence);
 		}
 	}
