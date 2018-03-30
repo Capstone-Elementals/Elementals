@@ -6,6 +6,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Health))]
 public class PlayerController : MonoBehaviour, PlayerInterface
@@ -230,7 +231,7 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 
 	void Dead()
 	{
-
+		Application.LoadLevel ("GameOver");
 	}
 
 	void UpdateHealth()
