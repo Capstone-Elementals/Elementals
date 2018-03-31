@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	private bool knocked_back = false;
 	private float knock_back_x = 0f;
 	private int knock_back_counter = 0;
-	public int knock_back_frames = 5;
+	public const int knock_back_frames = 5;
 
 	//Set and Get functions
 	public void SetArmor(Armor armor)
