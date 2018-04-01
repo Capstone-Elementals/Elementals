@@ -10,12 +10,13 @@ public class Movement : MonoBehaviour
 
 	public movementDirection direction = movementDirection.right;
 	public float speed = .25f;
-
+	private Animator anim;
 	private Rigidbody2D	rb2d;
 
 	// Use this for initialization
 	void Start () 
 	{
+		anim = (Animator)GetComponent<Animator> ();
 		rb2d = (Rigidbody2D) GetComponent<Rigidbody2D> ();
 	}
 
@@ -36,15 +37,19 @@ public class Movement : MonoBehaviour
 	{
 		if (direction != newDirection) 
 		{
+			
 			direction = newDirection;
 		}
 	}
 
 	public void turnAround() 
 	{
-		if (direction == movementDirection.right)
+		if (direction == movementDirection.right) {
+			anim.SetTrigger ("MoveLeft");
 			setDirection (movementDirection.left);
-		else
+		} else {
+			anim.SetTrigger ("MoveRight");
 			setDirection (movementDirection.right);
+		}
 	}
 }

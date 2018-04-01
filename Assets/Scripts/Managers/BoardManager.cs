@@ -188,7 +188,11 @@ public class BoardManager : MonoBehaviour
 	//Selects a random Vector3 position and returns it
 	protected Vector3 RandomPosition ()
 	{
+		if (randomPosRecord.Count == objects.Count)
+			return Vector3.zero;
+
 		int randomInt = Random.Range (0, objects.Count);
+
 		while (true)
 		{
 			if (randomPosRecord.Contains(randomInt) == true) 
