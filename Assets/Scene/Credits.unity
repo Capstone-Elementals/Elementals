@@ -787,11 +787,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Website: freesound.org\n\n                       BEGGINING MUSIC\nAuther:
-    PatrickLieberkind\nLink: https://freesound.org/people/PatrickLieberkind/sounds/396458/\n\n
-    \                      FIRE WORLD MUSIC\nAuther: PatrickLieberkind\nLink: https://freesound.org/people/PatrickLieberkind/sounds/415330/\n\t
-    \                 EARTH WORLD MUSIC\nAuther: klavo1985\nLink: https://freesound.org/people/klavo1985/sounds/366986/#comments\n
-    \                     AIR WORLD MUSIC\nAuther: Romariogrande\nLink: https://freesound.org/people/Romariogrande/sounds/396231/\n\n\t
+  m_Text: "Website: freesound.org\n\n                       OPENING MUSIC\nComposer:
+    Patrick Lieberkind\nLink: https://freesound.org/people/PatrickLieberkind/sounds/396458/\n\n
+    \                      FIRE WORLD MUSIC\nComposer: PatrickLieberkind\nLink: https://freesound.org/people/PatrickLieberkind/sounds/415330/\n\t
+    \                 EARTH WORLD MUSIC\nComposer: klavo1985\nLink: https://freesound.org/people/klavo1985/sounds/366986/#comments\n
+    \                     AIR WORLD MUSIC\nComposer: Romariogrande\nLink: https://freesound.org/people/Romariogrande/sounds/396231/\n\n\t
     \      "
 --- !u!222 &1256786083
 CanvasRenderer:
@@ -1014,10 +1014,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Website: freesound.org\n\n                        WATER WORLD MUSIC\nAuther:
+  m_Text: "Website: freesound.org\n\n                        WATER WORLD MUSIC\nComposer:
     ERH\nLink: https://freesound.org/people/ERH/sounds/48493/\n\n                       VICTORY
-    MUSIC:\nAuther: Loyalty_Freak_Music\nLink: https://freesound.org/people/Loyalty_Freak_Music/sounds/407471/\n\n\t
-    \                 GAME OVER MUSIC:\nAuther: Gosag\nLink: https://freesound.org/people/Gosag/sounds/366988/#comments\n\n\t\t\t
+    MUSIC:\nComposer: Loyalty_Freak_Music\nLink: https://freesound.org/people/Loyalty_Freak_Music/sounds/407471/\n\n\t
+    \                 GAME OVER MUSIC:\nComposer: Gosag\nLink: https://freesound.org/people/Gosag/sounds/366988/#comments\n\n\t\t\t
     \      "
 --- !u!222 &1672494761
 CanvasRenderer:
@@ -1377,7 +1377,7 @@ MonoBehaviour:
   m_Text: '      Enemy Elemental Sprites
 
 
-    Auther: Antifarea
+    Artist: Antifarea
 
     Link: http://opengameart.org
 
