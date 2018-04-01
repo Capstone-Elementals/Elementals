@@ -28,7 +28,7 @@ public class UiCraft : MonoBehaviour {
 
 	public void CreateFireGem (){
 
-		//if (Inventory.essence > 15) {
+		if (Inventory.essence > 15) {
 			Gem newgem = new Gem ('F', 1);
 			if (Inventory.inventory.Count < 26) {
 				Inventory.inventory.Add (newgem);
@@ -38,13 +38,13 @@ public class UiCraft : MonoBehaviour {
 			gem.GetComponent<UnityEngine.UI.Image> ().color = Color.red;
 		    gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = "1";
 		    GameObject toinstance = Instantiate (gem,parent.transform,false) as GameObject;
-		//}
+		}
 
 	}
 
 	public void CreateWaterGem (){
 
-		//if (Inventory.essence > 15) {
+		if (Inventory.essence > 15) {
 			Gem newgem = new Gem ('W', 1);
 			if (Inventory.inventory.Count < 26) {
 				Inventory.inventory.Add (newgem);
@@ -54,13 +54,13 @@ public class UiCraft : MonoBehaviour {
 			gem.GetComponent<UnityEngine.UI.Image> ().color = new Color(0.0f,0.498f,1.0f,1.0f);
 			gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = "1";
 			GameObject toinstance = Instantiate (gem,parent.transform,false) as GameObject;
-	//	}
+		}
 
 	}
 
 	public void CreateAirGem (){
 
-		//if (Inventory.essence > 15) {
+		if (Inventory.essence > 15) {
 			Gem newgem = new Gem ('A', 1);
 			if (Inventory.inventory.Count < 26) {
 				Inventory.inventory.Add (newgem);
@@ -70,13 +70,13 @@ public class UiCraft : MonoBehaviour {
 		gem.GetComponent<UnityEngine.UI.Image> ().color = new Color(0.294f,0.984f,0.953f);
 			gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = "1";
 			GameObject toinstance = Instantiate (gem,parent.transform,false) as GameObject;
-	//	}
+		}
 		
 	}
 
 	public void CreatEarthGem (){
 
-		//if (Inventory.essence > 15) {
+		if (Inventory.essence > 15) {
 			Gem newgem = new Gem ('A', 1);
 			if (Inventory.inventory.Count < 26) {
 				Inventory.inventory.Add (newgem);
@@ -86,7 +86,7 @@ public class UiCraft : MonoBehaviour {
 			gem.GetComponent<UnityEngine.UI.Image> ().color = new Color(0.855f,0.388f,0.086f,1.0f);
 			gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = "1";
 			GameObject toinstance = Instantiate (gem,parent.transform,false) as GameObject;
-		//}
+		}
 
 	}
 
