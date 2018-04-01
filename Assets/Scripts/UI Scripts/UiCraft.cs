@@ -55,7 +55,8 @@ public class UiCraft : MonoBehaviour {
 
 	public void CreateFireGem (){
 
-		if (Inventory.essence > 15) {
+		if (Inventory.essence >= 15) {
+			Inventory.essence -= 15;
 			Gem newgem = new Gem ('F', 1);
 			if (Inventory.inventory.Count < 26) {
 				Inventory.inventory.Add (newgem);
@@ -71,7 +72,8 @@ public class UiCraft : MonoBehaviour {
 
 	public void CreateWaterGem (){
 
-		if (Inventory.essence > 15) {
+		if (Inventory.essence >= 15) {
+			Inventory.essence -= 15;
 			Gem newgem = new Gem ('W', 1);
 			if (Inventory.inventory.Count < 26) {
 				Inventory.inventory.Add (newgem);
@@ -88,7 +90,8 @@ public class UiCraft : MonoBehaviour {
 
 	public void CreateAirGem (){
 
-		if (Inventory.essence > 15) {
+		if (Inventory.essence >= 15) {
+			Inventory.essence -= 15;
 			Gem newgem = new Gem ('A', 1);
 			if (Inventory.inventory.Count < 26) {
 				Inventory.inventory.Add (newgem);
@@ -104,7 +107,8 @@ public class UiCraft : MonoBehaviour {
 
 	public void CreatEarthGem (){
 
-		if (Inventory.essence > 15) {
+		if (Inventory.essence >= 15) {
+			Inventory.essence -= 15;
 			Gem newgem = new Gem ('A', 1);
 			if (Inventory.inventory.Count < 26) {
 				Inventory.inventory.Add (newgem);
