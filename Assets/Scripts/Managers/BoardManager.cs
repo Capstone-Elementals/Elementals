@@ -48,6 +48,7 @@ public class BoardManager : MonoBehaviour
 	public GameObject edgeH;//Prefab for horizontal edge of level
 	public GameObject background;//Prefab for background of level
 	public GameObject music;//Prefab for Music of level
+	public GameObject camera;
     private Transform boardHolder;//A variable to store a reference to the transform of our Board object.
 	private Transform edgeHolder;//A variable to store a reference to the transform of our Edge object.
 	private Transform objectHolder;//A variable to store a reference to the transform of our objects.
@@ -127,6 +128,7 @@ public class BoardManager : MonoBehaviour
 	//Function called when unity enters the scene
     public void SetupScene()
     {
+		InitCamera ();
         BoardSetup();
         Path(floorTiles);
 		ObjectRandomPosition (enemies, enemiesCount.minimum, enemiesCount.maximum);
@@ -152,6 +154,13 @@ public class BoardManager : MonoBehaviour
 		GameObject backgroundSetter = background;
 		Instantiate (backgroundSetter, new Vector3 (((float)(rows*scaleX)/2) - (scaleX/2), ((float)(columns*scaleY/2)) - (scaleY/2), 10), Quaternion.identity);
 	}
+	//Instantiates the camera
+	protected void InitCamera()
+	{
+		GameObject cameraSetter = camera;
+		Instantiate (cameraSetter, new Vector3 (0,0,-10), Quaternion.identity);
+	}
+
 	//Places an object at a random position
 	protected void ObjectRandomPosition (GameObject[] objectArray, int min, int max)
 	{
