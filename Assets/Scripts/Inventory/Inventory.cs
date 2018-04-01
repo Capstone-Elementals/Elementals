@@ -154,6 +154,8 @@ public class Inventory : MonoBehaviour
 			Inventory.playerBoot = data.playerBoot;
 			Inventory.tempEssence = 0;
 			Debug.Log ("Inventory: " + Inventory.essence + " Data: " + data.essence);
+		} else {
+			newGame ();
 		}
 	}
 

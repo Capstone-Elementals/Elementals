@@ -8,6 +8,38 @@ public class UiCraft : MonoBehaviour {
 	public GameObject gem;
 
 
+	void Awake()
+	{
+
+		for (int i = 0; i < Inventory.inventory.Count; i++){
+
+			Gem temp = Inventory.inventory [i];
+
+			parent = GameObject.Find ("Slot " + i);
+			switch (temp.getElement ()) {
+			case 'F':
+				gem.GetComponent<UnityEngine.UI.Image> ().color = Color.red;
+				break;
+			case 'W':
+				gem.GetComponent<UnityEngine.UI.Image> ().color =  Color.blue;
+				break;
+			case 'A':
+				gem.GetComponent<UnityEngine.UI.Image> ().color = Color.cyan;
+				break;
+			case 'E':
+				gem.GetComponent<UnityEngine.UI.Image> ().color = new Color(0.855f,0.388f,0.086f,1.0f);
+				break;
+			default:
+				break;
+			}
+			gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = temp.getGrade().ToString();
+			GameObject toinstance = Instantiate (gem,parent.transform,false) as GameObject;
+
+			}
+
+		}
+
+
 	int InventoryCheck () {
 	
 		for (int i = 0; i <= 24; i++) {
@@ -19,11 +51,6 @@ public class UiCraft : MonoBehaviour {
 			}
 		}
 		return -1;
-	}
-
-	void Awake()
-	{
-
 	}
 
 	public void CreateFireGem (){
@@ -51,7 +78,8 @@ public class UiCraft : MonoBehaviour {
 			}
 			int temp = InventoryCheck ();
 			parent = GameObject.Find ("Slot " + temp);
-			gem.GetComponent<UnityEngine.UI.Image> ().color = new Color(0.0f,0.498f,1.0f,1.0f);
+
+		gem.GetComponent<UnityEngine.UI.Image> ().color =  Color.blue;
 			gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = "1";
 			GameObject toinstance = Instantiate (gem,parent.transform,false) as GameObject;
 	//	}
@@ -67,7 +95,7 @@ public class UiCraft : MonoBehaviour {
 			}
 			int temp = InventoryCheck ();
 			parent = GameObject.Find ("Slot " + temp);
-		gem.GetComponent<UnityEngine.UI.Image> ().color = new Color(0.294f,0.984f,0.953f);
+		gem.GetComponent<UnityEngine.UI.Image> ().color = Color.cyan;
 			gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = "1";
 			GameObject toinstance = Instantiate (gem,parent.transform,false) as GameObject;
 	//	}
