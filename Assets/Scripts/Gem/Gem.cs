@@ -18,6 +18,11 @@ public class Gem
 		element = 'N';
 		grade = 0;
 	}
+	public Gem(char newelement, int newgrade)
+	{
+		element = newelement;
+		grade = newgrade;
+	}
 	public void setGrade(int grade)
 	{
 		this.grade = grade;
