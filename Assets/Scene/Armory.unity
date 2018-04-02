@@ -1518,9 +1518,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 865924585}
-  - component: {fileID: 865924588}
   - component: {fileID: 865924587}
   - component: {fileID: 865924586}
+  - component: {fileID: 865924588}
   m_Layer: 5
   m_Name: W1Slot 1
   m_TagString: Untagged
@@ -1592,8 +1592,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellType: 0
-  empty: {r: 1, g: 1, b: 1, a: 1}
-  full: {r: 1, g: 1, b: 1, a: 1}
+  empty: {r: 0, g: 0, b: 0, a: 0}
+  full: {r: 0, g: 0, b: 0, a: 0}
   unlimitedSource: 0
 --- !u!1 &881513456
 GameObject:
@@ -3467,12 +3467,12 @@ Prefab:
     - target: {fileID: 114518124486409524, guid: 34fb3f51f0c014c4caa5a1c4a35fe2e2,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114935257671603712, guid: 34fb3f51f0c014c4caa5a1c4a35fe2e2,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224809241296111358, guid: 34fb3f51f0c014c4caa5a1c4a35fe2e2,
         type: 2}

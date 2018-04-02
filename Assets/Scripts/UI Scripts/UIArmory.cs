@@ -79,7 +79,7 @@ public class UIArmory : MonoBehaviour {
 			gem.GetComponent<UnityEngine.UI.Image> ().color = Color.cyan;
 			break;
 		case 'E':
-			gem.GetComponent<UnityEngine.UI.Image> ().color = new Color (0.855f, 0.388f, 0.086f, 1.0f);
+			gem.GetComponent<UnityEngine.UI.Image> ().color = Inventory.brown;
 			break;
 		default:
 			break;
@@ -90,19 +90,19 @@ public class UIArmory : MonoBehaviour {
 	public void OnSceneExit()
 	{
 		GameObject gemSlot;
+		Gem newGem;
 		gemSlot = GameObject.Find ("W1Slot 1");
 		GameObject slot = gemSlot.transform.GetChild (0).gameObject;
 		if (slot.tag == "Gem") {
-			Debug.Log ("Adding Gem");
-			Inventory.playerWeapon1.setGem1 (new Gem (GemElement (slot.gameObject), 
-				System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
+			newGem = new Gem (GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+			Inventory.playerWeapon1.setGem1 (newGem);
+			Inventory.inventory.RemoveAt(FindGem (newGem));
 		} else {
 			Inventory.playerWeapon1.setGem1 (new Gem ());
 		}
 		gemSlot = GameObject.Find ("W1Slot 2");
 		slot = gemSlot.transform.GetChild (0).gameObject;
 		if (slot.tag == "Gem") {
-			Debug.Log ("Adding Gem");
 			Inventory.playerWeapon1.setGem2 (new Gem (GemElement(slot.gameObject), 
 				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
 		}
@@ -112,7 +112,6 @@ public class UIArmory : MonoBehaviour {
 		gemSlot = GameObject.Find ("W1Slot 3");
 		slot = gemSlot.transform.GetChild (0).gameObject;
 		if (slot.tag == "Gem") {
-			Debug.Log ("Adding Gem");
 			Inventory.playerWeapon1.setGem3 (new Gem (GemElement(slot.gameObject), 
 				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
 		}
@@ -122,7 +121,6 @@ public class UIArmory : MonoBehaviour {
 		gemSlot = GameObject.Find ("W2Slot 1");
 		slot = gemSlot.transform.GetChild (0).gameObject;
 		if (slot.tag == "Gem") {
-			Debug.Log ("Adding Gem");
 			Inventory.playerWeapon2.setGem1 (new Gem (GemElement(slot.gameObject), 
 				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
 		}
@@ -132,7 +130,6 @@ public class UIArmory : MonoBehaviour {
 		gemSlot = GameObject.Find ("W2Slot 2");
 		slot = gemSlot.transform.GetChild (0).gameObject;
 		if (slot.tag == "Gem") {
-			Debug.Log ("Adding Gem");
 			Inventory.playerWeapon2.setGem2 (new Gem (GemElement(slot.gameObject), 
 				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
 		}
@@ -142,7 +139,6 @@ public class UIArmory : MonoBehaviour {
 		gemSlot = GameObject.Find ("W2Slot 3");
 		slot = gemSlot.transform.GetChild (0).gameObject;
 		if (slot.tag == "Gem") {
-			Debug.Log ("Adding Gem");
 			Inventory.playerWeapon2.setGem3 (new Gem (GemElement(slot.gameObject), 
 				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
 		}
@@ -152,7 +148,6 @@ public class UIArmory : MonoBehaviour {
 		gemSlot = GameObject.Find ("ASlot 1");
 		slot = gemSlot.transform.GetChild (0).gameObject;
 		if (slot.tag == "Gem") {
-			Debug.Log ("Adding Gem");
 			Inventory.playerArmor.setGem1 (new Gem (GemElement(slot.gameObject), 
 				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
 		}
@@ -164,7 +159,16 @@ public class UIArmory : MonoBehaviour {
 	void FixedUpdate () {
 
 	}
-	char GemElement(GameObject temp)
+	public static int FindGem(Gem gem)
+	{
+		for (int i = 0; i < Inventory.inventory.Count; i++) {
+			if ((Inventory.inventory [i].getElement () == gem.getElement ()) && Inventory.inventory [i].getGrade() == gem.getGrade ()) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	public static char GemElement(GameObject temp)
 	{
 		if(temp.GetComponent<UnityEngine.UI.Image> ().color == Color.red)
 		{
@@ -178,7 +182,7 @@ public class UIArmory : MonoBehaviour {
 		{
 			return 'A';
 		}
-		if(temp.GetComponent<UnityEngine.UI.Image> ().color == new Color (0.855f, 0.388f, 0.086f, 1.0f))
+		if(temp.GetComponent<UnityEngine.UI.Image> ().color == Inventory.brown)
 		{
 			return 'E';
 		}

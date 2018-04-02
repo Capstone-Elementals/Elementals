@@ -19,10 +19,12 @@ public class Inventory : MonoBehaviour
 	static public Weapon playerWeapon2;
 	static public Armor playerArmor;
 	static public Boot playerBoot;
+	static public Color brown;
 	// Use this for initialization
 	public static Inventory instance = null;
 	void Awake()
 	{
+		brown = new Color (0.855f, 0.388f, 0.086f, 1.0f);
 		if (instance == null)
 		{
 			instance = this;

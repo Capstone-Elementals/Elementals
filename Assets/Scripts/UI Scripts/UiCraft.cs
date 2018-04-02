@@ -18,23 +18,20 @@ public class UiCraft : MonoBehaviour {
 			parent = GameObject.Find ("Slot " + i);
 			switch (temp.getElement ()) {
 			case 'F':
-				gem.GetComponent<UnityEngine.UI.Image> ().color = Color.red;
+				CreateUiGem (parent, temp.getGrade (), Color.red);
 				break;
 			case 'W':
-				gem.GetComponent<UnityEngine.UI.Image> ().color =  Color.blue;
+				CreateUiGem (parent, temp.getGrade (), Color.blue);
 				break;
 			case 'A':
-				gem.GetComponent<UnityEngine.UI.Image> ().color = Color.cyan;
+				CreateUiGem (parent, temp.getGrade (), Color.cyan);
 				break;
 			case 'E':
-				gem.GetComponent<UnityEngine.UI.Image> ().color = new Color(0.855f,0.388f,0.086f,1.0f);
+				CreateUiGem (parent, temp.getGrade (), Inventory.brown);
 				break;
 			default:
 				break;
 			}
-			gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = temp.getGrade().ToString();
-			GameObject toinstance = Instantiate (gem,parent.transform,false) as GameObject;
-
 			}
 
 		}
@@ -55,8 +52,8 @@ public class UiCraft : MonoBehaviour {
 
 	public void CreateFireGem (){
 
-		if (Inventory.essence >= 0) {
-			//Inventory.essence -= 15;
+		if (Inventory.essence >= 15) {
+			Inventory.essence -= 15;
 			Gem newgem = new Gem ('F', 1);
 			if (Inventory.inventory.Count < 26) {
 				Inventory.inventory.Add (newgem);
@@ -98,7 +95,7 @@ public class UiCraft : MonoBehaviour {
 			}
 			int temp = InventoryCheck ();
 			parent = GameObject.Find ("Slot " + temp);
-		gem.GetComponent<UnityEngine.UI.Image> ().color = Color.cyan;
+			gem.GetComponent<UnityEngine.UI.Image> ().color = Color.cyan;
 			gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = "1";
 			GameObject toinstance = Instantiate (gem,parent.transform,false) as GameObject;
 		}
@@ -107,19 +104,24 @@ public class UiCraft : MonoBehaviour {
 
 	public void CreatEarthGem (){
 
-		if (Inventory.essence >= 15) {
-			Inventory.essence -= 15;
-			Gem newgem = new Gem ('A', 1);
+		if (Inventory.essence >= 0) {
+			//Inventory.essence -= 15;
+			Gem newgem = new Gem ('E', 1);
 			if (Inventory.inventory.Count < 26) {
 				Inventory.inventory.Add (newgem);
 			}
 			int temp = InventoryCheck ();
 			parent = GameObject.Find ("Slot " + temp);
-			gem.GetComponent<UnityEngine.UI.Image> ().color = new Color(0.855f,0.388f,0.086f,1.0f);
+			gem.GetComponent<UnityEngine.UI.Image> ().color = Inventory.brown;
 			gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = "1";
 			GameObject toinstance = Instantiate (gem,parent.transform,false) as GameObject;
 		}
-
 	}
-
+	void CreateUiGem(GameObject gemParent, int gemGrade, Color gemColor)
+	{
+		gem.GetComponent<UnityEngine.UI.Image> ().color = gemColor;
+		gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = gemGrade.ToString();
+		GameObject toinstance = Instantiate (gem,gemParent.transform,false) as GameObject;
+	}
+	
 }

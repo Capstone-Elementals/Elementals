@@ -101,102 +101,85 @@ public class DNDslot : MonoBehaviour, IDropHandler
     /// </summary>
     /// <param name="data"></param>
     public void OnDrop(PointerEventData data)
-    {
-        if (DNDgem.icon != null)
-        {
-            DNDgem item = DNDgem.draggedItem;
-            DNDslot sourceCell = DNDgem.sourceCell;
-            if (DNDgem.icon.activeSelf == true)                    // If icon inactive do not need to drop item into cell
-            {
-                if ((item != null) && (sourceCell != this))
-                {
-                    DropEventDescriptor desc = new DropEventDescriptor();
-                    switch (cellType)                                       // Check this cell's type
-                    {
-                        case CellType.Swap:                                 // Item in destination cell can be swapped
-							UpdateMyItem();
-                            switch (sourceCell.cellType)
-                            {
-                                case CellType.Swap:                         // Item in source cell can be swapped
+	{
+		if (DNDgem.icon != null) {
+			DNDgem item = DNDgem.draggedItem;
+			DNDslot sourceCell = DNDgem.sourceCell;
+			if (DNDgem.icon.activeSelf == true) {                    // If icon inactive do not need to drop item into cell
+				if ((item != null) && (sourceCell != this)) {
+					DropEventDescriptor desc = new DropEventDescriptor ();
+					switch (cellType) {                                       // Check this cell's type
+					case CellType.Swap:                                 // Item in destination cell can be swapped
+						UpdateMyItem ();
+						switch (sourceCell.cellType) {
+						case CellType.Swap:                         // Item in source cell can be swapped
                                     // Fill event descriptor
-                                    desc.item = item;
-                                    desc.sourceCell = sourceCell;
-                                    desc.destinationCell = this;
-                                    SendRequest(desc);                      // Send drop request
-                                    StartCoroutine(NotifyOnDragEnd(desc));  // Send notification after drop will be finished
-                                    if (desc.permission == true)            // If drop permitted by application
-                                    {
-										if (myDadItem != null)            // If destination cell has item
-                                        {
-                                            // Fill event descriptor
-                                            DropEventDescriptor descAutoswap = new DropEventDescriptor();
-											descAutoswap.item = myDadItem;
-                                            descAutoswap.sourceCell = this;
-                                            descAutoswap.destinationCell = sourceCell;
-                                            SendRequest(descAutoswap);                      // Send drop request
-                                            StartCoroutine(NotifyOnDragEnd(descAutoswap));  // Send notification after drop will be finished
-                                            if (descAutoswap.permission == true)            // If drop permitted by application
-                                            {
-                                                SwapItems(sourceCell, this);                // Swap items between cells
+							desc.item = item;
+							desc.sourceCell = sourceCell;
+							desc.destinationCell = this;
+							SendRequest (desc);                      // Send drop request
+							StartCoroutine (NotifyOnDragEnd (desc));  // Send notification after drop will be finished
+							if (desc.permission == true) {            // If drop permitted by application
+								if (myDadItem != null) {            // If destination cell has item
+									// Fill event descriptor
+									DropEventDescriptor descAutoswap = new DropEventDescriptor ();
+									descAutoswap.item = myDadItem;
+									descAutoswap.sourceCell = this;
+									descAutoswap.destinationCell = sourceCell;
+									SendRequest (descAutoswap);                      // Send drop request
+									StartCoroutine (NotifyOnDragEnd (descAutoswap));  // Send notification after drop will be finished
+									if (descAutoswap.permission == true) {            // If drop permitted by application
+										SwapItems (sourceCell, this);                // Swap items between cells
 												
 								
-                                            }
-                                            else
-                                            {
-												PlaceItem(item);            // Delete old item and place dropped item into this cell
-                                            }
-                                        }
-                                        else
-                                        {
-											PlaceItem(item);                // Place dropped item into this empty cell
-                                        }
-                                    }
-                                    break;
-                                default:                                    // Item in source cell can not be swapped
+									} else {
+										PlaceItem (item);            // Delete old item and place dropped item into this cell
+									}
+								} else {
+									PlaceItem (item);                // Place dropped item into this empty cell
+								}
+							}
+							break;
+						default:                                    // Item in source cell can not be swapped
                                     // Fill event descriptor
-                                    desc.item = item;
-                                    desc.sourceCell = sourceCell;
-                                    desc.destinationCell = this;
-                                    SendRequest(desc);                      // Send drop request
-                                    StartCoroutine(NotifyOnDragEnd(desc));  // Send notification after drop will be finished
-                                    if (desc.permission == true)            // If drop permitted by application
-                                    {
-										PlaceItem(item);                    // Place dropped item into this cell
-                                    }
-                                    break;
-                            }
-                            break;
-                        case CellType.DropOnly:                             // Item only can be dropped into destination cell
+							desc.item = item;
+							desc.sourceCell = sourceCell;
+							desc.destinationCell = this;
+							SendRequest (desc);                      // Send drop request
+							StartCoroutine (NotifyOnDragEnd (desc));  // Send notification after drop will be finished
+							if (desc.permission == true) {            // If drop permitted by application
+								PlaceItem (item);                    // Place dropped item into this cell
+							}
+							break;
+						}
+						break;
+					case CellType.DropOnly:                             // Item only can be dropped into destination cell
                             // Fill event descriptor
-                            desc.item = item;
-                            desc.sourceCell = sourceCell;
-                            desc.destinationCell = this;
-                            SendRequest(desc);                              // Send drop request
-                            StartCoroutine(NotifyOnDragEnd(desc));          // Send notification after drop will be finished
-                            if (desc.permission == true)                    // If drop permitted by application
-                            {
-								PlaceItem(item);                            // Place dropped item in this cell
-                            }
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }
-            if (item != null)
-            {
-                if (item.GetComponentInParent<DNDslot>() == null)   // If item have no cell after drop
-                {
-                    Destroy(item.gameObject);                               // Destroy it
-                }
-            }
-			UpdateMyItem();
-			UpdateBackgroundState();
-			sourceCell.UpdateMyItem();
-			sourceCell.UpdateBackgroundState();
-        }
-    }
-
+						desc.item = item;
+						desc.sourceCell = sourceCell;
+						desc.destinationCell = this;
+						SendRequest (desc);                              // Send drop request
+						StartCoroutine (NotifyOnDragEnd (desc));          // Send notification after drop will be finished
+						if (desc.permission == true) {                    // If drop permitted by application
+							PlaceItem (item);                            // Place dropped item in this cell
+						}
+						break;
+					default:
+						break;
+					}
+				}
+			}
+			if (item != null) {
+				if (item.GetComponentInParent<DNDslot> () == null) {   // If item have no cell after drop
+					Destroy (item.gameObject);                               // Destroy it
+				}
+			}
+			UpdateMyItem ();
+			UpdateBackgroundState ();
+			sourceCell.UpdateMyItem ();
+			sourceCell.UpdateBackgroundState ();
+		}
+	}
 	/// <summary>
 	/// Put item into this cell.
 	/// </summary>
@@ -360,6 +343,216 @@ public class DNDslot : MonoBehaviour, IDropHandler
 	/// <param name="secondCell"> Cell </param>
 	public void SwapItems(DNDslot firstCell, DNDslot secondCell)
 	{
+
+		GameObject gemSlot;
+		Gem newGem;
+		GameObject slot;
+		switch (secondCell.gameObject.name) {
+		case "W1Slot 1":
+			gemSlot = firstCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon1.setGem1 (newGem);
+				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon1.setGem1 (new Gem ());
+			}
+			break;
+		case "W1Slot 2":
+			gemSlot = firstCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon1.setGem2 (newGem);
+				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon1.setGem2 (new Gem ());
+			}
+			break;
+		case "W1Slot 3":
+			gemSlot = firstCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon1.setGem3 (newGem);
+				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon1.setGem3 (new Gem ());
+			}
+			break;
+		case "W2Slot 1":
+			gemSlot = firstCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon2.setGem1 (newGem);
+				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon2.setGem1 (new Gem ());
+			}
+			break;
+		case "W2Slot 2":
+			gemSlot = firstCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon2.setGem2 (newGem);
+				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon2.setGem2 (new Gem ());
+			}
+			break;
+		case "W2Slot 3":
+			gemSlot = firstCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon2.setGem3 (newGem);
+				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon2.setGem3 (new Gem ());
+			}
+			break;
+		case "ASlot 1":
+			gemSlot = firstCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerArmor.setGem1 (newGem);
+				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerArmor.setGem1 (new Gem ());
+			}
+			break;
+		default:
+			Debug.Log ("No Socket");
+			break;
+		}
+		switch (firstCell.gameObject.name) {
+		case "W1Slot 1":
+			gemSlot = secondCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon1.setGem1 (newGem);
+				Inventory.inventory.RemoveAt (UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon1.setGem1 (new Gem ());
+			}
+			gemSlot = firstCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
+			}
+			break;
+		case "W1Slot 2":
+			gemSlot = secondCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon1.setGem2 (newGem);
+				Inventory.inventory.RemoveAt (UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon1.setGem2 (new Gem ());
+			}
+			gemSlot = firstCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
+			}
+			break;
+		case "W1Slot 3":
+			gemSlot = secondCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon1.setGem3 (newGem);
+				Inventory.inventory.RemoveAt (UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon1.setGem3 (new Gem ());
+			}
+			gemSlot = firstCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
+			}
+			break;
+		case "W2Slot 1":
+			gemSlot = secondCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon2.setGem1 (newGem);
+				Inventory.inventory.RemoveAt (UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon2.setGem1 (new Gem ());
+			}
+			gemSlot = firstCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
+			}
+			break;
+		case "W2Slot 2":
+			gemSlot = secondCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon2.setGem2 (newGem);
+				Inventory.inventory.RemoveAt (UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon2.setGem2 (new Gem ());
+			}
+			gemSlot = firstCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
+			}
+			break;
+		case "W2Slot 3":
+			gemSlot = secondCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon2.setGem3 (newGem);
+				Inventory.inventory.RemoveAt (UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon2.setGem3 (new Gem ());
+			}
+			gemSlot = firstCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
+			}
+			break;
+		case "ASlot 1":
+			gemSlot = secondCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerArmor.setGem1 (newGem);
+				Inventory.inventory.RemoveAt (UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerArmor.setGem1 (new Gem ());
+			}
+			gemSlot = firstCell.gameObject;
+			slot = gemSlot.transform.GetChild (0).gameObject;
+			if (slot.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
+			}
+			break;
+		default:
+			Debug.Log ("No Socket");
+			break;
+		}
 		if ((firstCell != null) && (secondCell != null))
 		{
 			DNDgem firstItem = firstCell.GetItem();                // Get item from first cell
