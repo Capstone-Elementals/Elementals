@@ -8,7 +8,6 @@ public class UIArmory : MonoBehaviour {
 	public GameObject gem;
 	void Awake()
 	{
-
 		for (int i = 0; i < Inventory.inventory.Count; i++){
 			Gem temp = Inventory.inventory [i];
 			parent = GameObject.Find ("Slot " + i);
@@ -60,7 +59,7 @@ public class UIArmory : MonoBehaviour {
 		}
 		if (Inventory.playerArmor.getGem1().getElement() != 'N') {
 			Gem temp = Inventory.playerArmor.getGem1();
-			parent = GameObject.Find ("A1Slot 1");
+			parent = GameObject.Find ("ASlot 1");
 			Transform tempChild = parent.transform.GetChild (0);
 			Destroy (tempChild.gameObject);
 			InitGem (temp);
@@ -88,17 +87,82 @@ public class UIArmory : MonoBehaviour {
 		gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = temp.getGrade ().ToString ();
 		GameObject toinstance = Instantiate (gem, parent.transform, false) as GameObject;
 	}
-
+	public void OnSceneExit()
+	{
+		GameObject gemSlot;
+		gemSlot = GameObject.Find ("W1Slot 1");
+		GameObject slot = gemSlot.transform.GetChild (0).gameObject;
+		if (slot.tag == "Gem") {
+			Debug.Log ("Adding Gem");
+			Inventory.playerWeapon1.setGem1 (new Gem (GemElement (slot.gameObject), 
+				System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
+		} else {
+			Inventory.playerWeapon1.setGem1 (new Gem ());
+		}
+		gemSlot = GameObject.Find ("W1Slot 2");
+		slot = gemSlot.transform.GetChild (0).gameObject;
+		if (slot.tag == "Gem") {
+			Debug.Log ("Adding Gem");
+			Inventory.playerWeapon1.setGem2 (new Gem (GemElement(slot.gameObject), 
+				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
+		}
+		else {
+			Inventory.playerWeapon1.setGem2 (new Gem ());
+		}
+		gemSlot = GameObject.Find ("W1Slot 3");
+		slot = gemSlot.transform.GetChild (0).gameObject;
+		if (slot.tag == "Gem") {
+			Debug.Log ("Adding Gem");
+			Inventory.playerWeapon1.setGem3 (new Gem (GemElement(slot.gameObject), 
+				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
+		}
+		else {
+			Inventory.playerWeapon1.setGem3 (new Gem ());
+		}
+		gemSlot = GameObject.Find ("W2Slot 1");
+		slot = gemSlot.transform.GetChild (0).gameObject;
+		if (slot.tag == "Gem") {
+			Debug.Log ("Adding Gem");
+			Inventory.playerWeapon2.setGem1 (new Gem (GemElement(slot.gameObject), 
+				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
+		}
+		else {
+			Inventory.playerWeapon2.setGem1 (new Gem ());
+		}
+		gemSlot = GameObject.Find ("W2Slot 2");
+		slot = gemSlot.transform.GetChild (0).gameObject;
+		if (slot.tag == "Gem") {
+			Debug.Log ("Adding Gem");
+			Inventory.playerWeapon2.setGem2 (new Gem (GemElement(slot.gameObject), 
+				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
+		}
+		else {
+			Inventory.playerWeapon2.setGem2 (new Gem ());
+		}
+		gemSlot = GameObject.Find ("W2Slot 3");
+		slot = gemSlot.transform.GetChild (0).gameObject;
+		if (slot.tag == "Gem") {
+			Debug.Log ("Adding Gem");
+			Inventory.playerWeapon2.setGem3 (new Gem (GemElement(slot.gameObject), 
+				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
+		}
+		else {
+			Inventory.playerWeapon2.setGem3 (new Gem ());
+		}
+		gemSlot = GameObject.Find ("ASlot 1");
+		slot = gemSlot.transform.GetChild (0).gameObject;
+		if (slot.tag == "Gem") {
+			Debug.Log ("Adding Gem");
+			Inventory.playerArmor.setGem1 (new Gem (GemElement(slot.gameObject), 
+				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
+		}
+		else {
+			Inventory.playerArmor.setGem1 (new Gem ());
+		}
+	}
 	// Update is called once per frame
 	void FixedUpdate () {
-//		GameObject gemSlot;
-//		gemSlot = GameObject.Find ("W1Slot 1");
-//		GameObject slot = gemSlot.transform.GetChild (0).gameObject;
-//		if (slot.tag == "Gem") {
-//			Debug.Log ("Adding Gem");
-//			Inventory.playerWeapon1.setGem1 (new Gem (GemElement(slot.gameObject), 
-//				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
-//		}
+
 	}
 	char GemElement(GameObject temp)
 	{
