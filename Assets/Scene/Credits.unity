@@ -145,7 +145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0273125, y: 0.5833889}
   m_AnchorMax: {x: 0.17578126, y: 0.6282223}
-  m_AnchoredPosition: {x: 2.2099304, y: -1.2967911}
+  m_AnchoredPosition: {x: 2.209961, y: -1.2967911}
   m_SizeDelta: {x: -2.7400055, y: -3.7999992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &147650876
@@ -518,12 +518,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903191347}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.24700001, y: 0.68500006}
-  m_AnchorMax: {x: 0.46100003, y: 0.7531667}
-  m_AnchoredPosition: {x: -1.7000275, y: 7.11}
-  m_SizeDelta: {x: -3.4, y: -2.5599}
+  m_AnchorMin: {x: 0.24700001, y: 0.69055563}
+  m_AnchorMax: {x: 0.47287503, y: 0.7531667}
+  m_AnchoredPosition: {x: -0.2217102, y: 5.1100006}
+  m_SizeDelta: {x: -0.39999962, y: 1.4000001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &826323795
 MonoBehaviour:
@@ -557,7 +557,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Music and Soud:'
+  m_Text: 'Music and Sound:'
 --- !u!222 &826323796
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -748,7 +748,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903191347}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.24700001, y: 0.02377778}
   m_AnchorMax: {x: 0.5725625, y: 0.6723889}
@@ -831,7 +831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0273125, y: 0.6975556}
   m_AnchorMax: {x: 0.17578126, y: 0.7531667}
-  m_AnchoredPosition: {x: 1.3999939, y: 0.19999695}
+  m_AnchoredPosition: {x: 1.4000244, y: 0.19999695}
   m_SizeDelta: {x: -2, y: 1.699997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1445614603
@@ -975,7 +975,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903191347}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.59068745, y: 0.02377778}
   m_AnchorMax: {x: 0.91343755, y: 0.6723889}
@@ -1015,9 +1015,9 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Website: freesound.org\n\n                        WATER WORLD MUSIC\nComposer:
-    ERH\nLink: https://freesound.org/people/ERH/sounds/48493/\n\n                       VICTORY
-    MUSIC:\nComposer: Loyalty_Freak_Music\nLink: https://freesound.org/people/Loyalty_Freak_Music/sounds/407471/\n\n\t
-    \                 GAME OVER MUSIC:\nComposer: Gosag\nLink: https://freesound.org/people/Gosag/sounds/366988/#comments\n\n\t\t\t
+    ERH\nLink: https://freesound.org/people/ERH/sounds/48493/\n\n                       GAME
+    OVER MUSIC:\nComposer: Loyalty_Freak_Music\nLink: https://freesound.org/people/Loyalty_Freak_Music/sounds/407471/\n\n\t
+    \                VICTORY MUSIC:\nComposer: sepal\nLink: https://freesound.org/people/sepal/sounds/120091/\n\n\t\t\t
     \      "
 --- !u!222 &1672494761
 CanvasRenderer:
@@ -1054,7 +1054,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903191347}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.85640603, y: 0.02377778}
   m_AnchorMax: {x: 0.99300003, y: 0.11088889}
@@ -1186,10 +1186,10 @@ RectTransform:
   - {fileID: 1520762634}
   - {fileID: 147650875}
   - {fileID: 557419552}
-  - {fileID: 1771630697}
   - {fileID: 826323794}
   - {fileID: 1256786081}
   - {fileID: 1672494759}
+  - {fileID: 1771630697}
   - {fileID: 258808845}
   - {fileID: 2135982157}
   m_Father: {fileID: 856901155}
@@ -1374,14 +1374,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '      Enemy Elemental Sprites
-
-
-    Artist: Antifarea
-
-    Link: http://opengameart.org
-
-'
+  m_Text: "      Enemy Elemental Sprites\n\nArtist: Antifarea\nLink: http://opengameart.org\n\t\n
+    \      Main Character Sprites\nArtist: Rasgar\nLink: https://www.spriters-resource.com/\n"
 --- !u!222 &2135982159
 CanvasRenderer:
   m_ObjectHideFlags: 0
