@@ -87,6 +87,7 @@ public class UIArmory : MonoBehaviour {
 		gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = temp.getGrade ().ToString ();
 		GameObject toinstance = Instantiate (gem, parent.transform, false) as GameObject;
 	}
+
 	public void OnSceneExit()
 	{
 		GameObject gemSlot;
