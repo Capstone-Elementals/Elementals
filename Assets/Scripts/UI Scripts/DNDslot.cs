@@ -426,7 +426,6 @@ public class DNDslot : MonoBehaviour, IDropHandler
 			}
 			break;
 		default:
-			Debug.Log ("No Socket");
 			break;
 		}
 		switch (firstCell.gameObject.name) {
@@ -550,7 +549,6 @@ public class DNDslot : MonoBehaviour, IDropHandler
 			}
 			break;
 		default:
-			Debug.Log ("No Socket");
 			break;
 		}
 		if ((firstCell != null) && (secondCell != null))
