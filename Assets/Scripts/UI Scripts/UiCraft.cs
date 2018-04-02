@@ -55,8 +55,8 @@ public class UiCraft : MonoBehaviour {
 
 	public void CreateFireGem (){
 
-		if (Inventory.essence >= 15) {
-			Inventory.essence -= 15;
+		if (Inventory.essence >= 0) {
+			//Inventory.essence -= 15;
 			Gem newgem = new Gem ('F', 1);
 			if (Inventory.inventory.Count < 26) {
 				Inventory.inventory.Add (newgem);
@@ -122,7 +122,4 @@ public class UiCraft : MonoBehaviour {
 
 	}
 
-	//Note: first check inventory slots, if childrens are null then add the object created to that slot as a child
-	//      created object is a gem where it has an image, a grade and script (prefab)
-	// 
 }
