@@ -29,7 +29,6 @@ public class UpgradeButton : MonoBehaviour {
 	}
 
 
-	//
 	public void check_for_upgrade () {
 		GameObject gem_slot_1 = GameObject.Find ("UpSlot 1").transform.GetChild(0).gameObject;
 		GameObject gem_slot_2 = GameObject.Find ("UpSlot 2").transform.GetChild(0).gameObject;
@@ -50,6 +49,12 @@ public class UpgradeButton : MonoBehaviour {
 			Debug.Log ("Gems are not the same level");
 			return; // If gems are not the same grade, stop
 		}
+
+		Inventory.inventory.RemoveAt(UIArmory.FindGem(new Gem (gem_element_1, gem_grade_1)));
+		Inventory.inventory.RemoveAt(UIArmory.FindGem(new Gem (gem_element_1, gem_grade_1)));
+
+		Destroy (gem_slot_1);
+		Destroy (gem_slot_2);
 
 		GameObject.Find ("UpgradeInv").GetComponent<UIUpgrade> ().add_gem_to_inventory (gem_element_1, gem_grade_1 + 1);
 	}
