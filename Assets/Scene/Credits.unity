@@ -520,10 +520,10 @@ RectTransform:
   m_Father: {fileID: 1903191347}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.24700001, y: 0.68500006}
-  m_AnchorMax: {x: 0.46100003, y: 0.7531667}
-  m_AnchoredPosition: {x: -1.7000275, y: 7.11}
-  m_SizeDelta: {x: -3.4, y: -2.5599}
+  m_AnchorMin: {x: 0.24700001, y: 0.68783337}
+  m_AnchorMax: {x: 0.47221878, y: 0.7656667}
+  m_AnchoredPosition: {x: -0.5999999, y: 1.6100001}
+  m_SizeDelta: {x: -1.3000002, y: -9.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &826323795
 MonoBehaviour:
@@ -557,7 +557,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Music and Soud:'
+  m_Text: 'Music and Sound:'
 --- !u!222 &826323796
 CanvasRenderer:
   m_ObjectHideFlags: 0
