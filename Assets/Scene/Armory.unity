@@ -3806,6 +3806,46 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 224599539449213438, guid: 34fb3f51f0c014c4caa5a1c4a35fe2e2,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.83500004
+      objectReference: {fileID: 0}
+    - target: {fileID: 224599539449213438, guid: 34fb3f51f0c014c4caa5a1c4a35fe2e2,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.9271469
+      objectReference: {fileID: 0}
+    - target: {fileID: 224599539449213438, guid: 34fb3f51f0c014c4caa5a1c4a35fe2e2,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0.30000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 224599539449213438, guid: 34fb3f51f0c014c4caa5a1c4a35fe2e2,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.561226
+      objectReference: {fileID: 0}
+    - target: {fileID: 224964657078983010, guid: 34fb3f51f0c014c4caa5a1c4a35fe2e2,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.43661302
+      objectReference: {fileID: 0}
+    - target: {fileID: 224964657078983010, guid: 34fb3f51f0c014c4caa5a1c4a35fe2e2,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.189003
+      objectReference: {fileID: 0}
+    - target: {fileID: 224964657078983010, guid: 34fb3f51f0c014c4caa5a1c4a35fe2e2,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -0.6999817
+      objectReference: {fileID: 0}
+    - target: {fileID: 224964657078983010, guid: 34fb3f51f0c014c4caa5a1c4a35fe2e2,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.15923488
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34fb3f51f0c014c4caa5a1c4a35fe2e2, type: 2}
   m_IsPrefabParent: 0
