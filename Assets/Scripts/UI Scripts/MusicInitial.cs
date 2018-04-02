@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MusicInitial : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	void OnEnable() {
 		GameObject.DontDestroyOnLoad (gameObject);
 		SceneManager.sceneLoaded += OnSceneLoaded;
 	}
@@ -16,8 +16,9 @@ public class MusicInitial : MonoBehaviour {
 	{
 
 		if (scene.name == "World") {
+				
 			Destroy (gameObject);
-	
+			
 		}
 	}
 }
