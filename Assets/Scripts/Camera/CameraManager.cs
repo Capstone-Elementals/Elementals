@@ -23,9 +23,6 @@ public class CameraManager : MonoBehaviour {
     void Start() {
         orthographicsize_base = Camera.main.orthographicSize;
 
-//        if (focusObject != null)
-//            FocusObject = focusObject;
-
 		FocusObject = focusObject;
 
         if (listAreaNodes.Count == 0)
@@ -34,9 +31,7 @@ public class CameraManager : MonoBehaviour {
 
     void Update() {
 
-//		FocusObject = focusObject;
-		
-        // Declare Vector3 for the new position
+
         Vector3 newPosition;
 
         if (focusObject != null) {
@@ -80,7 +75,6 @@ public class CameraManager : MonoBehaviour {
         // Adjust the camera's position to that of the newly determined position
         transform.position = Vector3.Lerp(transform.position, newPosition, smoothTime);
 
-      //  CameraControls();
     }
 
     // Method to check what area the player has entered and sets the CurrentArea to this new area

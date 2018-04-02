@@ -47,15 +47,15 @@ public class GameManager : MonoBehaviour
 		}
 		if (DifficultyManager.difficulty == 0)
 		{
-			boardScript.SetEnemyCount(15,20);
+			boardScript.SetEnemyCount(50,75);
 		}
 		if (DifficultyManager.difficulty  == 1)
 		{
-			boardScript.SetEnemyCount(20,25);
+			boardScript.SetEnemyCount(75,100);
 		}
 		if (DifficultyManager.difficulty  == 2)
 		{
-			boardScript.SetEnemyCount(25,30);
+			boardScript.SetEnemyCount(100,125);
 		}
         //Call the SetupScene function of the BoardManager script.
 		boardScript.SetupScene ();
