@@ -12,7 +12,7 @@ public class EssenceCraft : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		for (int i = 0; i < gems.Length; i++) {
-			gems [i].GetComponent<UnityEngine.UI.Text> ().text = Inventory.essence.ToString () + "/15";
+			gems [i].GetComponent<UnityEngine.UI.Text> ().text = Inventory.essence.ToString () + "/5";
 		}
 	}
 }
