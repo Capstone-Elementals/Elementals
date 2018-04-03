@@ -17,11 +17,15 @@ public class Movement : MonoBehaviour
 	void Start () 
 	{
 		anim = (Animator)GetComponent<Animator> ();
+		anim.SetTrigger ("MoveRight");
 		rb2d = (Rigidbody2D) GetComponent<Rigidbody2D> ();
 	}
 
 	void FixedUpdate()
 	{
+		if (rb2d == null)
+			return;
+		
 		Vector2 currentVelocity = rb2d.velocity;
 
 		if (direction == movementDirection.right) 
@@ -37,7 +41,6 @@ public class Movement : MonoBehaviour
 	{
 		if (direction != newDirection) 
 		{
-			
 			direction = newDirection;
 		}
 	}
