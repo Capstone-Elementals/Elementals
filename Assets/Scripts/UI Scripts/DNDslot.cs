@@ -9,6 +9,7 @@ using System.Collections;
 [RequireComponent(typeof(Image))]
 public class DNDslot : MonoBehaviour, IDropHandler
 {
+
     public enum CellType                                                    // Cell types
     {
         Swap,                                                               // Items will be swapped between any cells
@@ -163,6 +164,12 @@ public class DNDslot : MonoBehaviour, IDropHandler
 						if (desc.permission == true) {                    // If drop permitted by application
 							PlaceItem (item);                            // Place dropped item in this cell
 						}
+						TrashScript temp = GetComponent<TrashScript> ();
+
+						if (temp != null) {
+							temp.trash_item ();
+							return;
+						}
 						break;
 					default:
 						break;
@@ -276,6 +283,7 @@ public class DNDslot : MonoBehaviour, IDropHandler
             yield return new WaitForEndOfFrame();
         }
         desc.triggerType = TriggerType.DropEventEnd;
+
         SendNotification(desc);
     }
 
@@ -324,6 +332,7 @@ public class DNDslot : MonoBehaviour, IDropHandler
             desc.item = newItem;
             desc.sourceCell = this;
             desc.destinationCell = this;
+
             SendNotification(desc);
         }
     }
@@ -347,6 +356,8 @@ public class DNDslot : MonoBehaviour, IDropHandler
 		GameObject gemSlot;
 		Gem newGem;
 		GameObject slot;
+	
+
 		switch (secondCell.gameObject.name) {
 		case "W1Slot 1":
 			gemSlot = firstCell.gameObject;
@@ -567,9 +578,6 @@ public class DNDslot : MonoBehaviour, IDropHandler
 				secondItem.transform.SetParent(firstCell.transform, false);
 				secondItem.transform.localPosition = Vector3.zero;
 				secondItem.MakeRaycast(true);
-			}
-			if (secondCell.tag == "Trash") {
-				GameObject.Destroy (firstItem);
 			}
 														
 			// Update state
