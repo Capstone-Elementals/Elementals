@@ -122,11 +122,13 @@ namespace UnityStandardAssets.CrossPlatformInput
 		{
 			transform.position = m_StartPos;
 			UpdateVirtualAxes(m_StartPos);
+			GameObject.Find ("JumpButton").GetComponent<JumpButton> ().OnPointerUp (data);
 		}
 
 
 		public void OnPointerDown(PointerEventData data)
 		{
+			GameObject.Find ("JumpButton").GetComponent<JumpButton> ().OnPointerDown (data);
 		}
 
 

@@ -84,11 +84,13 @@ namespace UnityStandardAssets.CrossPlatformInput
 		{
 			transform.position = m_StartPos;
 			UpdateVirtualAxes(m_StartPos);
+			GameObject.Find ("WeaponSwapButton").GetComponent<WeaponSwapButton> ().OnPointerUp (data);
 		}
 
 
 		public void OnPointerDown(PointerEventData data) 
 		{ 
+			GameObject.Find ("WeaponSwapButton").GetComponent<WeaponSwapButton> ().OnPointerDown (data);
 		}
 
 		void OnDisable()
