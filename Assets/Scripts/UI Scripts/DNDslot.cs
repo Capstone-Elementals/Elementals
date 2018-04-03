@@ -193,8 +193,13 @@ public class DNDslot : MonoBehaviour, IDropHandler
 	/// <param name="item">Item.</param>
 	private void PlaceItem(DNDgem item)
 	{
+		Debug.Log ("Place");
 		if (item != null)
 		{
+			if(item.transform.parent.name.Contains("Socket"))
+			{
+				removeSocket (item);
+			}
 			DestroyItem();                                            	// Remove current item from this cell
 			myDadItem = null;
 			DNDslot cell = item.GetComponentInParent<DNDslot>();
@@ -211,6 +216,10 @@ public class DNDslot : MonoBehaviour, IDropHandler
 			item.transform.localPosition = Vector3.zero;
 			item.MakeRaycast(true);
 			myDadItem = item;
+			if(item.transform.parent.name.Contains("Socket"))
+			{
+				newSocket (item);
+			}
 		}
 		UpdateBackgroundState();
 	}
@@ -352,7 +361,7 @@ public class DNDslot : MonoBehaviour, IDropHandler
 	/// <param name="secondCell"> Cell </param>
 	public void SwapItems(DNDslot firstCell, DNDslot secondCell)
 	{
-		socket(firstCell,secondCell);
+		Debug.Log ("Swap");
 		if ((firstCell != null) && (secondCell != null))
 		{
 			DNDgem firstItem = firstCell.GetItem();                // Get item from first cell
@@ -380,241 +389,199 @@ public class DNDslot : MonoBehaviour, IDropHandler
 			firstCell.UpdateBackgroundState();
 			secondCell.UpdateBackgroundState();
 		}
+		swapSocket ();
 	}
-	void socket(DNDslot firstCell,DNDslot secondCell)
+	void removeSocket(DNDgem gemToRemove)
+	{
+		Gem newGem;
+		switch (gemToRemove.transform.parent.name) {
+		case "W1Socket 1":
+			if (gemToRemove.tag == "Gem") {
+				Inventory.playerWeapon1.setGem1 (new Gem ());
+				newGem = new Gem (UIArmory.GemElement (gemToRemove.gameObject), System.Int32.Parse (gemToRemove.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
+			}
+			break;
+		case "W1Socket 2":
+			if (gemToRemove.tag == "Gem") {
+				Inventory.playerWeapon1.setGem2 (new Gem ());
+				newGem = new Gem (UIArmory.GemElement (gemToRemove.gameObject), System.Int32.Parse (gemToRemove.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
+			}
+			break;
+		case "W1Socket 3":
+			if (gemToRemove.tag == "Gem") {
+				Inventory.playerWeapon1.setGem3 (new Gem ());
+				newGem = new Gem (UIArmory.GemElement (gemToRemove.gameObject), System.Int32.Parse (gemToRemove.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
+			}
+			break;
+		case "W2Socket 1":
+			if (gemToRemove.tag == "Gem") {
+				Inventory.playerWeapon2.setGem1 (new Gem ());
+				newGem = new Gem (UIArmory.GemElement (gemToRemove.gameObject), System.Int32.Parse (gemToRemove.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
+			}
+			break;
+		case "W2Socket 2":
+			if (gemToRemove.tag == "Gem") {
+				Inventory.playerWeapon2.setGem2 (new Gem ());
+				newGem = new Gem (UIArmory.GemElement (gemToRemove.gameObject), System.Int32.Parse (gemToRemove.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
+			}
+			break;
+		case "W2Socket 3":
+			if (gemToRemove.tag == "Gem") {
+				Inventory.playerWeapon2.setGem3 (new Gem ());
+				newGem = new Gem (UIArmory.GemElement (gemToRemove.gameObject), System.Int32.Parse (gemToRemove.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
+			}
+			break;
+		case "ASocket 1":
+			if (gemToRemove.tag == "Gem") {
+				Inventory.playerArmor.setGem1 (new Gem ());
+				newGem = new Gem (UIArmory.GemElement (gemToRemove.gameObject), System.Int32.Parse (gemToRemove.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
+			}
+			break;
+		default:
+			break;
+		}
+	}
+	void newSocket (DNDgem gemToSocket)
+	{
+		Gem newGem;
+		switch (gemToSocket.transform.parent.gameObject.name) {
+		case "W1Socket 1":
+			if (gemToSocket.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (gemToSocket.gameObject), System.Int32.Parse (gemToSocket.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon1.setGem1 (newGem);
+				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon1.setGem1 (new Gem ());
+			}
+			break;
+		case "W1Socket 2":
+			if (gemToSocket.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (gemToSocket.gameObject), System.Int32.Parse (gemToSocket.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon1.setGem2 (newGem);
+				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon1.setGem2 (new Gem ());
+			}
+			break;
+		case "W1Socket 3":
+			if (gemToSocket.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (gemToSocket.gameObject), System.Int32.Parse (gemToSocket.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon1.setGem3 (newGem);
+				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon1.setGem3 (new Gem ());
+			}
+			break;
+		case "W2Socket 1":
+			if (gemToSocket.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (gemToSocket.gameObject), System.Int32.Parse (gemToSocket.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon2.setGem1 (newGem);
+				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon2.setGem1 (new Gem ());
+			}
+			break;
+		case "W2Socket 2":
+			if (gemToSocket.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (gemToSocket.gameObject), System.Int32.Parse (gemToSocket.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon2.setGem2 (newGem);
+				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon2.setGem2 (new Gem ());
+			}
+			break;
+		case "W2Socket 3":
+			if (gemToSocket.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (gemToSocket.gameObject), System.Int32.Parse (gemToSocket.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerWeapon2.setGem3 (newGem);
+				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerWeapon2.setGem3 (new Gem ());
+			}
+			break;
+		case "ASocket 1":
+			if (gemToSocket.tag == "Gem") {
+				newGem = new Gem (UIArmory.GemElement (gemToSocket.gameObject), System.Int32.Parse (gemToSocket.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.playerArmor.setGem1 (newGem);
+				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
+			} else {
+				Inventory.playerArmor.setGem1 (new Gem ());
+			}
+			break;
+		default:
+			break;
+		}
+	}
+	void swapSocket()
 	{
 		GameObject gemSlot;
 		Gem newGem;
-		GameObject slot;
-	
+		if ((GameObject.Find("W1Socket 1").transform.childCount) != 0) {
+			gemSlot = GameObject.Find ("W1Socket 1").transform.GetChild (0).gameObject;
+			newGem = new Gem (UIArmory.GemElement (gemSlot.gameObject), System.Int32.Parse (gemSlot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+			Inventory.playerWeapon1.setGem1 (newGem);
+		} else {
+			Inventory.playerWeapon1.setGem1 (new Gem());
+		}
+		if ((GameObject.Find("W1Socket 2").transform.childCount) != 0) {
+			gemSlot = GameObject.Find ("W1Socket 2").transform.GetChild (0).gameObject;
+			newGem = new Gem (UIArmory.GemElement (gemSlot.gameObject), System.Int32.Parse (gemSlot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+			Inventory.playerWeapon1.setGem2 (newGem);
+		} else {
+			Inventory.playerWeapon1.setGem2 (new Gem());
+		}
+		if ((GameObject.Find("W1Socket 3").transform.childCount) != 0) {
+			gemSlot = GameObject.Find("W1Socket 3").transform.GetChild(0).gameObject;
+			newGem = new Gem (UIArmory.GemElement (gemSlot.gameObject), System.Int32.Parse (gemSlot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+			Inventory.playerWeapon1.setGem3 (newGem);
+		} else {
+			Inventory.playerWeapon1.setGem3 (new Gem());
+		}
+		if ((GameObject.Find("W2Socket 1").transform.childCount) != 0) {
+			gemSlot = GameObject.Find ("W2Socket 1").transform.GetChild (0).gameObject;
+			newGem = new Gem (UIArmory.GemElement (gemSlot.gameObject), System.Int32.Parse (gemSlot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+			Inventory.playerWeapon2.setGem1 (newGem);
+		} else {
+			Inventory.playerWeapon2.setGem1 (new Gem());
+		}
+		if ((GameObject.Find("W2Socket 2").transform.childCount) != 0) {
+			gemSlot = GameObject.Find ("W2Socket 2").transform.GetChild (0).gameObject;
+			newGem = new Gem (UIArmory.GemElement (gemSlot.gameObject), System.Int32.Parse (gemSlot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+			Inventory.playerWeapon2.setGem2 (newGem);
+		} else {
+			Inventory.playerWeapon2.setGem2 (new Gem());
+		}
+		if ((GameObject.Find("W2Socket 3").transform.childCount) != 0) {
+			gemSlot = GameObject.Find ("W2Socket 3").transform.GetChild (0).gameObject;
+			newGem = new Gem (UIArmory.GemElement (gemSlot.gameObject), System.Int32.Parse (gemSlot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+			Inventory.playerWeapon2.setGem3 (newGem);
+		} else {
+			Inventory.playerWeapon2.setGem3 (new Gem());
+		}
+		if ((GameObject.Find("ASocket 1").transform.childCount) != 0) {
+			gemSlot = GameObject.Find ("ASocket 1").transform.GetChild (0).gameObject;
+			newGem = new Gem (UIArmory.GemElement (gemSlot.gameObject), System.Int32.Parse (gemSlot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+			Inventory.playerArmor.setGem1 (newGem);
+		} else {
+			Inventory.playerArmor.setGem1 (new Gem());
+		}
+		Debug.Log (Inventory.inventory.Count.ToString ());
+		Inventory.inventory.Clear ();
 
-		switch (secondCell.gameObject.name) {
-		case "W1Socket 1":
-			gemSlot = firstCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.playerWeapon1.setGem1 (newGem);
-				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
-			} else {
-				Inventory.playerWeapon1.setGem1 (new Gem ());
+		for (int i = 0; i < 25; i++) {
+			if ((GameObject.Find ("Slot " + i).transform.childCount) != 0) {
+				gemSlot = GameObject.Find ("Slot " + i).transform.GetChild (0).gameObject;
+				newGem = new Gem (UIArmory.GemElement (gemSlot.gameObject), System.Int32.Parse (gemSlot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
+				Inventory.inventory.Add (newGem);
 			}
-			break;
-		case "W1Socket 2":
-			gemSlot = firstCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.playerWeapon1.setGem2 (newGem);
-				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
-			} else {
-				Inventory.playerWeapon1.setGem2 (new Gem ());
-			}
-			break;
-		case "W1Socket 3":
-			gemSlot = firstCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.playerWeapon1.setGem3 (newGem);
-				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
-			} else {
-				Inventory.playerWeapon1.setGem3 (new Gem ());
-			}
-			break;
-		case "W2Socket 1":
-			gemSlot = firstCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.playerWeapon2.setGem1 (newGem);
-				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
-			} else {
-				Inventory.playerWeapon2.setGem1 (new Gem ());
-			}
-			break;
-		case "W2Socket 2":
-			gemSlot = firstCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.playerWeapon2.setGem2 (newGem);
-				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
-			} else {
-				Inventory.playerWeapon2.setGem2 (new Gem ());
-			}
-			break;
-		case "W2Socket 3":
-			gemSlot = firstCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.playerWeapon2.setGem3 (newGem);
-				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
-			} else {
-				Inventory.playerWeapon2.setGem3 (new Gem ());
-			}
-			break;
-		case "ASocket 1":
-			gemSlot = firstCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.playerArmor.setGem1 (newGem);
-				Inventory.inventory.RemoveAt(UIArmory.FindGem (newGem));
-			} else {
-				Inventory.playerArmor.setGem1 (new Gem ());
-			}
-			break;
-		default:
-			break;
 		}
-		switch (firstCell.gameObject.name) {
-		case "W1Socket 1":
-			gemSlot = secondCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.playerWeapon1.setGem1 (newGem);
-				Inventory.inventory.RemoveAt (UIArmory.FindGem (newGem));
-			} else {
-				Inventory.playerWeapon1.setGem1 (new Gem ());
-			}
-			gemSlot = firstCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.inventory.Add (newGem);
-			}
-			break;
-		case "W1Socket 2":
-			gemSlot = secondCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.playerWeapon1.setGem2 (newGem);
-				Inventory.inventory.RemoveAt (UIArmory.FindGem (newGem));
-			} else {
-				Inventory.playerWeapon1.setGem2 (new Gem ());
-			}
-			gemSlot = firstCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.inventory.Add (newGem);
-			}
-			break;
-		case "W1Socket 3":
-			gemSlot = secondCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.playerWeapon1.setGem3 (newGem);
-				Inventory.inventory.RemoveAt (UIArmory.FindGem (newGem));
-			} else {
-				Inventory.playerWeapon1.setGem3 (new Gem ());
-			}
-			gemSlot = firstCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.inventory.Add (newGem);
-			}
-			break;
-		case "W2Socket 1":
-			gemSlot = secondCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.playerWeapon2.setGem1 (newGem);
-				Inventory.inventory.RemoveAt (UIArmory.FindGem (newGem));
-			} else {
-				Inventory.playerWeapon2.setGem1 (new Gem ());
-			}
-			gemSlot = firstCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.inventory.Add (newGem);
-			}
-			break;
-		case "W2Socket 2":
-			gemSlot = secondCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.playerWeapon2.setGem2 (newGem);
-				Inventory.inventory.RemoveAt (UIArmory.FindGem (newGem));
-			} else {
-				Inventory.playerWeapon2.setGem2 (new Gem ());
-			}
-			gemSlot = firstCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.inventory.Add (newGem);
-			}
-			break;
-		case "W2Socket 3":
-			gemSlot = secondCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.playerWeapon2.setGem3 (newGem);
-				Inventory.inventory.RemoveAt (UIArmory.FindGem (newGem));
-			} else {
-				Inventory.playerWeapon2.setGem3 (new Gem ());
-			}
-			gemSlot = firstCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.inventory.Add (newGem);
-			}
-			break;
-		case "ASocket 1":
-			gemSlot = secondCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.playerArmor.setGem1 (newGem);
-				Inventory.inventory.RemoveAt (UIArmory.FindGem (newGem));
-			} else {
-				Inventory.playerArmor.setGem1 (new Gem ());
-			}
-			gemSlot = firstCell.gameObject;
-			slot = gemSlot.transform.GetChild (0).gameObject;
-			if (slot.tag == "Gem") {
-				newGem = new Gem (UIArmory.GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-				Inventory.inventory.Add (newGem);
-			}
-			break;
-		default:
-			break;
-		}
-		if ((firstCell != null) && (secondCell != null))
-		{
-			DNDgem firstItem = firstCell.GetItem();                // Get item from first cell
-			DNDgem secondItem = secondCell.GetItem();              // Get item from second cell
-			// Swap items
-			if (firstItem != null)
-			{
-				firstItem.transform.SetParent(secondCell.transform, false);
-				firstItem.transform.localPosition = Vector3.zero;
-				firstItem.MakeRaycast(true);
-			}
-			if (secondItem != null)
-			{
-				secondItem.transform.SetParent(firstCell.transform, false);
-				secondItem.transform.localPosition = Vector3.zero;
-				secondItem.MakeRaycast(true);
-			}
-														
-			// Update state
-			firstCell.UpdateMyItem();
-			secondCell.UpdateMyItem();
-			firstCell.UpdateBackgroundState();
-			secondCell.UpdateBackgroundState();
-		}
+		Debug.Log (Inventory.inventory.Count.ToString ());
 	}
 }

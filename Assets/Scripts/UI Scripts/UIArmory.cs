@@ -11,57 +11,41 @@ public class UIArmory : MonoBehaviour {
 		for (int i = 0; i < Inventory.inventory.Count; i++){
 			Gem temp = Inventory.inventory [i];
 			parent = GameObject.Find ("Slot " + i);
-			Transform tempChild = parent.transform.GetChild (0);
-			Destroy (tempChild.gameObject);
 			InitGem (temp);
 		}
 		if (Inventory.playerWeapon1.getGem1 ().getElement() != 'N') {
 			Gem temp = Inventory.playerWeapon1.getGem1();
 			parent = GameObject.Find ("W1Socket 1");
-			Transform tempChild = parent.transform.GetChild (0);
-			Destroy (tempChild.gameObject);
 			InitGem (temp);
 		}
 		if (Inventory.playerWeapon1.getGem2 ().getElement() != 'N') {
 			Gem temp = Inventory.playerWeapon1.getGem2();
 			parent = GameObject.Find ("W1Socket 2");
-			Transform tempChild = parent.transform.GetChild (0);
-			Destroy (tempChild.gameObject);
 			InitGem (temp);
 		}
 		if (Inventory.playerWeapon1.getGem3 ().getElement() != 'N') {
 			Gem temp = Inventory.playerWeapon1.getGem3();
 			parent = GameObject.Find ("W1Socket 3");
-			Transform tempChild = parent.transform.GetChild (0);
-			Destroy (tempChild.gameObject);
 			InitGem (temp);
 		}
 		if (Inventory.playerWeapon2.getGem1 ().getElement() != 'N') {
 			Gem temp = Inventory.playerWeapon2.getGem1();
 			parent = GameObject.Find ("W2Socket 1");
-			Transform tempChild = parent.transform.GetChild (0);
-			Destroy (tempChild.gameObject);
 			InitGem (temp);
 		}
 		if (Inventory.playerWeapon2.getGem2 ().getElement() != 'N') {
 			Gem temp = Inventory.playerWeapon2.getGem2();
 			parent = GameObject.Find ("W2Socket 2");
-			Transform tempChild = parent.transform.GetChild (0);
-			Destroy (tempChild.gameObject);
 			InitGem (temp);
 		}
 		if (Inventory.playerWeapon2.getGem3 ().getElement() != 'N') {
 			Gem temp = Inventory.playerWeapon2.getGem3();
 			parent = GameObject.Find ("W2Socket 3");
-			Transform tempChild = parent.transform.GetChild (0);
-			Destroy (tempChild.gameObject);
 			InitGem (temp);
 		}
 		if (Inventory.playerArmor.getGem1().getElement() != 'N') {
 			Gem temp = Inventory.playerArmor.getGem1();
 			parent = GameObject.Find ("ASocket 1");
-			Transform tempChild = parent.transform.GetChild (0);
-			Destroy (tempChild.gameObject);
 			InitGem (temp);
 		}
 	}
