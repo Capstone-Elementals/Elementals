@@ -87,78 +87,39 @@ public class UIArmory : MonoBehaviour {
 		gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = temp.getGrade ().ToString ();
 		GameObject toinstance = Instantiate (gem, parent.transform, false) as GameObject;
 	}
-
-	public void OnSceneExit()
-	{
-		GameObject gemSlot;
-		Gem newGem;
-		gemSlot = GameObject.Find ("W1Slot 1");
-		GameObject slot = gemSlot.transform.GetChild (0).gameObject;
-		if (slot.tag == "Gem") {
-			newGem = new Gem (GemElement (slot.gameObject), System.Int32.Parse (slot.GetComponentInChildren<UnityEngine.UI.Text> ().text));
-			Inventory.playerWeapon1.setGem1 (newGem);
-			Inventory.inventory.RemoveAt(FindGem (newGem));
-		} else {
-			Inventory.playerWeapon1.setGem1 (new Gem ());
-		}
-		gemSlot = GameObject.Find ("W1Slot 2");
-		slot = gemSlot.transform.GetChild (0).gameObject;
-		if (slot.tag == "Gem") {
-			Inventory.playerWeapon1.setGem2 (new Gem (GemElement(slot.gameObject), 
-				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
-		}
-		else {
-			Inventory.playerWeapon1.setGem2 (new Gem ());
-		}
-		gemSlot = GameObject.Find ("W1Slot 3");
-		slot = gemSlot.transform.GetChild (0).gameObject;
-		if (slot.tag == "Gem") {
-			Inventory.playerWeapon1.setGem3 (new Gem (GemElement(slot.gameObject), 
-				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
-		}
-		else {
-			Inventory.playerWeapon1.setGem3 (new Gem ());
-		}
-		gemSlot = GameObject.Find ("W2Slot 1");
-		slot = gemSlot.transform.GetChild (0).gameObject;
-		if (slot.tag == "Gem") {
-			Inventory.playerWeapon2.setGem1 (new Gem (GemElement(slot.gameObject), 
-				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
-		}
-		else {
-			Inventory.playerWeapon2.setGem1 (new Gem ());
-		}
-		gemSlot = GameObject.Find ("W2Slot 2");
-		slot = gemSlot.transform.GetChild (0).gameObject;
-		if (slot.tag == "Gem") {
-			Inventory.playerWeapon2.setGem2 (new Gem (GemElement(slot.gameObject), 
-				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
-		}
-		else {
-			Inventory.playerWeapon2.setGem2 (new Gem ());
-		}
-		gemSlot = GameObject.Find ("W2Slot 3");
-		slot = gemSlot.transform.GetChild (0).gameObject;
-		if (slot.tag == "Gem") {
-			Inventory.playerWeapon2.setGem3 (new Gem (GemElement(slot.gameObject), 
-				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
-		}
-		else {
-			Inventory.playerWeapon2.setGem3 (new Gem ());
-		}
-		gemSlot = GameObject.Find ("ASlot 1");
-		slot = gemSlot.transform.GetChild (0).gameObject;
-		if (slot.tag == "Gem") {
-			Inventory.playerArmor.setGem1 (new Gem (GemElement(slot.gameObject), 
-				System.Int32.Parse(slot.GetComponentInChildren<UnityEngine.UI.Text> ().text)));
-		}
-		else {
-			Inventory.playerArmor.setGem1 (new Gem ());
-		}
-	}
 	// Update is called once per frame
 	void FixedUpdate () {
-
+		updateDamage ();
+		GameObject.Find ("W1D").GetComponent<TMPro.TextMeshProUGUI> ().text = Inventory.playerWeapon1.getTotalDamage ().ToString ();
+		GameObject.Find ("W2D").GetComponent<TMPro.TextMeshProUGUI> ().text = Inventory.playerWeapon2.getTotalDamage ().ToString ();
+		string armorDef;
+		armorDef = (Inventory.playerArmor.getBonusDefense () * 10).ToString () + "% " + Inventory.playerArmor.getGem1 ().getElementS ();
+		GameObject.Find ("DEF").GetComponent<TMPro.TextMeshProUGUI> ().text = armorDef;
+		switch (Inventory.playerArmor.getGem1 ().getElement()) {
+		case 'F':
+				GameObject.Find ("DEF").GetComponent<TMPro.TextMeshProUGUI> ().color = Color.red;
+				break;
+		case 'A':
+			GameObject.Find ("DEF").GetComponent<TMPro.TextMeshProUGUI> ().color = Color.cyan;
+				break;
+			case 'E':
+			GameObject.Find ("DEF").GetComponent<TMPro.TextMeshProUGUI> ().color = Inventory.brown;
+				break;
+			case 'W':
+			GameObject.Find ("DEF").GetComponent<TMPro.TextMeshProUGUI> ().color = Color.blue;
+				break;
+			default:
+				break;
+		}
+	}
+	void updateDamage()
+	{
+		Inventory.playerWeapon1.calculateBonusDamage ();
+		Inventory.playerWeapon1.calculateTotalDamage ();
+		Inventory.playerWeapon2.calculateBonusDamage ();
+		Inventory.playerWeapon2.calculateTotalDamage ();
+		Inventory.playerArmor.calculateBonusDefense();
+		Inventory.playerArmor.calculateTotalDefense();
 	}
 	public static int FindGem(Gem gem)
 	{

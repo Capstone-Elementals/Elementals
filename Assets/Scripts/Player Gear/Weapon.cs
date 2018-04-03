@@ -86,7 +86,7 @@ public class Weapon
 	public void calculateBonusDamage()
 	{
 		float temp;
-		temp = (gem1.getBonus () * damage) + (gem2.getBonus () * damage) + (gem3.getBonus () * damage);
+		temp = (gem1.getGrade () * damage) + (gem2.getGrade () * damage) + (gem3.getGrade () * damage);
 		setBonusDamage (temp);
 	}
 	public void calculateTotalDamage()

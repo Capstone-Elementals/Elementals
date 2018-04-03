@@ -9,12 +9,10 @@ using UnityEngine;
 [System.Serializable]
 public class Gem
 {
-	private float bonus;
 	private char element;
 	private int grade;
 	public Gem()
 	{
-		bonus = 0;
 		element = 'N';
 		grade = 0;
 	}
@@ -31,17 +29,30 @@ public class Gem
 	{
 		return this.grade;
 	}
-	public void setBonus(float bonus)
-	{
-		this.bonus = bonus;
-	}
-	public float getBonus()
-	{
-		return this.bonus;
-	}
 	public void setElement(char element)
 	{
 		this.element = element;
+	}
+	public string getElementS()
+	{
+		switch (this.element) {
+		case 'F':
+			return "Fire";
+			break;
+		case 'A':
+			return "Air";
+			break;
+		case 'E':
+			return "Earth";
+			break;
+		case 'W':
+			return "Water";
+			break;
+		default:
+			return "";
+			break;
+		}
+		return "";
 	}
 	public char getElement()
 	{
