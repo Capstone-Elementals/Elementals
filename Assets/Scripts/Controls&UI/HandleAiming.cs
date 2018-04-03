@@ -17,6 +17,10 @@ public class HandleAiming : MonoBehaviour
 	void Start () 
 	{
 		transform.localPosition = new Vector3 (0, distanceFromPlayer, 0);
+	}
+
+	void Awake ()
+	{
 		equipped_weapon = GetComponentInParent<PlayerController> ().equippedWeapon;
 	}
 	
@@ -58,10 +62,7 @@ public class HandleAiming : MonoBehaviour
 		{
 			//Player is able is able to shoot
 			GameObject newBullet = Instantiate<GameObject>(toShoot, transform.position, transform.rotation);
-
-			apply_effect (newBullet, equipped_weapon.getGem1 ());
-			apply_effect (newBullet, equipped_weapon.getGem2 ());
-			apply_effect (newBullet, equipped_weapon.getGem3 ());
+			apply_weapon (newBullet, equipped_weapon);
 
 			//Assumes that the created component is a bullet, possible null call
 			cooldown = fireRate;
@@ -71,7 +72,8 @@ public class HandleAiming : MonoBehaviour
 			cooldown--;
 	}
 
-	void apply_effect(GameObject bullet, Gem to_apply) {
+
+	void apply_effect (GameObject bullet, Gem to_apply) {
 		switch (to_apply.getElement ()) {
 		case 'F':
 			FireAspect fire_aspect = bullet.AddComponent<FireAspect> ();
@@ -103,4 +105,9 @@ public class HandleAiming : MonoBehaviour
 		}
 	}
 
+	void apply_weapon (GameObject bullet, Weapon weapon) {
+		apply_effect (bullet, equipped_weapon.getGem1 ());
+		apply_effect (bullet, equipped_weapon.getGem2 ());
+		apply_effect (bullet, equipped_weapon.getGem3 ());
+	}
 }

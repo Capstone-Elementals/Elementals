@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterAspect : MonoBehaviour {
+public class WaterAspect : MonoBehaviour, Aspect {
 	public float slowPercentage = 0.75f;
 	public int duration = 50;
 
-	public void OnCollisionEnter2D (Collision2D col) {
-		if (col.gameObject.tag == "Enemy") {
-			col.gameObject.AddComponent<Slow> ();
-			col.gameObject.GetComponent<Slow> ().setData (slowPercentage, duration);
-		}
+	public void apply_aspect (GameObject apply_to) {
+		apply_to.gameObject.AddComponent<Slow> ();
+		apply_to.gameObject.GetComponent<Slow> ().setData (slowPercentage, duration);
 
 	}
 }

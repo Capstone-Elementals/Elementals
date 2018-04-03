@@ -14,6 +14,7 @@ public class BasicBullet : Bullet
 	{
 		base.FixedUpdate ();
 	}
+
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		base.OnTriggerEnter2D (col);

@@ -53,7 +53,6 @@ public class Enemy : MonoBehaviour
 		{
 			//Grab the damage of the incoming bullet
 			int damage = col.gameObject.GetComponent<Bullet> ().damage;
-
 			//Hurt this object
 			health.Damage (damage);
 		}

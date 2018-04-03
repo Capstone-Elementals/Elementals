@@ -39,6 +39,17 @@ public abstract class Bullet : MonoBehaviour
 	public void OnTriggerEnter2D(Collider2D col)
 	{
 		if (!(col.gameObject.layer == 9)) {
+			if (col.gameObject.tag == "Enemy") {
+				foreach (Aspect aspect in GetComponents<Aspect>()) {
+					aspect.apply_aspect (col.gameObject);
+				}
+
+				foreach (ElementalDamage e_damage  in GetComponents<ElementalDamage> ()) {
+					e_damage.apply_damage (col.gameObject);
+				}
+
+			}
+
 			Destroy (this.gameObject);
 		}
 	}

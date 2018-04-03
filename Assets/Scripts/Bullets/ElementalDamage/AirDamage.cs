@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AirDamage : MonoBehaviour {
+public class AirDamage : MonoBehaviour, ElementalDamage {
 	public float damage = 0f;
 
 	public AirDamage (float c_damage) {
 		damage = c_damage;
 	}
 
-	void OnCollisionEnter2D (Collision2D col) {
-		col.gameObject.GetComponent<Health> ().Damage (damage, 'A');
+	public void apply_damage (GameObject apply_to) {
+		apply_to.gameObject.GetComponent<Health> ().Damage (damage, 'A');
 	}
 }
