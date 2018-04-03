@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
-using System.Collections;
 
 public class Settings : MonoBehaviour {
 
-	public static float volume;
+	public AudioMixer Mixer;
 
-		void MasterSound() {
-			AudioListener.volume = 0.5F;
-		}
+
+	public void SetMasterVolume (float volume)
+	{
+		Mixer.SetFloat ("volume", volume);
+
+	}
 
 }
 
