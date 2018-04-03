@@ -54,7 +54,7 @@ public class UiCraft : MonoBehaviour {
 		if (Inventory.essence >= 5) {
 			Inventory.essence -= 5;
 			Gem newgem = new Gem ('F', 1);
-			if (Inventory.inventory.Count < 26) {
+			if (Inventory.inventory.Count < 25) {
 				Inventory.inventory.Add (newgem);
 				int temp = InventoryCheck ();
 				parent = GameObject.Find ("Slot " + temp);
@@ -70,7 +70,7 @@ public class UiCraft : MonoBehaviour {
 		if (Inventory.essence >= 5) {
 			Inventory.essence -= 5;
 			Gem newgem = new Gem ('W', 1);
-			if (Inventory.inventory.Count < 26) {
+			if (Inventory.inventory.Count < 25) {
 				Inventory.inventory.Add (newgem);
 				int temp = InventoryCheck ();
 				parent = GameObject.Find ("Slot " + temp);
@@ -88,7 +88,7 @@ public class UiCraft : MonoBehaviour {
 		if (Inventory.essence >= 5) {
 			Inventory.essence -= 5;
 			Gem newgem = new Gem ('A', 1);
-			if (Inventory.inventory.Count < 26) {
+			if (Inventory.inventory.Count < 25) {
 				Inventory.inventory.Add (newgem);
 				int temp = InventoryCheck ();
 				parent = GameObject.Find ("Slot " + temp);
@@ -105,7 +105,7 @@ public class UiCraft : MonoBehaviour {
 		if (Inventory.essence >= 5) {
 			Inventory.essence -= 5;
 			Gem newgem = new Gem ('E', 1);
-			if (Inventory.inventory.Count < 26) {
+			if (Inventory.inventory.Count < 25) {
 				Inventory.inventory.Add (newgem);
 				int temp = InventoryCheck ();
 				parent = GameObject.Find ("Slot " + temp);

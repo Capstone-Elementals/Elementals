@@ -198,7 +198,7 @@ public class BoardManager : MonoBehaviour
 	protected Vector3 RandomPosition ()
 	{
 		if (randomPosRecord.Count == objects.Count)
-			return Vector3.zero;
+			randomPosRecord.Clear ();
 
 		int randomInt = Random.Range (0, objects.Count);
 
