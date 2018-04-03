@@ -32,9 +32,8 @@ public class UiCraft : MonoBehaviour {
 			default:
 				break;
 			}
-			}
-
 		}
+	}
 
 
 	int InventoryCheck () {
