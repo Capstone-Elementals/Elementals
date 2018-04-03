@@ -38,19 +38,14 @@ public class Gem
 		switch (this.element) {
 		case 'F':
 			return "Fire";
-			break;
 		case 'A':
 			return "Air";
-			break;
 		case 'E':
 			return "Earth";
-			break;
 		case 'W':
 			return "Water";
-			break;
 		default:
 			return "";
-			break;
 		}
 		return "";
 	}

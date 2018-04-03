@@ -231,6 +231,8 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 
 	void Dead()
 	{
+		Inventory.essence -= Inventory.tempEssence;
+		Inventory.tempEssence = 0;
 		Application.LoadLevel ("GameOver");
 	}
 

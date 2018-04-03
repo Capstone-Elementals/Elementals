@@ -224,6 +224,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114433675383026328, guid: c7740a8b8606b4840a8089fb39612466,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224035451209597164, guid: c7740a8b8606b4840a8089fb39612466,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -313,6 +318,47 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433675383026328, guid: c7740a8b8606b4840a8089fb39612466,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433675383026328, guid: c7740a8b8606b4840a8089fb39612466,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433675383026328, guid: c7740a8b8606b4840a8089fb39612466,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 114515260297331460, guid: 1f8402056ca207a4f89c1bcbc37d8ba8,
+        type: 2}
+    - target: {fileID: 114433675383026328, guid: c7740a8b8606b4840a8089fb39612466,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: WorldBack
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433675383026328, guid: c7740a8b8606b4840a8089fb39612466,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433675383026328, guid: c7740a8b8606b4840a8089fb39612466,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: WorldBack
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433675383026328, guid: c7740a8b8606b4840a8089fb39612466,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433675383026328, guid: c7740a8b8606b4840a8089fb39612466,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7740a8b8606b4840a8089fb39612466, type: 2}
