@@ -18,12 +18,30 @@ public class Enemy : MonoBehaviour
 	{
 		// Grab the health script of an enemy
 		health = (Health) GetComponent<Health> ();
-		health.SetHealth(health.maxHealth);
+		setEnemyHealth ();
 		rb2d = (Rigidbody2D) GetComponent<Rigidbody2D> ();
 		initial_friction = GetComponent<BoxCollider2D> ().sharedMaterial.friction;
 		//rb2d.freezeRotation = true;
 	}
 
+	void setEnemyHealth()
+	{
+		if(DifficultyManager.difficulty == 0)
+		{
+			health.maxHealth = 5;
+			health.SetHealth (5);
+		}
+		if (DifficultyManager.difficulty  == 1)
+		{
+			health.maxHealth = 20;
+			health.SetHealth (20);
+		}
+		if (DifficultyManager.difficulty  == 2)
+		{
+			health.maxHealth = 100;
+			health.SetHealth (100);
+		}
+	}
 	void FixedUpdate() {
 		if (health.health == 0)
 			destroy ();
