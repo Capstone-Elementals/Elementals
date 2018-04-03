@@ -51,8 +51,8 @@ public class UiCraft : MonoBehaviour {
 
 	public void CreateFireGem (){
 
-		if (Inventory.essence >= 5) {
-			Inventory.essence -= 5;
+		if (Inventory.essence >= 0) {
+			Inventory.essence -= 0;
 			Gem newgem = new Gem ('F', 1);
 			if (Inventory.inventory.Count < 25) {
 				Inventory.inventory.Add (newgem);

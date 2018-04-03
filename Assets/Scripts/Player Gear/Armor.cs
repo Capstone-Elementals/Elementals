@@ -16,7 +16,7 @@ public class Armor
 	public Armor()
 	{
 		gem1 = new Gem();
-		defense = 0;
+		defense = 1;
 		bonusDefense = 0;
 		totalDefense = 0;
 	}
@@ -62,7 +62,7 @@ public class Armor
 	public void calculateBonusDefense()
 	{
 		float temp;
-		temp = (gem1.getBonus () * defense);
+		temp = (gem1.getGrade () * defense);
 		setBonusDefense (temp);
 	}
 	public void calculateTotalDefense()
