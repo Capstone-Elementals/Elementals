@@ -84,7 +84,7 @@ public class HandleAiming : MonoBehaviour
 			break;
 		case 'W':
 			WaterAspect water_aspect = bullet.AddComponent<WaterAspect> ();
-			water_aspect.slowPercentage = 0.75f * (float)to_apply.getGrade ();
+			water_aspect.slowPercentage = 0.90f / (float)to_apply.getGrade ();
 			WaterDamage water_damage = bullet.AddComponent<WaterDamage> ();
 			water_damage.damage = to_apply.getGrade ();
 			break;

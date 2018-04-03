@@ -7,18 +7,7 @@ using UnityEngine.SceneManagement;
 public class MusicInitial : MonoBehaviour {
 
 	// Use this for initialization
-	void OnEnable() {
+	void Awake() {
 		GameObject.DontDestroyOnLoad (gameObject);
-		SceneManager.sceneLoaded += OnSceneLoaded;
-	}
-
-	void OnSceneLoaded(	Scene scene, LoadSceneMode mode)
-	{
-
-		if (scene.name == "World") {
-				
-			Destroy (gameObject);
-			
-		}
 	}
 }
