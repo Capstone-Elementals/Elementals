@@ -62,7 +62,7 @@ public class HandleAiming : MonoBehaviour
 		{
 			//Player is able is able to shoot
 			GameObject newBullet = Instantiate<GameObject>(toShoot, transform.position, transform.rotation);
-			apply_weapon (newBullet, equipped_weapon);
+			apply_weapon (newBullet, GetComponentInParent<PlayerController> ().equippedWeapon);
 
 			//Assumes that the created component is a bullet, possible null call
 			cooldown = fireRate;
