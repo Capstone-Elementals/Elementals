@@ -707,7 +707,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9866a92691696b346901281f2b329034, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c964c63458a90474dafca179cf194035, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1222,15 +1222,15 @@ RectTransform:
   m_GameObject: {fileID: 1434788511120400}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 224035451209597164}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.88887507, y: 0.07948149}
-  m_AnchorMax: {x: 0.95722926, y: 0.1977778}
-  m_AnchoredPosition: {x: 0, y: -0.00024414062}
-  m_SizeDelta: {x: -29.164, y: -28.391}
+  m_AnchorMin: {x: 0.8225625, y: 0.1977778}
+  m_AnchorMax: {x: 0.90700006, y: 0.3574445}
+  m_AnchoredPosition: {x: 0, y: 1.2504883}
+  m_SizeDelta: {x: -52.66, y: -57.499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224259320053961170
 RectTransform:
@@ -1296,15 +1296,15 @@ RectTransform:
   m_GameObject: {fileID: 1338445935909902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 224035451209597164}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.04279167, y: 0.07948149}
-  m_AnchorMax: {x: 0.113000005, y: 0.1977778}
-  m_AnchoredPosition: {x: -0.00024414062, y: -0.00024414062}
-  m_SizeDelta: {x: -29.955, y: -28.391}
+  m_AnchorMin: {x: 0.10450001, y: 0.1977778}
+  m_AnchorMax: {x: 0.20281246, y: 0.3574445}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -70, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224452856581298084
 RectTransform:
