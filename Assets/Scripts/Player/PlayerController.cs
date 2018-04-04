@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	private bool jumpPending; 					 // Player is jumping or not
 	public Weapon equippedWeapon;
 	private CapsuleCollider2D playerCollider;
-
+	private bool canFallThrough = true;
 	private bool knocked_back = false;
 	private float knock_back_x = 0f;
 	private int knock_back_counter = 0;
@@ -168,6 +168,12 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	void ScriptThatTurnsPlatformBackOn()
 	{
 		playerCollider.enabled = true;
+		Invoke ("canFallthrough", 0.5f);
+	}
+
+	void canFallthrough()
+	{
+		canFallThrough = true;
 	}
 	//Flip sprite when changing direction
 	void Flip()
@@ -180,8 +186,9 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	void OnCollisionStay2D (Collision2D col)
 	{
 		float direction = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalShoot");
-		if (direction < -0.6 && col.gameObject.layer == 9) {
+		if (direction < -0.6 && col.gameObject.layer == 9 && canFallThrough) {
 			playerCollider.enabled = false;
+			canFallThrough = false;
 			Invoke ("ScriptThatTurnsPlatformBackOn", 0.28f);
 		}
 	}
