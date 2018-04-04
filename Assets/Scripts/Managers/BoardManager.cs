@@ -43,7 +43,7 @@ public class BoardManager : MonoBehaviour
 	public GameObject[] e4Tiles;//Array of tiles with 4 entrance
 	public GameObject[] enemies;//Array of enemies to be used to level
 	private Count enemiesCount = new Count (1, 10); // max and min of amount of enemies to be placed in level
-	public GameObject player;//Prefab of player
+	public GameObject playerObject;//Prefab of player
 	public GameObject edgeV;//Prefab for vertical edge of level
 	public GameObject edgeH;//Prefab for horizontal edge of level
 	public GameObject background;//Prefab for background of level
@@ -229,6 +229,24 @@ public class BoardManager : MonoBehaviour
 		instance.transform.SetParent (boardHolder);
 		objects.Add (instance);
 	}
+	protected void PlayerDefense(GameObject player)
+	{
+		switch (Inventory.playerArmor.getGem1 ().getElement ()) {
+		case 'F':
+			player.AddComponent<FireType> ();
+			break;
+		case 'A':
+			player.AddComponent<AirType> ();
+			break;
+		case 'W':
+			player.AddComponent<WaterType> ();
+			break;
+		case 'E':
+			player.AddComponent<EarthType> ();
+			break;
+
+		}
+	}
 	/*	Creates a random path for the player
 	 * 	Takes the initial starting position pos 
 	 * 	The previous direction used in the algorithm ( this is mainly used for the initial direction when starting the game)
@@ -244,8 +262,9 @@ public class BoardManager : MonoBehaviour
 	protected void RandomPath (int position, int previousDirection, bool goodDirection, int invalid)
 	{	
 		List<int> traversedPath = new List<int>();
-		GameObject instantiatedPlayer = Instantiate (player, new Vector3 (objects [position].transform.position.x, objects [position].transform.position.y, 
-			objects [position].transform.position.z), Quaternion.identity);
+		GameObject instantiatedPlayer = Instantiate (playerObject, new Vector3 (objects [position].transform.position.x, objects [position].transform.position.y, 
+			objects [position].transform.position.z), Quaternion.identity) as GameObject;
+		PlayerDefense (instantiatedPlayer);
 		for (int y = position; 0 <= y && y < rows * columns;) 
 		{
 			PlaceTile (y);

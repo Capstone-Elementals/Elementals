@@ -39,7 +39,7 @@ public class Inventory : MonoBehaviour
 	public void newGame()
 	{
 		inventory = new List<Gem> ();
-		essence = 0;
+		essence = 10;
 		tempEssence = 0;
 		playerWeapon1 = new Weapon ();
 		playerWeapon2 = new Weapon ();

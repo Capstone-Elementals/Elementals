@@ -12,7 +12,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, PlayerInterface
 {	
 	private Health health; 						 // Player health
-	private Stats playerStats; 	 // Players Stats
 	public float maxSpeed = 10f; 				 // Player max speed
 	public bool facingRight = true; 			 // Check which way player is facing
 	private Rigidbody2D rb2d; 					 // Rigidbody 2D that is on this object
@@ -52,10 +51,6 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	{
 		this.playerWeapon2 = weapon2;
 	}
-	public void SetStat(Stats inputStats)
-	{
-		playerStats = inputStats;
-	}
 	public Armor GetArmor()
 	{
 		return playerArmor;
@@ -63,10 +58,6 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	public Boot GetBoot()
 	{
 		return playerBoot;
-	}
-	public Stats GetStat()
-	{
-		return playerStats;
 	}
 	public Weapon GetWeapon1()
 	{
@@ -97,7 +88,6 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		this.SetWeapon2 (Inventory.playerWeapon2);
 		this.SetArmor (Inventory.playerArmor);
 		this.SetBoot (Inventory.playerBoot);
-		playerStats = new Stats ();
 		if (playerWeapon1 != null)
 			playerWeapon1.calculateTotalDamage ();
 		
@@ -110,7 +100,7 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		playerCollider = gameObject.GetComponent<CapsuleCollider2D> ();
 		equippedWeapon = playerWeapon1;
 		health = (Health) GetComponent<Health> ();
-		health.SetHealth ((int)(health.maxHealth * playerStats.getVitality ()));
+		health.SetHealth ((int)(health.maxHealth * (Inventory.playerArmor.getGem1().getGrade() + 1)));
 	}
 
 	//Initialization
@@ -213,7 +203,6 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 				rb2d.velocity = new Vector2(0f, 3f);
 				knock_back_x = 3f;
 			}
-
 			//Hurt this object
 			health.Damage (damageTaken);
 		}
