@@ -78,7 +78,7 @@ public class UiCraft : MonoBehaviour {
 				gem.GetComponent<UnityEngine.UI.Image> ().color =  Color.blue;
 				gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = "1";
 				GameObject toinstance = Instantiate (gem,parent.transform,false) as GameObject;
-			//}
+			}
 		}
 
 	}
