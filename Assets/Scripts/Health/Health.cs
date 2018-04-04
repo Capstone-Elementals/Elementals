@@ -38,6 +38,7 @@ public class Health : MonoBehaviour
 			return;
 
 		carry_over += damageTaken % 1f;
+		damageTaken = (float)((int)damageTaken);
 
 		if (carry_over >= 1f) {
 			carry_over--;
