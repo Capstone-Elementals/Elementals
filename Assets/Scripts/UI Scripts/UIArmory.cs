@@ -77,7 +77,7 @@ public class UIArmory : MonoBehaviour {
 		GameObject.Find ("W1D").GetComponent<TMPro.TextMeshProUGUI> ().text = Inventory.playerWeapon1.getTotalDamage ().ToString ();
 		GameObject.Find ("W2D").GetComponent<TMPro.TextMeshProUGUI> ().text = Inventory.playerWeapon2.getTotalDamage ().ToString ();
 		string armorDef;
-		armorDef = (Inventory.playerArmor.getBonusDefense () * 10).ToString () + "% " + Inventory.playerArmor.getGem1 ().getElementS ();
+		armorDef = "50% " + Inventory.playerArmor.getGem1 ().getElementS ();
 		GameObject.Find ("DEF").GetComponent<TMPro.TextMeshProUGUI> ().text = armorDef;
 		switch (Inventory.playerArmor.getGem1 ().getElement()) {
 		case 'F':

@@ -80,7 +80,8 @@ MonoBehaviour:
   - {fileID: 1360885501402866, guid: 2470dcb7f329f5a4da4a06257a44ae0b, type: 2}
   enemies:
   - {fileID: 1954501809836724, guid: b05250f801ab3e84eab03f979b8829bb, type: 2}
-  player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
+  playerObject: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb,
+    type: 2}
   edgeV: {fileID: 1287625631454392, guid: e0452344d53c8184c938362317be0b57, type: 2}
   edgeH: {fileID: 1982444075937248, guid: f9c14dd905453fd4ea33e33373003636, type: 2}
   background: {fileID: 1418121988165192, guid: f44d519cbb862d14b9768fa2e75e8ba8, type: 2}
@@ -122,7 +123,8 @@ MonoBehaviour:
   - {fileID: 1735908493565308, guid: b251da6f0ef461f468e08e512deb96e0, type: 2}
   enemies:
   - {fileID: 1280324243533436, guid: 589fa450e364d944cb07d17f41be0e84, type: 2}
-  player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
+  playerObject: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb,
+    type: 2}
   edgeV: {fileID: 1904236875177528, guid: 08df5a8c737226d41b7b64f620f6b39d, type: 2}
   edgeH: {fileID: 1422386760655164, guid: 03574b75b8e17914395523a0972d93c8, type: 2}
   background: {fileID: 1999097315813568, guid: bfb43f0ce396d8344b83f117e324ef3c, type: 2}
@@ -164,7 +166,8 @@ MonoBehaviour:
   - {fileID: 1402277810536716, guid: 298dbfd860436e24398c9a18f1c4655d, type: 2}
   enemies:
   - {fileID: 1340337949520684, guid: b42550659240924499c055342012383b, type: 2}
-  player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
+  playerObject: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb,
+    type: 2}
   edgeV: {fileID: 1527009854326996, guid: 07d1464fc12b1c04aafce329dea4bead, type: 2}
   edgeH: {fileID: 1112059531994188, guid: 56bf78b8d0038c7478fdcd639d38de60, type: 2}
   background: {fileID: 1140805347691986, guid: fd91d15779f021245b0da7b6cd03397d, type: 2}
@@ -207,7 +210,8 @@ MonoBehaviour:
   - {fileID: 1201262258554772, guid: c2428b9f7fcffd74d8aac3ec897d9e50, type: 2}
   enemies:
   - {fileID: 1554384284538896, guid: 9a2b184abc1195842ae43dab9337875c, type: 2}
-  player: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb, type: 2}
+  playerObject: {fileID: 1131575127462470, guid: 182d7d289cf6e7e48bc4e781885adafb,
+    type: 2}
   edgeV: {fileID: 1039270302418448, guid: 8b52d1f17a431c04f9cf5bf48d23d3ec, type: 2}
   edgeH: {fileID: 1403934187415578, guid: f19fef4ab3abe38438225be6ea6ba6a7, type: 2}
   background: {fileID: 1523148615388294, guid: 1d84c506082d65a4bae8e52f41312c41, type: 2}
