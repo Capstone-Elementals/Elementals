@@ -51,8 +51,8 @@ public class UiCraft : MonoBehaviour {
 
 	public void CreateFireGem (){
 
-		if (Inventory.essence >= 0) {
-			Inventory.essence -= 0;
+		if (Inventory.essence >= 5) {
+			Inventory.essence -= 5;
 			Gem newgem = new Gem ('F', 1);
 			if (Inventory.inventory.Count < 25) {
 				Inventory.inventory.Add (newgem);
@@ -67,8 +67,8 @@ public class UiCraft : MonoBehaviour {
 
 	public void CreateWaterGem (){
 
-		if (Inventory.essence >= 0) {
-			Inventory.essence -= 0;
+		if (Inventory.essence >= 5) {
+			Inventory.essence -= 5;
 			Gem newgem = new Gem ('W', 1);
 			if (Inventory.inventory.Count < 25) {
 				Inventory.inventory.Add (newgem);
@@ -78,15 +78,15 @@ public class UiCraft : MonoBehaviour {
 				gem.GetComponent<UnityEngine.UI.Image> ().color =  Color.blue;
 				gem.GetComponentInChildren<UnityEngine.UI.Text> ().text = "1";
 				GameObject toinstance = Instantiate (gem,parent.transform,false) as GameObject;
-			}
+			//}
 		}
 
 	}
 
 	public void CreateAirGem (){
 
-		if (Inventory.essence >= 0) {
-			Inventory.essence -= 0;
+		if (Inventory.essence >= 5) {
+			Inventory.essence -= 5;
 			Gem newgem = new Gem ('A', 1);
 			if (Inventory.inventory.Count < 25) {
 				Inventory.inventory.Add (newgem);
@@ -102,8 +102,8 @@ public class UiCraft : MonoBehaviour {
 
 	public void CreatEarthGem (){
 
-		if (Inventory.essence >= 0) {
-			Inventory.essence -= 0;
+		if (Inventory.essence >= 5) {
+			Inventory.essence -= 5;
 			Gem newgem = new Gem ('E', 1);
 			if (Inventory.inventory.Count < 25) {
 				Inventory.inventory.Add (newgem);
