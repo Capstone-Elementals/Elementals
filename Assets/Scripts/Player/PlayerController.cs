@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 	private bool jumpPending; 					 // Player is jumping or not
 	public Weapon equippedWeapon;
 	private CapsuleCollider2D playerCollider;
-	private Collision2D lastCollision = null;
 
 	private bool knocked_back = false;
 	private float knock_back_x = 0f;
@@ -164,14 +163,6 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		{
 			Dead();
 		}
-		float direction = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalShoot");
-		if (lastCollision != null) {
-			if (direction < -0.6 && lastCollision.gameObject.layer == 9) {
-				playerCollider.enabled = false;
-				Invoke ("ScriptThatTurnsPlatformBackOn", 0.5f);
-			}
-		}
-
 	}
 
 	void ScriptThatTurnsPlatformBackOn()
@@ -186,10 +177,18 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+	void OnCollisionStay2D (Collision2D col)
+	{
+		float direction = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis ("VerticalShoot");
+		if (direction < -0.6 && col.gameObject.layer == 9) {
+			playerCollider.enabled = false;
+			Invoke ("ScriptThatTurnsPlatformBackOn", 0.28f);
+		}
+	}
+
 	//Damage functions
 	void OnCollisionEnter2D (Collision2D col) 
 	{
-		lastCollision = col;
 
 		if (col.gameObject.tag.Contains("Enemy")) 
 		{
