@@ -214,8 +214,23 @@ public class PlayerController : MonoBehaviour, PlayerInterface
 				knock_back_x = 3f;
 			}
 
+			char element = '#';
+
+			if (col.gameObject.GetComponent<FireType> () != null)
+				element = 'F';
+			else if (col.gameObject.GetComponent<WaterType> () != null)
+				element = 'W';
+			else if (col.gameObject.GetComponent<EarthType> () != null)
+				element = 'E';
+			else if (col.gameObject.GetComponent<AirType> () != null)
+				element = 'A';
+			
 			//Hurt this object
-			health.Damage (damageTaken);
+			if (element != '#')
+				health.Damage (damageTaken, element);
+			else
+				health.Damage (damageTaken);
+			
 		}
 	}
 
