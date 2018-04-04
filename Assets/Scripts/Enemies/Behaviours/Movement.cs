@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
 	void Start () 
 	{
 		anim = (Animator)GetComponent<Animator> ();
-		anim.SetTrigger ("MoveRight");
+//		anim.SetTrigger ("MoveRight");
 		rb2d = (Rigidbody2D) GetComponent<Rigidbody2D> ();
 	}
 
