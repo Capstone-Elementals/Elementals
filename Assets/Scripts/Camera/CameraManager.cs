@@ -5,8 +5,7 @@ using System.Collections.Generic;
 public class CameraManager : MonoBehaviour {
 
     public float smoothTime;
-    public float zoomspeed;
-
+ 
     private float orthographicsize_base;
 
 	public GameObject focusObject;
@@ -26,7 +25,7 @@ public class CameraManager : MonoBehaviour {
 		FocusObject = focusObject;
 
         if (listAreaNodes.Count == 0)
-            Debug.LogWarning(gameObject.name.ToString() + " (CameraManager): No Area boundaries are assigned. The camera will move freely to the set targets");
+            Debug.LogWarning(gameObject.name.ToString() + " No boundaries are assigned, camera will move the assigned target");
     }
 
     void Update() {
@@ -110,38 +109,7 @@ public class CameraManager : MonoBehaviour {
             focusObject = null;
         }
     }
-
-    #region Camera Zoom
-    // Public methods which can be called from outside the CameraManager. Starting the coroutines for zooming in/out accordingly
-    public void ZoomIn(float _newSize) {
-        StopCoroutine("I_ZoomOut");
-        StartCoroutine("I_ZoomIn", _newSize);
-    }
-    public void ZoomOut(float _newSize) {
-        StopCoroutine("I_ZoomIn");
-        StartCoroutine("I_ZoomOut", _newSize);
-    }
-
-    private IEnumerator I_ZoomIn(float _newSize) {
-        while (Camera.main.orthographicSize > _newSize) {
-            Camera.main.orthographicSize -= Mathf.Min(zoomspeed, Camera.main.orthographicSize - _newSize);
-            yield return new WaitForEndOfFrame();
-        }
-
-        Camera.main.orthographicSize = _newSize;
-        yield return null;
-    }
-
-    private IEnumerator I_ZoomOut(float _newSize) {
-        while (Camera.main.orthographicSize < _newSize) {
-            Camera.main.orthographicSize += Mathf.Min(zoomspeed, _newSize - Camera.main.orthographicSize);
-            yield return new WaitForEndOfFrame();
-        }
-
-        Camera.main.orthographicSize = _newSize;
-        yield return null;
-    }
-    #endregion
+ 
 
     // Returns a Rect form of the area given in the parameter aarea
     private Rect GetAreaRect(int aarea) {
